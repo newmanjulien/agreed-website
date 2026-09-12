@@ -4,14 +4,14 @@
   import { cubicOut } from 'svelte/easing';
   import { slide } from 'svelte/transition';
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
-  import { industries } from '$lib/data/industries';
+  import { plugins } from '$lib/data/plugins';
   import { productNavItems } from '$lib/data/navigation';
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   let open = $state(false);
   afterNavigate(() => { open = false; });
   const navSections = [
-    { id: 'mobile-industries-heading', label: 'Industries', links: industries },
+    { id: 'mobile-plugins-heading', label: 'Plugins', links: plugins },
     { id: 'mobile-site-heading', label: 'Overbase', links: productNavItems }
   ] as const;
   const activePath = $derived(page.url.pathname);
