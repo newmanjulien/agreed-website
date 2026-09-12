@@ -1,0 +1,32 @@
+{
+  "name": "agreed-website",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run check && vite build",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && npm run validate:agreement && npm run validate:feature-tours",
+    "validate:agreement": "node scripts/validate-agreement.ts",
+    "validate:feature-tours": "node scripts/validate-feature-tours.ts"
+  },
+  "dependencies": {
+    "parse5": "^8.0.1",
+    "phosphor-svelte": "^3.1.0",
+    "svelte": "^5.46.4"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-vercel": "^6.3.3",
+    "@sveltejs/kit": "^2.70.3",
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^25.9.1",
+    "svelte-check": "^4.1.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^8.3.0"
+  },
+  "overrides": {
+    "cookie": "^0.7.2"
+  }
+}
