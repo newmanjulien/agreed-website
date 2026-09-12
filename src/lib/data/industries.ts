@@ -5,13 +5,21 @@ type IndustryNavigationItem = {
 };
 
 export const industries: readonly IndustryNavigationItem[] = [
-  { id: 'insurance', label: 'Insurance brokers', href: '/industries/insurance' },
-  { id: 'law', label: 'Law firms', href: '/industries/law' },
+  { id: "salesforce", label: "Salesforce", href: "/plugins/salesforce" },
+  { id: "hubspot", label: "Hubspot", href: "/plugins/hubspot" },
   {
-    id: 'government-relations',
-    label: 'Government relations',
-    href: '/industries/government-relations'
+    id: "conga",
+    label: "Conga",
+    href: "/plugins/conga",
   },
-  { id: 'consulting', label: 'Consulting firms', href: '/industries/consulting' },
-  { id: 'accounting', label: 'Accounting firms', href: '/industries/accounting' }
+  {
+    id: "ironclad",
+    label: "Ironclad",
+    href: "/plugins/ironclad",
+  },
+  {
+    id: "juro",
+    label: "Juro",
+    href: "/plugins/juro",
+  },
 ];
