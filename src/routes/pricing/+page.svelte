@@ -1,0 +1,83 @@
+<script lang="ts">
+  import { CheckIcon } from 'phosphor-svelte';
+  import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
+  import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
+
+  const benefits = [
+    'Unlimited deals signed',
+    'Unlimited e-signatures',
+    'Legal ops manager sets up your agreements'
+  ];
+
+  const faqItems = [
+    {
+      question: 'Question one?',
+      answer: 'Answer one.'
+    },
+    {
+      question: 'Question two?',
+      answer: 'Answer two.'
+    },
+    {
+      question: 'Question three?',
+      answer: 'Answer three.'
+    }
+  ];
+</script>
+
+<svelte:head>
+  <title>Pricing | Agreed</title>
+</svelte:head>
+
+<ContentMeasure>
+  <section class="mx-auto max-w-[620px] pt-[72px]">
+    <h1 class="font-heading text-[30px] leading-[1.05] text-stone-900">
+      Pricing
+    </h1>
+
+    <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-stone-700">
+      Unlimited agreements and e-signatures, with a legal ops manager to set everything up for you.
+    </p>
+
+    <article
+      class="mt-[55px] rounded-[18px] border border-stone-200 bg-white px-[26px] py-[28px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
+    >
+      <div>
+        <p class="font-heading font-medium text-[40px] leading-none text-stone-900">
+          $500
+        </p>
+
+        <p class="mt-[9px] text-[15px] leading-none text-stone-500">
+          per month
+        </p>
+      </div>
+
+      <p
+        class="mt-[30px] border-t border-stone-200/70 pt-[30px] text-[16px] font-book leading-[1.55] text-stone-500"
+      >
+        Your first 3 deals are free. Then $500 per month for unlimited use.
+      </p>
+
+      <div class="mt-[30px]">
+        <ButtonLink
+          href="#"
+          variant="primary"
+          size="large"
+          fullWidth
+        >
+          Start for free
+        </ButtonLink>
+      </div>
+
+      <ul class="mt-[28px] space-y-[23px] border-t border-stone-200/70 pt-[28px]">
+        {#each benefits as benefit}
+          <li class="flex items-center gap-[13px] text-[15px] font-book text-stone-700">
+            <CheckIcon size={14} weight="regular" class="shrink-0" />
+            <span>{benefit}</span>
+          </li>
+        {/each}
+      </ul>
+    </article>
+  </section>
+
+</ContentMeasure>

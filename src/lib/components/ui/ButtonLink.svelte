@@ -29,7 +29,7 @@
   const sizeClasses = {
     small: 'h-[36px] px-[14px] text-[14px]',
     medium: 'h-[42px] px-[14px] text-[14px]',
-    large: 'h-[50px] px-[23px] text-[18px]',
+    large: 'h-[48px] px-[23px] text-[16px]',
     xlarge: 'h-[64px] px-[28px] text-[19px]'
   };
   const variantClasses = {

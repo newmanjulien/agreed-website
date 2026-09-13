@@ -4,7 +4,7 @@
 @source "../components/site";
 @source "../components/ui";
 @source "../demo/components";
-@source "../../routes/(marketing)";
+@source "../../routes/**/*.svelte";
 
 @theme static {
   --font-body: var(--site-font-body);
@@ -64,16 +64,16 @@
 }
 
 @font-face {
-  font-family: 'Newsreader';
+  font-family: "Newsreader";
   font-style: normal;
   font-weight: 200 800;
   font-display: swap;
-  src: url('/fonts/newsreader.woff2') format('woff2');
+  src: url("/fonts/newsreader.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'Newsreader Fallback';
-  src: local('Georgia');
+  font-family: "Newsreader Fallback";
+  src: local("Georgia");
   size-adjust: 98.36%;
   ascent-override: 74.72%;
   descent-override: 26.94%;
@@ -82,8 +82,10 @@
 
 :root {
   --site-bg: #ffffff;
-  --site-font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --site-font-heading: 'Newsreader', 'Newsreader Fallback', serif;
+  --site-font-body:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --site-font-heading: "Newsreader", "Newsreader Fallback", serif;
   --site-mobile-header-height: 50px;
   --layer-chrome: 30;
   --layer-chrome-popover: 40;
