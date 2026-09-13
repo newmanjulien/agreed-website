@@ -1,6 +1,6 @@
 import { agreementResult } from "$lib/demo/server/load-agreement";
 import { createFeaturePreviewContent } from "$lib/components/features/feature-preview-content";
-import type { PageServerLoad } from "./(marketing)/$types";
+import type { PageServerLoad } from "./$types";
 
 export const load = (() => ({
   agreementResult,
