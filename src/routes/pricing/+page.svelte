@@ -28,7 +28,7 @@
       class="mt-[55px] rounded-[18px] border border-stone-200 bg-white px-[26px] py-[28px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
     >
       <div>
-        <p class="font-heading text-[40px] font-medium leading-none text-stone-900">
+        <p class="font-heading text-[40px] leading-none text-stone-900">
           $500
         </p>
 
@@ -40,7 +40,7 @@
       <p
         class="mt-[30px] border-t border-stone-200/70 pt-[30px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 3 deals are free. Then $500 per month for unlimited use.
+        Your first 3 deals are free. Then $500 per month for unlimited everything.
       </p>
 
       <div class="mt-[30px]">
@@ -66,7 +66,7 @@
   </section>
 
   <section
-    class="mx-auto mt-[66px] grid max-w-[620px] gap-[28px] border-t border-stone-200/70 pt-[48px] sm:grid-cols-[195px_1fr] sm:items-start"
+    class="mx-auto mt-[66px] grid max-w-[620px] gap-[36px] border-t border-stone-200/70 pt-[48px] sm:grid-cols-[195px_1fr] sm:items-start"
   >
     <div class="overflow-hidden rounded-[16px] bg-stone-100">
       <img
@@ -84,7 +84,7 @@
       </p>
 
       <p>
-        They set up agreements, keep terms current, and continuously improve your process so deals close faster while keeping contractual protections in place.
+        Your legal ops manager sets up agreements, keeps terms current, and continuously improves your process so deals close faster while keeping contractual protections in place.
       </p>
     </div>
   </section>

@@ -12,11 +12,10 @@
 <section class="px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]">
   <ContentMeasure class="flex flex-col items-center text-center">
     <h1 class="max-w-[540px] font-heading text-[45px] leading-[1.04] text-stone-750 sm:max-w-none sm:text-[55px]">
-      <span class="hero-title-lead inline-block">Close deals</span>
-      <span class="hero-title-rest inline-block italic">fast</span>
+      Close deals fast and easy
     </h1>
 
-    <p class="hero-support mt-[2px] max-w-[330px] font-light text-[21px] leading-[1.40] text-stone-500">
+    <p class="hero-support mt-[2px] max-w-[430px] font-light text-[21px] leading-[1.40] text-stone-500">
       Agreed is a sales agreement that explains itself
     </p>
 
@@ -47,7 +46,7 @@
   section {
     --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
     --hero-content-duration: 320ms;
-    --hero-content-delay: 990ms;
+    --hero-content-delay: 690ms;
   }
   .hero-title-lead {
     opacity: 0;
@@ -70,8 +69,6 @@
   .hero-actions { transform: translateY(10px); animation-duration: 620ms; }
   @keyframes hero-content-enter { to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
-    .hero-title-lead,
-    .hero-title-rest,
     .hero-support,
     .hero-actions,
     .hero-graphic { animation: none; opacity: 1; transform: none; }
