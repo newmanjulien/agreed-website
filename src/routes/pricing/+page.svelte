@@ -6,22 +6,7 @@
   const benefits = [
     'Unlimited deals signed',
     'Unlimited e-signatures',
-    'Legal ops manager sets up your agreements'
-  ];
-
-  const faqItems = [
-    {
-      question: 'Question one?',
-      answer: 'Answer one.'
-    },
-    {
-      question: 'Question two?',
-      answer: 'Answer two.'
-    },
-    {
-      question: 'Question three?',
-      answer: 'Answer three.'
-    }
+    'Dedicated legal ops manager'
   ];
 </script>
 
@@ -36,14 +21,14 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-stone-700">
-      Unlimited agreements and e-signatures, with a legal ops manager to set everything up for you.
+      Unlimited agreements and e-signatures, with a legal ops manager handling the work for you.
     </p>
 
     <article
       class="mt-[55px] rounded-[18px] border border-stone-200 bg-white px-[26px] py-[28px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
     >
       <div>
-        <p class="font-heading font-medium text-[40px] leading-none text-stone-900">
+        <p class="font-heading text-[40px] font-medium leading-none text-stone-900">
           $500
         </p>
 
@@ -80,4 +65,27 @@
     </article>
   </section>
 
+  <section
+    class="mx-auto mt-[66px] grid max-w-[620px] gap-[28px] border-t border-stone-200/70 pt-[48px] sm:grid-cols-[195px_1fr] sm:items-start"
+  >
+    <div class="overflow-hidden rounded-[16px] bg-stone-100">
+      <img
+        src="/ops.png"
+        alt="Legal ops manager"
+        class="aspect-[4/5] w-full object-cover"
+        width="195"
+        height="244"
+      />
+    </div>
+
+    <div class="space-y-[16px] text-[16px] font-book leading-[1.6] text-stone-700">
+      <p>
+        Your plan includes a dedicated legal ops manager who works alongside your team.
+      </p>
+
+      <p>
+        They set up agreements, keep terms current, and continuously improve your process so deals close faster while keeping contractual protections in place.
+      </p>
+    </div>
+  </section>
 </ContentMeasure>
