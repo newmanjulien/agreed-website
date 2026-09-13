@@ -40,7 +40,7 @@
       <p
         class="mt-[30px] border-t border-stone-200/70 pt-[30px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 3 deals are free. Then $500 per month for unlimited everything.
+        Your first 3 deals are free. Then $500 per month for unlimited use.
       </p>
 
       <div class="mt-[30px]">
