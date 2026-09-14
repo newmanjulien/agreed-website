@@ -36,16 +36,68 @@
     </div>
   </ContentMeasure>
 
-  <div id="demo" class="hero-graphic mx-auto mt-[80px] w-full max-w-[1040px]">
-    <CustomerLogos
-      count={8}
-      appearance="muted"
-      interactive
-      mobileCount={4}
-      class="mb-[12px] sm:mb-[14px]"
-    />
+  <!-- Wider stage gives the annotation its own gutter. -->
+  <div
+    id="demo"
+    class="hero-graphic relative mx-auto mt-[80px] w-full max-w-[1320px]"
+  >
+    <div class="demo-content mx-auto w-full max-w-[1040px]">
+      <CustomerLogos
+        count={8}
+        appearance="muted"
+        interactive
+        mobileCount={4}
+        class="mb-[12px] sm:mb-[14px]"
+      />
 
-    <ProductScreenshotFrame {agreementResult} />
+      <ProductScreenshotFrame {agreementResult} />
+    </div>
+
+    <div
+      class="demo-callout pointer-events-none absolute right-[34px] top-[45px] z-10 hidden xl:block"
+      aria-hidden="true"
+    >
+      <span class="demo-callout-text">
+        try the product
+      </span>
+
+      <svg
+        class="demo-callout-arrow"
+        width="148"
+        height="104"
+        viewBox="0 0 148 104"
+        fill="none"
+        aria-hidden="true"
+      >
+        <!-- A loose loop flowing into a shorter leftward sweep. -->
+        <path
+          d="
+            M122 8
+            C134 30 126 53 108 54
+            C88 56 79 32 93 27
+            C113 20 121 52 95 69
+            C74 86 48 84 14 80
+          "
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <!-- Slightly curved, asymmetric pen strokes. -->
+        <path
+          d="
+            M27 71
+            Q19 75 14 80
+            Q20 85 25 90
+          "
+          stroke="currentColor"
+          stroke-width="1.9"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
   </div>
 </section>
 
@@ -87,13 +139,40 @@
   }
 
   /*
-   * CustomerLogos reads this variable and staggers each logo
+   * CustomerLogos staggers each individual logo
    * from this base delay.
    */
   .hero-graphic {
-    --logos-enter-delay: calc(
-      var(--hero-content-delay) + 60ms
-    );
+    --logos-enter-delay: calc(var(--hero-content-delay) + 60ms);
+  }
+
+  .demo-callout {
+    color: #77716a;
+  }
+
+  .demo-callout-text {
+    display: block;
+    font-family:
+      'Bradley Hand',
+      'Segoe Print',
+      'Comic Sans MS',
+      cursive;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -0.2px;
+    transform: rotate(-4deg);
+    transform-origin: left center;
+  }
+
+  .demo-callout-arrow {
+    display: block;
+    width: 148px;
+    height: 104px;
+    margin-top: 5px;
+    margin-left: -40px;
+    overflow: visible;
   }
 
   @keyframes hero-content-enter {
