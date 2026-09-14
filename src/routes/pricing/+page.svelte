@@ -56,7 +56,7 @@
     <section class="mt-[40px]">
       <div class="overflow-hidden rounded-[18px] bg-stone-100">
         <img
-          src="/ops.webp"
+          src="/ops.jpg"
           alt="Legal ops manager"
           class="aspect-[8/5] w-full object-cover object-[center_35%]"
           width="620"
