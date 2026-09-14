@@ -13,10 +13,10 @@
     {
       question: 'How many deals can I close?',
       answer:
-        'Unlimited. The paid plan includes unlimited deals and e-signatures.'
+        'Unlimited. The paid plan includes unlimited deals.'
     },
     {
-      question: 'How users can I have?',
+      question: 'How many users can I have?',
       answer:
         'Unlimited. You can add as many users as you want.'
     },
@@ -28,7 +28,7 @@
      {
       question: 'Are legal ops managers included?',
       answer:
-        'Yes. Your plan includes access to our legal ops managers, who help set up your agreements, maintain your terms, and continuously improve your contracting process.'
+        'Yes. Your plan includes access to our team of legal ops managers. They help set up your agreements, maintain your terms, and continuously improve your contracting process.'
     },
      {
       question: 'How do I talk to the legal ops managers?',
