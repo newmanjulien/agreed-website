@@ -73,7 +73,8 @@
   .hero-graphic {
     opacity: 0;
     transform: translateY(4px);
-    animation: hero-content-enter var(--hero-content-duration) var(--hero-ease) var(--hero-content-delay) both;
+    animation: hero-content-enter var(--hero-content-duration) var(--hero-ease)
+      var(--hero-content-delay) both;
   }
 
   .hero-support {
@@ -83,6 +84,16 @@
   .hero-actions {
     transform: translateY(10px);
     animation-duration: 620ms;
+  }
+
+  /*
+   * CustomerLogos reads this variable and staggers each logo
+   * from this base delay.
+   */
+  .hero-graphic {
+    --logos-enter-delay: calc(
+      var(--hero-content-delay) + 60ms
+    );
   }
 
   @keyframes hero-content-enter {
