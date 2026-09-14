@@ -1,5 +1,6 @@
 <script lang="ts">
   import { CheckIcon } from 'phosphor-svelte';
+  import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
 
@@ -23,18 +24,18 @@
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
       answer:
-      'No. Unlimited e-signatures are included.'
+        'No. Unlimited e-signatures are included.'
     },
-     {
+    {
       question: 'Are legal ops managers included?',
       answer:
-        'Yes. Your plan includes access to our team of legal ops managers. They help set up your agreements, maintain your terms, and continuously improve your contracting process.'
+        'Yes. Your plan includes access to our team of legal ops managers. They help set up your agreements, maintain your clauses, and continuously improve your contracting process.'
     },
-     {
+    {
       question: 'How do I talk to the legal ops managers?',
       answer:
         'You do an introductory Zoom. Then you mostly collaborate over chat and email.'
-    },
+    }
   ];
 </script>
 
@@ -53,7 +54,7 @@
     </p>
 
     <!-- Legal ops manager -->
-    <section class="mt-[40px]">
+    <section class="mt-[30px]">
       <div class="overflow-hidden rounded-[18px] bg-stone-100">
         <img
           src="/ops.jpg"
@@ -72,25 +73,25 @@
 
     <!-- Pricing card -->
     <article
-      class="mt-[77px] rounded-[18px] border border-stone-200 bg-white px-[28px] py-[30px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
+      class="mt-[77px] rounded-[18px] border border-stone-200 bg-white px-[24px] py-[28px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
           $3,000
         </p>
 
-        <p class="mt-[9px] text-[15px] leading-none text-stone-500">
+        <p class="mt-[4px] text-[15px] leading-none text-stone-500">
           per year
         </p>
       </div>
 
       <p
-        class="mt-[30px] border-t border-stone-200/70 pt-[30px] text-[16px] font-book leading-[1.55] text-stone-500"
+        class="mt-[30px] border-t border-stone-200/70 pt-[24px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
         Your first 100 deals are free. Then $3,000 per year for unlimited use.
       </p>
 
-      <div class="mt-[30px]">
+      <div class="mt-[18px]">
         <ButtonLink
           href="#"
           variant="primary"
@@ -102,7 +103,7 @@
       </div>
 
       <ul
-        class="mt-[28px] space-y-[23px] border-t border-stone-200/70 pt-[28px]"
+        class="mt-[25px] space-y-[16px] border-t border-stone-200/70 pt-[24px]"
       >
         {#each benefits as benefit}
           <li
@@ -115,8 +116,19 @@
       </ul>
     </article>
 
+    <!-- Customer logos -->
+    <section class="mt-[84px]" aria-label="Customers">
+      <CustomerLogos
+        count={10}
+        appearance="color"
+        columns={5}
+        mobileColumns={2}
+        align="left"
+      />
+    </section>
+
     <!-- FAQ -->
-    <section class="mt-[99px]">
+    <section class="mt-[92px]">
       <h2 class="font-heading text-[26px] font-book leading-[1.18] text-stone-750">
         Frequently Asked Questions
       </h2>

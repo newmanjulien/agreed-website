@@ -2,8 +2,8 @@
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
+  import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
   import type { AgreementLoadResult } from '$lib/demo/agreement-source-result';
-  import CustomerLogoStrip from './CustomerLogoStrip.svelte';
   import ProductScreenshotFrame from './ProductScreenshotFrame.svelte';
 
   let { agreementResult }: { agreementResult: AgreementLoadResult } = $props();
@@ -37,7 +37,14 @@
   </ContentMeasure>
 
   <div id="demo" class="hero-graphic mx-auto mt-[80px] w-full max-w-[1040px]">
-    <CustomerLogoStrip />
+    <CustomerLogos
+      count={8}
+      appearance="muted"
+      interactive
+      mobileCount={4}
+      class="mb-[12px] sm:mb-[14px]"
+    />
+
     <ProductScreenshotFrame {agreementResult} />
   </div>
 </section>
@@ -48,16 +55,19 @@
     --hero-content-duration: 320ms;
     --hero-content-delay: 690ms;
   }
+
   .hero-title-lead {
     opacity: 0;
     transform: translateY(4px);
     animation: hero-content-enter 420ms var(--hero-ease) 220ms both;
   }
+
   .hero-title-rest {
     opacity: 0;
     transform: translateX(-10px);
     animation: hero-content-enter 420ms var(--hero-ease) 350ms both;
   }
+
   .hero-support,
   .hero-actions,
   .hero-graphic {
@@ -65,12 +75,30 @@
     transform: translateY(4px);
     animation: hero-content-enter var(--hero-content-duration) var(--hero-ease) var(--hero-content-delay) both;
   }
-  .hero-support { animation-delay: calc(var(--hero-content-delay) - 100ms); }
-  .hero-actions { transform: translateY(10px); animation-duration: 620ms; }
-  @keyframes hero-content-enter { to { opacity: 1; transform: none; } }
+
+  .hero-support {
+    animation-delay: calc(var(--hero-content-delay) - 100ms);
+  }
+
+  .hero-actions {
+    transform: translateY(10px);
+    animation-duration: 620ms;
+  }
+
+  @keyframes hero-content-enter {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-support,
     .hero-actions,
-    .hero-graphic { animation: none; opacity: 1; transform: none; }
+    .hero-graphic {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>
