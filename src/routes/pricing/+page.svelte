@@ -4,7 +4,7 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
 
   const benefits = [
-    'Unlimited deals signed',
+    'Unlimited deals closed',
     'Unlimited e-signatures',
     'Dedicated legal ops manager'
   ];
@@ -29,18 +29,18 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
-          $500
+          $3,000
         </p>
 
         <p class="mt-[9px] text-[15px] leading-none text-stone-500">
-          per month
+          per year
         </p>
       </div>
 
       <p
         class="mt-[30px] border-t border-stone-200/70 pt-[30px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 3 deals are free. Then $500 per month for unlimited use.
+        Your first 100 deals are free. Then $3,000 per year for unlimited use.
       </p>
 
       <div class="mt-[30px]">
