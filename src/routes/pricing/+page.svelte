@@ -14,7 +14,7 @@
     {
       question: "Wait, what's your price again?",
       answer:
-        "Agreed's pricing is based on the number of users. You get unlimited everything else. You get support from our legal ops managers with even 1 user."
+        "Agreed's pricing is based on the number of users. You get unlimited everything else. Legal ops managers are included with even 1 user."
     },
     {
       question: 'What counts as a user?',
@@ -77,7 +77,7 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
-          $45
+          $30
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-stone-500">
@@ -88,7 +88,7 @@
       <p
         class="mt-[28px] border-t border-stone-200/70 pt-[24px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 10 deals are free. Then $45 per user per month for unlimited use.
+        Your first 10 deals are free. Then $30 per user per month for unlimited use.
       </p>
 
       <div class="mt-[18px]">
