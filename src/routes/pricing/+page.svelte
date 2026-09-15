@@ -88,7 +88,7 @@
       <p
         class="mt-[26px] border-t border-stone-200/70 pt-[22px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        10 deals for free. Then $20 per deal we help you close.
+        First 10 deals are free. Then $20 per deal we help you close.
       </p>
 
       <div class="mt-[18px]">
