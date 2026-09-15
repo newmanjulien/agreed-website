@@ -14,7 +14,7 @@
 
     <div class="mt-[24px] space-y-[24px] text-[17px] font-book leading-[1.65] text-stone-700">
       <p>
-        Hey there! We’re building an agreement platform that lets businesses partner more easily.
+        Hey there! We’re building a contracting platform that lets businesses partner more easily.
       </p>
 
       <p>
@@ -22,7 +22,7 @@
       </p>
 
       <p>
-        Reach out if you have questions: contact@agreed.so
+        Reach out if you have questions: hi@agreed.so
       </p>
     </div>
   </section>

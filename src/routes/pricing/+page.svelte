@@ -5,36 +5,25 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
 
   const benefits = [
-    'Access to legal ops managers',
-    'E-signature at no extra cost'
+    'E-signature at no extra cost',  
+    'Dedicated customer success manager'
   ];
 
   const faqItems = [
     {
       question: "Wait, what's your price again?",
       answer:
-        "Agreed's pricing is based on the number of deals we help you close. Pay a small fee each time we help you close a deal. Pay nothing if the deal doesn't close."
+        "Agreed's pricing is based on the number of contracts we help you get signed. Pay nothing if the contract isn't signed."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
       answer:
         'No. E-signatures are included at no extra cost.'
     },
-
     {
-      question: 'What counts as a closed deal?',
+      question: 'What counts as a signed contract?',
       answer:
-        "When all the agreements are signed. For example, a deal might include an MSA and an Order Form. You'd only pay when both are signed."
-    },
-    {
-      question: 'Are legal ops managers included?',
-      answer:
-        "Yes. You always get access to our team of legal ops managers. Even with the free deals."
-    },
-    {
-      question: 'How do I talk to the legal ops managers?',
-      answer:
-        'You do an introductory Zoom. Then you mostly collaborate over chat and email.'
+        "A contract counts as signed once both you and your buyer have signed it."
     }
   ];
 </script>
@@ -50,30 +39,12 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-stone-700">
-      Pay a small fee per deal we help you close, with a team of legal ops managers handling the work for you.
+      How much does Agreed cost? You simply pay a small fee per contract that's signed.
     </p>
-
-    <!-- Legal ops manager -->
-    <section class="mt-[30px]">
-      <div class="overflow-hidden rounded-[18px] bg-stone-100">
-        <img
-          src="/ops.jpg"
-          alt="Legal ops manager"
-          class="aspect-[8/5] w-full object-cover object-[center_35%]"
-          width="620"
-          height="310"
-        />
-      </div>
-
-      <p class="mt-[22px] text-[16px] font-book leading-[1.65] text-stone-700">
-        Our team of legal ops managers set up your agreements, keep your terms current, and continuously improve
-        your process so deals close faster without giving up contractual protections.
-      </p>
-    </section>
 
     <!-- Pricing card -->
     <article
-      class="mt-[77px] rounded-[18px] border border-stone-200 bg-white px-[24px] py-[28px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
+      class="mt-[36px] rounded-[18px] border border-stone-200 bg-white px-[24px] py-[28px] shadow-[0_1px_0_rgba(48,47,45,0.03)]"
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
@@ -81,14 +52,14 @@
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-stone-500">
-          per deal
+          per contract
         </p>
       </div>
 
       <p
         class="mt-[26px] border-t border-stone-200/70 pt-[22px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        First 10 deals are free. Then $20 per deal we help you close.
+        3 contracts per month for free. Then $20 per contract that's signed.
       </p>
 
       <div class="mt-[18px]">

@@ -15,8 +15,8 @@
       Close deals fast and easy
     </h1>
 
-    <p class="hero-support mt-[2px] max-w-[430px] font-light text-[21px] leading-[1.40] text-stone-500">
-      Agreed is a sales agreement that explains itself
+    <p class="hero-support mt-[4px] max-w-[430px] font-light text-[23px] leading-[1.40] text-stone-500">
+      Agreed is a sales contract that explains itself
     </p>
 
     <div class="hero-actions mt-[24px] flex flex-col items-center">

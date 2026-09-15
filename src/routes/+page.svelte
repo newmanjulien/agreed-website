@@ -2,7 +2,6 @@
   import Hero from '$lib/components/hero/Hero.svelte';
   import CustomerTestimonials from '$lib/components/features/CustomerTestimonials.svelte';
   import FeatureSection from '$lib/components/features/FeatureSection.svelte';
-  import CopySection from '$lib/components/features/CopySection.svelte';
   import FlagChangesWidget from '$lib/components/features/FlagChangesWidget.svelte';
   import CannotChangeWidget from '$lib/components/features/CannotChangeWidget.svelte';
   import AlwaysKeepMovingWidget from '$lib/components/features/AlwaysKeepMovingWidget.svelte';
@@ -12,24 +11,17 @@
 </script>
 
 <svelte:head>
-  <title>Agreed | Agreement that explains itself</title>
-  <meta name="description" content="Agreed is a sales agreement that explains itself" />
+  <title>Agreed | Contract that explains itself</title>
+  <meta name="description" content="Agreed is a sales contract that explains itself" />
 </svelte:head>
 
 <main>
   <Hero agreementResult={data.agreementResult} />
 
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
-    <CopySection
-      heading="End the redline cycle"
-      paragraphs={[
-        'Buyers are ready to move, but the deal is stuck. Customer lawyers are slow to turn around changes, while your own legal team is backed up.',
-        'Stop watching deals wait for days, round after round, on the customer lawyer’s desk. Give customers a safe, simple way to adjust terms themselves.'
-      ]}
-    />
     <FeatureSection title="Flag what can change">
       {#snippet body()}
-        Give customers an agreement that marks which terms are flexible and lets them pick from alternatives that worked for others.
+        Give customers a contract that marks which terms are flexible and lets them pick from alternatives that worked for others.
       {/snippet}
       {#if data.featurePreviewContent}
         <FlagChangesWidget content={data.featurePreviewContent.flag} />
@@ -38,7 +30,7 @@
 
     <FeatureSection title="Explain what cannot change">
       {#snippet body()}
-        For non-negotiables, the agreement gives proven responses to each objection and helps customers address the concerns behind them.
+        For non-negotiables, the contract gives proven responses to each objection and helps customers address the concerns behind them.
       {/snippet}
       {#if data.featurePreviewContent}
         <CannotChangeWidget content={data.featurePreviewContent.nonNegotiable} />
