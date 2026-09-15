@@ -2,7 +2,7 @@
   import Hero from '$lib/components/hero/Hero.svelte';
   import CustomerTestimonials from '$lib/components/features/CustomerTestimonials.svelte';
   import FeatureSection from '$lib/components/features/FeatureSection.svelte';
-  import IntroCopySection from '$lib/components/features/IntroCopySection.svelte';
+  import CopySection from '$lib/components/features/CopySection.svelte';
   import FlagChangesWidget from '$lib/components/features/FlagChangesWidget.svelte';
   import CannotChangeWidget from '$lib/components/features/CannotChangeWidget.svelte';
   import AlwaysKeepMovingWidget from '$lib/components/features/AlwaysKeepMovingWidget.svelte';
@@ -20,8 +20,13 @@
   <Hero agreementResult={data.agreementResult} />
 
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
-    <IntroCopySection />
-
+    <CopySection
+      heading="End the redline cycle"
+      paragraphs={[
+        'Buyers are ready to move, but the deal is stuck. Customer lawyers are slow to turn around changes, while your own legal team is backed up.',
+        'Stop watching deals wait for days, round after round, on the customer lawyer’s desk. Give customers a safe, simple way to adjust terms themselves.'
+      ]}
+    />
     <FeatureSection title="Flag what can change">
       {#snippet body()}
         Give customers an agreement that marks which terms are flexible and lets them pick from alternatives that worked for others.
