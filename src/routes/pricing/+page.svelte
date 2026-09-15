@@ -5,31 +5,31 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
 
   const benefits = [
-    'Unlimited deals closed',
-    'Unlimited e-signatures',
-    'Legal ops managers included'
+    'Access to legal ops managers',
+    'E-signature at no extra cost'
   ];
 
   const faqItems = [
     {
       question: "Wait, what's your price again?",
       answer:
-        "Agreed's pricing is based on the number of users. You get unlimited everything else. Legal ops managers are included with even 1 user."
-    },
-    {
-      question: 'What counts as a user?',
-      answer:
-        'Anyone who needs a login to access Agreed. Sales reps, legal, finance, etc.'
+        "Agreed's pricing is based on the number of deals you close. You pay a small fee each time a deal closes. You pay nothing if the deal doesn't close."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
       answer:
-        'No. Unlimited e-signatures are included.'
+        'No. E-signatures are included at no extra cost.'
+    },
+
+    {
+      question: 'What counts as a closed deal?',
+      answer:
+        "When all the agreements are signed. For example, a deal might include an MSA and an Order Form. You'd only pay when both are signed."
     },
     {
       question: 'Are legal ops managers included?',
       answer:
-        'Yes. Your plan includes access to our team of legal ops managers. Even with just 1 user.'
+        "Yes. You always get access to our team of legal ops managers. Even with the free deals."
     },
     {
       question: 'How do I talk to the legal ops managers?',
@@ -50,7 +50,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-stone-700">
-      Unlimited deals and e-signatures, with a team of legal ops managers handling the work for you.
+      Pay a small fee per deal closed, with a team of legal ops managers handling the work for you.
     </p>
 
     <!-- Legal ops manager -->
@@ -77,18 +77,18 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
-          $30
+          $20
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-stone-500">
-          per user
+          per deal
         </p>
       </div>
 
       <p
-        class="mt-[28px] border-t border-stone-200/70 pt-[24px] text-[16px] font-book leading-[1.55] text-stone-500"
+        class="mt-[26px] border-t border-stone-200/70 pt-[22px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 10 deals are free. Then $30 per user per month for unlimited use.
+        Your first 10 deals are free. Then $20 per deal you close.
       </p>
 
       <div class="mt-[18px]">
