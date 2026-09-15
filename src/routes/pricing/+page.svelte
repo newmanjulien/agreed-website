@@ -13,7 +13,7 @@
     {
       question: "Wait, what's your price again?",
       answer:
-        "Agreed's pricing is based on the number of deals you close. You pay a small fee each time a deal closes. You pay nothing if the deal doesn't close."
+        "Agreed's pricing is based on the number of deals we help you close. Pay a small fee each time we help you close a deal. Pay nothing if the deal doesn't close."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
@@ -50,7 +50,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-stone-700">
-      Pay a small fee per deal closed, with a team of legal ops managers handling the work for you.
+      Pay a small fee per deal we help you close, with a team of legal ops managers handling the work for you.
     </p>
 
     <!-- Legal ops manager -->
@@ -88,7 +88,7 @@
       <p
         class="mt-[26px] border-t border-stone-200/70 pt-[22px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 10 deals are free. Then $20 per deal you close.
+        10 deals for free. Then $20 per deal we help you close.
       </p>
 
       <div class="mt-[18px]">
