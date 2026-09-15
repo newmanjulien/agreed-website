@@ -10,6 +10,7 @@
     mobileColumns?: number;
     mobileCount?: number;
     align?: Alignment;
+    animate?: boolean;
     class?: string;
   };
 
@@ -21,6 +22,7 @@
     mobileColumns,
     mobileCount,
     align = 'center',
+    animate = true,
     class: className = ''
   }: Props = $props();
 
@@ -90,6 +92,7 @@
   data-appearance={appearance}
   data-interactive={interactive}
   data-align={align}
+  data-animate={animate}
   style={`--desktop-columns: ${columns ?? 1}; --mobile-columns: ${
     mobileColumns ?? columns ?? 1
   };`}
@@ -164,12 +167,6 @@
     justify-items: start;
   }
 
-  /*
-   * Entrance animation
-   *
-   * Each logo fades and rises into place one after another.
-   * --logos-enter-delay can be supplied by a parent such as the Hero.
-   */
   .logo-item {
     position: relative;
     display: grid;
@@ -177,7 +174,15 @@
     min-width: 0;
     flex: 0 0 auto;
     place-items: center;
+  }
 
+  /*
+   * Entrance animation
+   *
+   * Only runs when animate={true}.
+   * --logos-enter-delay can be supplied by a parent such as the Hero.
+   */
+  .customer-logos[data-animate='true'] .logo-item {
     opacity: 0;
     transform: translateY(4px);
     animation: logo-enter 220ms cubic-bezier(0.22, 1, 0.36, 1)
@@ -312,7 +317,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .logo-item {
+    .customer-logos[data-animate='true'] .logo-item {
       animation: none;
       opacity: 1;
       transform: none;

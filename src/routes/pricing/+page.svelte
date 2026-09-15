@@ -12,14 +12,14 @@
 
   const faqItems = [
     {
-      question: 'How many deals can I close?',
+      question: "Wait, what's your price again?",
       answer:
-        'Unlimited. The paid plan includes unlimited deals.'
+        "Agreed's pricing is based on the number of users. You get unlimited everything else. You get support from our legal ops managers with even 1 user."
     },
     {
-      question: 'How many users can I have?',
+      question: 'What counts as a user?',
       answer:
-        'Unlimited. You can add as many users as you want.'
+        'Anyone who needs a login to access Agreed. Sales reps, legal, finance, etc.'
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
@@ -29,7 +29,7 @@
     {
       question: 'Are legal ops managers included?',
       answer:
-        'Yes. Your plan includes access to our team of legal ops managers. They help set up your agreements, maintain your clauses, and continuously improve your contracting process.'
+        'Yes. Your plan includes access to our team of legal ops managers. Even with just 1 user.'
     },
     {
       question: 'How do I talk to the legal ops managers?',
@@ -77,18 +77,18 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
-          $3,000
+          $45
         </p>
 
-        <p class="mt-[4px] text-[15px] leading-none text-stone-500">
-          per year
+        <p class="mt-[6px] text-[15px] leading-none text-stone-500">
+          per user
         </p>
       </div>
 
       <p
-        class="mt-[30px] border-t border-stone-200/70 pt-[24px] text-[16px] font-book leading-[1.55] text-stone-500"
+        class="mt-[28px] border-t border-stone-200/70 pt-[24px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        Your first 100 deals are free. Then $3,000 per year for unlimited use.
+        Your first 10 deals are free. Then $45 per user per month for unlimited use.
       </p>
 
       <div class="mt-[18px]">
@@ -124,6 +124,7 @@
         columns={5}
         mobileColumns={2}
         align="left"
+        animate={false}
       />
     </section>
 
