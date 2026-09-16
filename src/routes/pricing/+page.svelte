@@ -5,8 +5,8 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
 
   const benefits = [
-    'E-signature at no extra cost',  
-    'Dedicated customer success manager'
+    "Pay nothing for contracts that don't get signed.",  
+    'E-signature included.'
   ];
 
   const faqItems = [
@@ -24,6 +24,11 @@
       question: 'What counts as a signed contract?',
       answer:
         "A contract counts as signed once both you and your buyer have signed it."
+    },
+    {
+      question: "Do I pay if I send a contract that doesn't get signed?",
+      answer:
+        "No. You only pay for contracts that are signed."
     }
   ];
 </script>
@@ -39,7 +44,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-stone-700">
-      How much does Agreed cost? You simply pay a small fee per contract that's signed.
+      How much does Agreed cost? You pay a small fee per contract, and only if the contract is signed.
     </p>
 
     <!-- Pricing card -->

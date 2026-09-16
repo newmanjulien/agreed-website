@@ -9,13 +9,19 @@
   let { agreementResult }: { agreementResult: AgreementLoadResult } = $props();
 </script>
 
-<section class="px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]">
+<section
+  class="px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]"
+>
   <ContentMeasure class="flex flex-col items-center text-center">
-    <h1 class="max-w-[540px] font-heading text-[45px] leading-[1.04] text-stone-750 sm:max-w-none sm:text-[55px]">
+    <h1
+      class="max-w-[540px] font-heading text-[45px] leading-[1.04] text-stone-750 sm:max-w-none sm:text-[55px]"
+    >
       Close deals fast and easy
     </h1>
 
-    <p class="hero-support mt-[4px] max-w-[430px] font-light text-[23px] leading-[1.40] text-stone-500">
+    <p
+      class="hero-support mt-[4px] max-w-[430px] font-light text-[23px] leading-[1.40] text-stone-500"
+    >
       Agreed is a sales contract that explains itself
     </p>
 
@@ -54,29 +60,29 @@
     </div>
 
     <div
-      class="demo-callout pointer-events-none absolute right-[34px] top-[45px] z-10 hidden xl:block"
+      class="demo-callout pointer-events-none absolute right-[48px] top-[45px] z-10 hidden xl:block"
       aria-hidden="true"
     >
       <span class="demo-callout-text">
-        try the product
+        click to try
       </span>
 
       <svg
         class="demo-callout-arrow"
-        width="148"
+        width="130"
         height="104"
-        viewBox="0 0 148 104"
+        viewBox="0 0 130 104"
         fill="none"
         aria-hidden="true"
       >
         <!-- A loose loop flowing into a shorter leftward sweep. -->
         <path
           d="
-            M122 8
-            C134 30 126 53 108 54
-            C88 56 79 32 93 27
-            C113 20 121 52 95 69
-            C74 86 48 84 14 80
+            M110 8
+            C122 30 114 53 98 54
+            C80 56 72 32 85 27
+            C103 20 110 52 87 69
+            C68 86 49 84 30 80
           "
           stroke="currentColor"
           stroke-width="2"
@@ -87,9 +93,9 @@
         <!-- Slightly curved, asymmetric pen strokes. -->
         <path
           d="
-            M27 71
-            Q19 75 14 80
-            Q20 85 25 90
+            M43 71
+            Q35 75 30 80
+            Q36 85 41 90
           "
           stroke="currentColor"
           stroke-width="1.9"
@@ -168,7 +174,7 @@
 
   .demo-callout-arrow {
     display: block;
-    width: 148px;
+    width: 130px;
     height: 104px;
     margin-top: 5px;
     margin-left: -40px;
