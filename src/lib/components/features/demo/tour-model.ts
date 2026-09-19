@@ -1,13 +1,6 @@
-export type GuidedCursorMode = 'idle' | 'clicking' | 'pressed' | 'dragging';
+export type GuidedCursorMode = 'idle' | 'clicking' | 'pressed';
 
-export interface ScenePoint {
-	x: number;
-	y: number;
-}
-
-export type GuidedCursorDestination =
-	| { kind: 'element'; element: Element }
-	| { kind: 'point'; point: ScenePoint };
+export type GuidedCursorDestination = { kind: 'element'; element: Element };
 
 export interface GuidedCursorState<Target extends string> {
 	target: Target;

@@ -38,7 +38,7 @@
 </svelte:head>
 
 <ContentMeasure>
-  <section class="mx-auto max-w-[620px] pt-[72px]">
+  <section class="mx-auto max-w-[620px] pb-[150px] pt-[72px] sm:pb-[190px]">
     <h1 class="font-heading text-[30px] leading-[1.05] text-stone-900">
       Pricing
     </h1>
@@ -53,7 +53,7 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-stone-900">
-          $20
+          $30
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-stone-500">
@@ -64,7 +64,7 @@
       <p
         class="mt-[26px] border-t border-stone-200/70 pt-[22px] text-[16px] font-book leading-[1.55] text-stone-500"
       >
-        3 contracts per month for free. Then $20 per contract that's signed.
+        3 contracts per month for free. Then $30 per contract that's signed.
       </p>
 
       <div class="mt-[18px]">
@@ -96,7 +96,6 @@
     <section class="mt-[84px]" aria-label="Customers">
       <CustomerLogos
         count={10}
-        appearance="color"
         columns={5}
         mobileColumns={2}
         align="left"

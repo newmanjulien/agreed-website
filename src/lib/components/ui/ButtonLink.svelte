@@ -30,7 +30,7 @@
     small: 'h-[36px] px-[14px] text-[14px]',
     medium: 'h-[42px] px-[14px] text-[14px]',
     large: 'h-[48px] px-[23px] text-[16px]',
-    xlarge: 'h-[64px] px-[28px] text-[19px]'
+    xlarge: 'h-[58px] px-[26px] text-[17px]'
   };
   const variantClasses = {
     primary: 'bg-stone-750 text-white hover:bg-stone-700',

@@ -21,7 +21,7 @@
       {title}
     </h2>
 
-    <p class="mt-[8px] max-w-[720px] text-[18px] font-book leading-[1.55] text-stone-500/80">
+    <p class="mt-[8px] text-[18px] font-book leading-[1.55] text-stone-500/80">
       {@render body()}
     </p>
 

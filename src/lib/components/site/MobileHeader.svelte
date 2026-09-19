@@ -12,7 +12,7 @@
   afterNavigate(() => { open = false; });
   const navSections = [
     { id: 'mobile-plugins-heading', label: 'Plugins', links: plugins },
-    { id: 'mobile-site-heading', label: 'Overbase', links: productNavItems }
+    { id: 'mobile-site-heading', label: 'Agreed', links: productNavItems }
   ] as const;
   const activePath = $derived(page.url.pathname);
 </script>
