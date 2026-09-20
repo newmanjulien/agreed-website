@@ -29,7 +29,6 @@
 		border-radius: 8px;
 		background: color-mix(in srgb, var(--color-canvas) 60%, transparent);
 		box-shadow: 0 1px 0 color-mix(in srgb, var(--color-ink) 3%, transparent);
-		pointer-events: none;
 		user-select: none;
 	}
 

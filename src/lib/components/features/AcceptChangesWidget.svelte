@@ -4,7 +4,7 @@
 	import FeatureDemoApp from './demo/FeatureDemoApp.svelte';
 	import FeatureDemoFrame from './demo/FeatureDemoFrame.svelte';
 	import GuidedCursor from './demo/GuidedCursor.svelte';
-	import ReviewRequestsPreview from './demo/ReviewRequestsPreview.svelte';
+	import ReviewScreen from '$lib/components/hero/requests-demo/ReviewScreen.svelte';
 	import { createGuidedTour } from './demo/tour-player.svelte';
 	import type { GuidedCursorDestination } from './demo/tour-model';
 	import {
@@ -43,7 +43,8 @@
 	bind:sceneElement
 >
 	<FeatureDemoApp {pointsLeft}>
-		<ReviewRequestsPreview
+		<ReviewScreen
+			compact
 			acceptedRequestId={step.state.accepted ? acceptDemo.requestId : undefined}
 			{registerTarget}
 			targetRequestId={acceptDemo.requestId}

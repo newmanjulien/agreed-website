@@ -1,14 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
+	import ApprovalScreen from '$lib/components/hero/requests-demo/ApprovalScreen.svelte';
+	import ReviewScreen from '$lib/components/hero/requests-demo/ReviewScreen.svelte';
 	import FeatureDemoApp from './demo/FeatureDemoApp.svelte';
 	import FeatureDemoFrame from './demo/FeatureDemoFrame.svelte';
 	import GuidedCursor from './demo/GuidedCursor.svelte';
-	import ReviewRequestsPreview from './demo/ReviewRequestsPreview.svelte';
 	import { createGuidedTour } from './demo/tour-player.svelte';
 	import type { GuidedCursorDestination } from './demo/tour-model';
-	import ApprovalBagPreview from './approval/ApprovalBagPreview.svelte';
-	import { approvalDemo, approvalTour, approvalTypedText } from './approval/approval-tour';
+	import { demoStartingPoints } from './demo/demo-points';
+	import {
+		approvalDemo,
+		approvalRequest,
+		approvalTour,
+		approvalTypedText
+	} from './approval/approval-tour';
 
 	const playback = createGuidedTour(approvalTour);
 	const targets = new SvelteMap<string, Element>();
@@ -39,15 +45,16 @@
 	bind:element={widgetElement}
 	bind:sceneElement
 >
-	<FeatureDemoApp>
+	<FeatureDemoApp pointsLeft={step.state.screen === 'review' ? demoStartingPoints : undefined}>
 		{#if step.state.screen === 'review'}
-			<ReviewRequestsPreview
+			<ReviewScreen
+				compact
 				{registerTarget}
 				targetRequestId={approvalDemo.requestId}
 				targetName="add"
 			/>
 		{:else}
-			<ApprovalBagPreview text={explanation} />
+			<ApprovalScreen text={explanation} request={approvalRequest} />
 		{/if}
 	</FeatureDemoApp>
 

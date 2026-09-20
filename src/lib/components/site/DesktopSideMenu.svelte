@@ -11,7 +11,7 @@
   <a href="/" class="mb-[22px] block h-[27.5px] w-fit" aria-label="Home">
     <img src="/logo.png" alt="" class="h-full w-auto" />
   </a>
-  <nav class="flex flex-col gap-[15px] text-[15px] font-book leading-none text-ink">
+  <nav class="flex flex-col gap-[15px] text-[14px] font-book leading-none text-ink">
     <div class="group relative w-fit">
       <a href="/plugins" class="flex items-center gap-[6px] outline-none hover:text-ink focus-visible:text-ink" aria-haspopup="true">
         <span>Plugins</span>

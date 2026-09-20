@@ -74,7 +74,7 @@
 
       visible = pastStart && !pastEnd;
 
-      const probe = Math.round(window.innerHeight * 0.28);
+      const probe = Math.round(window.innerHeight * 0.6);
       let next = first?.id ?? '';
 
       for (const item of items) {

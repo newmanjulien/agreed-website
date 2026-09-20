@@ -6,10 +6,10 @@
       name: 'Maya Chen',
       role: 'VP of Sales',
       company: 'Oceans',
-      logo: '/logos/oceans.png',
+      logo: '/logos/oceans.svg',
       logoWidth: 496,
       logoHeight: 125,
-      displayHeight: 28
+      displayHeight: 32
     },
     {
       quote:
@@ -17,25 +17,32 @@
       name: 'Daniel Brooks',
       role: 'CRO',
       company: 'Brex',
-      logo: '/logos/brex.png',
+      logo: '/logos/brex.svg',
       logoWidth: 800,
       logoHeight: 211,
       displayHeight: 23
     }
   ];
+
+  const logoSlotHeight = Math.max(...testimonials.map((t) => t.displayHeight));
 </script>
 
 <div class="grid gap-[34px] md:grid-cols-2 md:gap-x-[48px]">
   {#each testimonials as testimonial}
     <figure class="border-t border-line pt-[18px] sm:pt-[20px]">
-      <img
-        src={testimonial.logo}
-        alt=""
-        width={testimonial.logoWidth}
-        height={testimonial.logoHeight}
-        class="testimonial-logo mb-[16px] w-auto object-contain sm:mb-[18px]"
-        style={`height: ${testimonial.displayHeight}px`}
-      />
+      <div
+        class="mb-[16px] flex items-end sm:mb-[18px]"
+        style={`height: ${logoSlotHeight}px`}
+      >
+        <img
+          src={testimonial.logo}
+          alt=""
+          width={testimonial.logoWidth}
+          height={testimonial.logoHeight}
+          class="w-auto object-contain"
+          style={`height: ${testimonial.displayHeight}px`}
+        />
+      </div>
 
       <blockquote
         class="font-heading text-[18px] font-book italic leading-[1.42] text-ink sm:text-[20px]"
@@ -50,10 +57,3 @@
     </figure>
   {/each}
 </div>
-
-<style>
-  .testimonial-logo {
-    filter: grayscale(1) brightness(0);
-    opacity: 0.78;
-  }
-</style>

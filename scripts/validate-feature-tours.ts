@@ -31,6 +31,9 @@ assert.deepEqual(
 	'Only explanation typing should request frame-by-frame progress.'
 );
 
+assert.equal(uploadChangesTour.at(-1)?.state.screen, 'review');
+assert.equal(approvalTour[0]?.state.screen, 'review');
+
 assert.equal(approvalTypedText(0), '');
 assert.equal(approvalTypedText(1), approvalDemo.explanation);
 assert.equal(approvalTour.at(-1)?.state.typedProgress, 1);

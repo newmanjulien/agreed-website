@@ -64,7 +64,7 @@
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        3 contracts per month for free. Then $30 per contract that's signed.
+        5 contracts per month for free. Then $30 per contract that's signed.
       </p>
 
       <div class="mt-[18px]">

@@ -32,11 +32,5 @@ export const mockRequests: ChangeRequest[] = [
 		type: 'Can accept',
 		action: 'Accept',
 		points: 1
-	},
-	{
-		id: 'termination-for-convenience',
-		requestedChange: "Add a termination for convenience right with 30 days' notice",
-		type: 'Needs approval',
-		action: 'Add'
 	}
 ];

@@ -1,75 +1,29 @@
 <script lang="ts">
-	import { uploadFile, type UploadFileKind } from './upload-changes-tour';
-
-	let { kind }: { kind: UploadFileKind } = $props();
-
-	let file = $derived(uploadFile(kind));
+	import { uploadFile } from './upload-changes-tour';
 </script>
 
 <div class="upload-file">
 	<div class="upload-file-card">
-		{#if kind === 'screenshot'}
-			<svg viewBox="0 0 40 48" width="28" height="34" aria-hidden="true">
-				<rect
-					x="5.5"
-					y="6.5"
-					width="29"
-					height="35"
-					rx="5"
-					fill="var(--color-surface)"
-					stroke="var(--color-ink-muted)"
-					stroke-width="1.7"
-				/>
-				<path d="M10 14h20" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
-				<path d="M10 20h13" stroke="var(--color-accent)" stroke-width="1.6" stroke-linecap="round" />
-				<path d="M10 26h18" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
-				<path d="M10 32h15" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
-			</svg>
-		{:else if kind === 'recording'}
-			<svg viewBox="0 0 40 48" width="28" height="34" aria-hidden="true">
-				<rect
-					x="5.5"
-					y="6.5"
-					width="29"
-					height="35"
-					rx="5"
-					fill="var(--color-surface)"
-					stroke="var(--color-ink-muted)"
-					stroke-width="1.7"
-				/>
-				<path
-					d="M13 28v-4M17 31V17M21 29V19M25 32V16M29 27v-3"
-					stroke="var(--color-accent)"
-					stroke-width="1.8"
-					stroke-linecap="round"
-				/>
-			</svg>
-		{:else}
-			<svg viewBox="0 0 40 48" width="28" height="34" aria-hidden="true">
-				<path
-					d="M7 2.5h17.2L33.5 12v33.5H7V2.5Z"
-					fill="var(--color-surface)"
-					stroke="var(--color-ink-muted)"
-					stroke-width="1.7"
-					stroke-linejoin="round"
-				/>
-				<path
-					d="M24.2 2.5V12H33.5"
-					fill="none"
-					stroke="var(--color-ink-muted)"
-					stroke-width="1.7"
-					stroke-linejoin="round"
-				/>
-				<path d="M12 20h16" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
-				<path d="M12 25.5h11" stroke="var(--color-danger)" stroke-width="1.6" stroke-linecap="round" />
-				<path d="M12 31h14" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
-				<path d="M12 36.5h8" stroke="var(--color-danger)" stroke-width="1.6" stroke-linecap="round" />
-			</svg>
-		{/if}
+		<svg viewBox="0 0 40 48" width="28" height="34" aria-hidden="true">
+			<rect
+				x="5.5"
+				y="6.5"
+				width="29"
+				height="35"
+				rx="5"
+				fill="var(--color-surface)"
+				stroke="var(--color-ink-muted)"
+				stroke-width="1.7"
+			/>
+			<path d="M10 14h20" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
+			<path d="M10 20h13" stroke="var(--color-accent)" stroke-width="1.6" stroke-linecap="round" />
+			<path d="M10 26h18" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
+			<path d="M10 32h15" stroke="var(--color-line-strong)" stroke-width="1.6" stroke-linecap="round" />
+		</svg>
 
 		<div class="upload-file-copy">
-			<span class="upload-file-name">{file.name}</span>
-			<span class="upload-file-meta">{file.meta}</span>
+			<span class="upload-file-name">{uploadFile.name}</span>
+			<span class="upload-file-meta">{uploadFile.meta}</span>
 		</div>
 	</div>
 </div>

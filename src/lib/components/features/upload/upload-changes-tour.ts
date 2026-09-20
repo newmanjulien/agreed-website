@@ -1,56 +1,40 @@
+import {
+	defaultIntake,
+	processingHoldMs,
+	processingStepDefs,
+	processingTasks,
+	type ProcessingPhase
+} from '../../hero/requests-demo/processing.ts';
 import type { GuidedTourStep } from '../demo/tour-model.ts';
 
-export const uploadFiles = [
-	{
-		kind: 'screenshot',
-		name: 'buyer-email-screenshot.png',
-		meta: 'PNG image',
-		intake: { active: 'Reading uploaded changes', done: 'Read uploaded changes' }
-	},
-	{
-		kind: 'recording',
-		name: 'gong-call.mp3',
-		meta: 'Audio',
-		intake: { active: 'Listening to uploaded changes', done: 'Listened to uploaded changes' }
-	},
-	{
-		kind: 'contract',
-		name: 'buyer-redline.docx',
-		meta: 'Word document',
-		intake: { active: 'Reading uploaded changes', done: 'Read uploaded changes' }
-	}
-] as const;
-
-const findingTask = {
-	active: 'Finding what the buyer requested',
-	done: 'Found what the buyer requested'
+export const uploadFile = {
+	name: 'buyer-email-screenshot.png',
+	meta: 'PNG image'
 } as const;
 
-export type UploadFileKind = (typeof uploadFiles)[number]['kind'];
-export type UploadProcessingTask = { active: string; done: string };
-
-export function uploadFile(kind: UploadFileKind) {
-	const file = uploadFiles.find((candidate) => candidate.kind === kind);
-	if (!file) throw new Error(`Unknown upload file kind "${kind}".`);
-	return file;
-}
-
-export function uploadProcessingTasks(kind: UploadFileKind): UploadProcessingTask[] {
-	return [uploadFile(kind).intake, findingTask];
-}
+export const uploadProcessingTasks = processingTasks(defaultIntake);
 
 export type UploadChangesPhase =
-	`${UploadFileKind}-${'ready' | 'appear' | 'drag' | 'hover' | 'intake' | 'finding'}`;
+	| 'ready'
+	| 'appear'
+	| 'drag'
+	| 'hover'
+	| ProcessingPhase
+	| `${ProcessingPhase}-done`
+	| 'review';
 export type UploadChangesTarget = 'origin' | 'dropzone';
 
-export interface UploadChangesTourState {
-	screen: 'upload' | 'processing';
-	file: 'hidden' | 'held';
-	hover: boolean;
-	kind: UploadFileKind;
-	activeTask: number;
-	completed: number;
-}
+export type UploadChangesTourState =
+	| {
+			screen: 'upload' | 'processing';
+			file: 'hidden' | 'held';
+			hover: boolean;
+			activeTask: number;
+			completed: number;
+	  }
+	| {
+			screen: 'review';
+	  };
 
 export type UploadChangesTourStep = GuidedTourStep<
 	UploadChangesPhase,
@@ -58,49 +42,51 @@ export type UploadChangesTourStep = GuidedTourStep<
 	UploadChangesTarget
 >;
 
-function cycle(kind: UploadFileKind): UploadChangesTourStep[] {
-	const idle = { file: 'hidden', hover: false, kind } as const;
+const idle = { file: 'hidden', hover: false } as const;
 
-	return [
+export const uploadChangesTour: ReadonlyArray<UploadChangesTourStep> = [
+	{
+		phase: 'ready',
+		duration: 700,
+		state: { screen: 'upload', activeTask: 0, completed: 0, ...idle },
+		cursor: null
+	},
+	{
+		phase: 'appear',
+		duration: 280,
+		state: { screen: 'upload', file: 'held', hover: false, activeTask: 0, completed: 0 },
+		cursor: { target: 'origin', mode: 'pressed' }
+	},
+	{
+		phase: 'drag',
+		duration: 850,
+		state: { screen: 'upload', file: 'held', hover: false, activeTask: 0, completed: 0 },
+		cursor: { target: 'dropzone', mode: 'pressed' }
+	},
+	{
+		phase: 'hover',
+		duration: 480,
+		state: { screen: 'upload', file: 'held', hover: true, activeTask: 0, completed: 0 },
+		cursor: { target: 'dropzone', mode: 'pressed' }
+	},
+	...processingStepDefs.flatMap((step, index): UploadChangesTourStep[] => [
 		{
-			phase: `${kind}-ready`,
-			duration: 700,
-			state: { screen: 'upload', activeTask: 0, completed: 0, ...idle },
+			phase: step.phase,
+			duration: step.workMs,
+			state: { screen: 'processing', activeTask: index, completed: index, ...idle },
 			cursor: null
 		},
 		{
-			phase: `${kind}-appear`,
-			duration: 280,
-			state: { screen: 'upload', file: 'held', hover: false, kind, activeTask: 0, completed: 0 },
-			cursor: { target: 'origin', mode: 'pressed' }
-		},
-		{
-			phase: `${kind}-drag`,
-			duration: 850,
-			state: { screen: 'upload', file: 'held', hover: false, kind, activeTask: 0, completed: 0 },
-			cursor: { target: 'dropzone', mode: 'pressed' }
-		},
-		{
-			phase: `${kind}-hover`,
-			duration: 480,
-			state: { screen: 'upload', file: 'held', hover: true, kind, activeTask: 0, completed: 0 },
-			cursor: { target: 'dropzone', mode: 'pressed' }
-		},
-		{
-			phase: `${kind}-intake`,
-			duration: 1600,
-			state: { screen: 'processing', activeTask: 0, completed: 0, ...idle },
-			cursor: null
-		},
-		{
-			phase: `${kind}-finding`,
-			duration: 2000,
-			state: { screen: 'processing', activeTask: 1, completed: 1, ...idle },
+			phase: `${step.phase}-done`,
+			duration: processingHoldMs,
+			state: { screen: 'processing', activeTask: index, completed: index + 1, ...idle },
 			cursor: null
 		}
-	];
-}
-
-export const uploadChangesTour: ReadonlyArray<UploadChangesTourStep> = uploadFiles.flatMap((file) =>
-	cycle(file.kind)
-);
+	]),
+	{
+		phase: 'review',
+		duration: 2800,
+		state: { screen: 'review' },
+		cursor: null
+	}
+];

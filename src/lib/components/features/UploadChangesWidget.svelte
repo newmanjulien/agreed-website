@@ -5,11 +5,13 @@
 	import FeatureDemoApp from './demo/FeatureDemoApp.svelte';
 	import FeatureDemoFrame from './demo/FeatureDemoFrame.svelte';
 	import GuidedCursor from './demo/GuidedCursor.svelte';
+	import { demoStartingPoints } from './demo/demo-points';
 	import { createGuidedTour } from './demo/tour-player.svelte';
 	import type { GuidedCursorDestination } from './demo/tour-model';
-	import UploadDropzonePreview from './upload/UploadDropzonePreview.svelte';
+	import ProcessingScreen from '$lib/components/hero/requests-demo/ProcessingScreen.svelte';
+	import ReviewScreen from '$lib/components/hero/requests-demo/ReviewScreen.svelte';
+	import UploadScreen from '$lib/components/hero/requests-demo/UploadScreen.svelte';
 	import UploadFilePreview from './upload/UploadFilePreview.svelte';
-	import UploadProcessingPreview from './upload/UploadProcessingPreview.svelte';
 	import { uploadChangesTour, uploadProcessingTasks } from './upload/upload-changes-tour';
 
 	const playback = createGuidedTour(uploadChangesTour);
@@ -40,23 +42,29 @@
 </script>
 
 <FeatureDemoFrame
-	label="A screenshot, Gong recording, or redlined contract is dragged onto the upload field, then Agreed reviews the buyer’s requested changes."
+	label="A screenshot is dragged onto the upload field, then Agreed reviews the buyer’s requested changes."
 	bind:element={widgetElement}
 	bind:sceneElement
 >
-	<FeatureDemoApp wide>
+	<FeatureDemoApp
+		wide={step.state.screen !== 'review'}
+		pointsLeft={step.state.screen === 'review' ? demoStartingPoints : undefined}
+	>
 		{#if step.state.screen === 'upload'}
-			<UploadDropzonePreview
+			<UploadScreen
+				compact
 				highlighted={step.state.hover}
 				{registerTarget}
 				dropzoneTarget="dropzone"
 			/>
-		{:else}
-			<UploadProcessingPreview
-				tasks={uploadProcessingTasks(step.state.kind)}
+		{:else if step.state.screen === 'processing'}
+			<ProcessingScreen
+				tasks={uploadProcessingTasks}
 				activeTask={step.state.activeTask}
 				completed={step.state.completed}
 			/>
+		{:else}
+			<ReviewScreen compact />
 		{/if}
 	</FeatureDemoApp>
 
@@ -68,8 +76,8 @@
 		visible={step.cursor !== null}
 		mode={step.cursor?.mode}
 	>
-		{#if step.state.file === 'held'}
-			<UploadFilePreview kind={step.state.kind} />
+		{#if step.state.screen === 'upload' && step.state.file === 'held'}
+			<UploadFilePreview />
 		{/if}
 	</GuidedCursor>
 </FeatureDemoFrame>

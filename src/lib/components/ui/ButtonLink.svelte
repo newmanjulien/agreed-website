@@ -27,8 +27,8 @@
     'inline-flex items-center justify-center font-book leading-none transition-colors duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black';
   const shapeClasses = { default: 'rounded-[8px]', pill: 'rounded-full' };
   const sizeClasses = {
-    small: 'h-[36px] px-[14px] text-[14px]',
-    medium: 'h-[42px] px-[14px] text-[14px]',
+    small: 'h-[40px] px-[14px] text-[14px]',
+    medium: 'h-[44px] px-[14px] text-[14px]',
     large: 'h-[48px] px-[23px] text-[16px]',
     xlarge: 'h-[58px] px-[26px] text-[17px]'
   };

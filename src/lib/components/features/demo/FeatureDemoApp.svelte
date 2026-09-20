@@ -25,7 +25,7 @@
 	.feature-demo-app {
 		--app-header-height: 40px;
 		--app-gutter: 16px;
-		--demo-zoom: 0.9;
+		--demo-zoom: 0.84;
 		position: absolute;
 		top: 0;
 		left: 0;

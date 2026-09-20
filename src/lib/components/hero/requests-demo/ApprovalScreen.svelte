@@ -1,7 +1,13 @@
 <script lang="ts">
-	import { approvalRequest } from './approval-tour';
+	import type { ChangeRequest } from './types';
 
-	let { text = '' }: { text?: string } = $props();
+	let {
+		text = '',
+		request
+	}: {
+		text?: string;
+		request: ChangeRequest;
+	} = $props();
 
 	const canSubmit = $derived(text.trim() !== '');
 </script>
@@ -22,12 +28,12 @@
 				</span>
 
 				<p class="m-0 text-[13.5px] leading-snug text-ink-muted">
-					{approvalRequest.requestedChange}
+					{request.requestedChange}
 				</p>
 			</div>
 
 			<label class="sr-only" for="approval-justification">
-				Explain {approvalRequest.requestedChange}
+				Explain {request.requestedChange}
 			</label>
 
 			<textarea

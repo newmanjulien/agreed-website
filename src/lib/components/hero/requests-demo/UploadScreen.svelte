@@ -25,7 +25,32 @@
 </script>
 
 <script lang="ts">
-	let { onStart }: { onStart?: () => void } = $props();
+	import type { Attachment } from 'svelte/attachments';
+
+	let {
+		onStart,
+		highlighted = false,
+		showResources = false,
+		compact = false,
+		registerTarget,
+		dropzoneTarget
+	}: {
+		onStart?: () => void;
+		highlighted?: boolean;
+		showResources?: boolean;
+		compact?: boolean;
+		registerTarget?: (name: string, element: Element | null) => void;
+		dropzoneTarget?: string;
+	} = $props();
+
+	const titleId = $props.id();
+	const interactive = $derived(onStart !== undefined);
+
+	const attachDropzone: Attachment = (node) => {
+		if (!dropzoneTarget || !registerTarget) return;
+		registerTarget(dropzoneTarget, node);
+		return () => registerTarget(dropzoneTarget, null);
+	};
 </script>
 
 {#snippet resourceCard(card: Card)}
@@ -142,15 +167,20 @@
 	</svg>
 {/snippet}
 
-<div class="h-full overflow-auto px-(--app-gutter)">
+<div
+	class={[
+		'bg-surface px-(--app-gutter)',
+		compact ? 'flex h-full min-h-0 flex-col overflow-hidden' : 'h-full overflow-auto'
+	]}
+>
 	<section
-		class="mx-auto w-full max-w-[777px] pt-[70px] text-center"
-		aria-labelledby="request-upload-title"
+		class={[
+			'mx-auto w-full max-w-[777px] text-center',
+			compact ? 'flex min-h-0 w-full flex-1 flex-col pt-7' : 'pt-[70px]'
+		]}
+		aria-labelledby={titleId}
 	>
-		<h1
-			id="request-upload-title"
-			class="text-[21.5px] leading-[1.22] tracking-[-0.02em] text-ink"
-		>
+		<h1 id={titleId} class="text-[21.5px] leading-[1.22] tracking-[-0.02em] text-ink">
 			Upload changes the buyer requested
 		</h1>
 
@@ -161,9 +191,18 @@
 
 		<button
 			type="button"
-			class="group relative mt-[40px] grid min-h-[283px] w-full cursor-pointer place-items-center rounded-2xl border-0 bg-canvas/40 px-[29.2px] text-center font-[inherit] text-[inherit] transition-colors hover:bg-canvas/70 focus-visible:bg-canvas/60 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2"
-			data-demo-hit
+			class={[
+				'relative grid w-full place-items-center rounded-2xl border-0 px-[29.2px] text-center font-[inherit] text-[inherit] transition-colors',
+				compact ? 'mt-6 mb-7 min-h-0 flex-1' : 'mt-[40px] min-h-[283px]',
+				interactive &&
+					'group cursor-pointer bg-canvas/40 hover:bg-canvas/70 focus-visible:bg-canvas/60 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2',
+				!interactive && (highlighted ? 'bg-selection-highlight/28' : 'bg-canvas/40')
+			]}
+			tabindex={interactive ? undefined : -1}
+			aria-disabled={interactive ? undefined : true}
+			data-demo-hit={interactive ? true : undefined}
 			onclick={() => onStart?.()}
+			{@attach attachDropzone}
 		>
 			<svg
 				class="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
@@ -176,20 +215,28 @@
 					height="calc(100% - 1.5px)"
 					rx="15"
 					fill="none"
-					stroke="var(--color-line)"
+					stroke={highlighted ? 'var(--color-accent)' : 'var(--color-line)'}
 					stroke-width="1.3"
 					stroke-dasharray="7 5"
-					class="transition-colors group-hover:stroke-ink-muted/30 group-focus-visible:stroke-ink-muted/30"
+					class={[
+						'transition-colors',
+						interactive && 'group-hover:stroke-ink-muted/30 group-focus-visible:stroke-ink-muted/30'
+					]}
 				/>
 			</svg>
 
 			<div class="relative flex flex-col items-center">
 				<span class="max-w-[298px] text-[15.5px] leading-[1.5] text-ink-muted">
-					Drop a screenshot, recording, or redlined contract here
+					{highlighted
+						? 'Drop to upload the buyer’s requested changes'
+						: 'Drop a screenshot, recording, or redlined contract here'}
 				</span>
 
 				<span
-					class="mt-[20px] inline-flex min-w-[92px] items-center justify-center rounded-full bg-accent px-[22px] py-[11px] text-[15.5px] text-white transition-[filter] group-hover:brightness-95 group-focus-visible:brightness-95"
+					class={[
+						'mt-[20px] inline-flex min-w-[92px] items-center justify-center rounded-full bg-accent px-[22px] py-[11px] text-[15.5px] text-white',
+						interactive && 'transition-[filter] group-hover:brightness-95 group-focus-visible:brightness-95'
+					]}
 				>
 					Start
 				</span>
@@ -197,11 +244,13 @@
 		</button>
 	</section>
 
-	<section class="mx-auto mt-[90px] w-full max-w-[1262px] pb-[80px]" aria-label="Helpful resources">
-		<div class="flex flex-col gap-[20px] md:flex-row md:justify-between md:gap-[80px]">
-			{#each cards as card}
-				{@render resourceCard(card)}
-			{/each}
-		</div>
-	</section>
+	{#if showResources}
+		<section class="mx-auto mt-[90px] w-full max-w-[1262px] pb-[80px]" aria-label="Helpful resources">
+			<div class="flex flex-col gap-[20px] md:flex-row md:justify-between md:gap-[80px]">
+				{#each cards as card}
+					{@render resourceCard(card)}
+				{/each}
+			</div>
+		</section>
+	{/if}
 </div>

@@ -1,22 +1,29 @@
 <script lang="ts">
 	import CheckIcon from 'phosphor-svelte/lib/CheckIcon';
 	import CircleNotchIcon from 'phosphor-svelte/lib/CircleNotchIcon';
-	import type { UploadProcessingTask } from './upload-changes-tour';
+	import type { ProcessingTask } from './processing';
 
 	let {
 		tasks,
 		activeTask,
 		completed
 	}: {
-		tasks: ReadonlyArray<UploadProcessingTask>;
+		tasks: ReadonlyArray<ProcessingTask>;
 		activeTask: number;
 		completed: number;
 	} = $props();
 </script>
 
-<div class="grid h-full place-items-center bg-surface px-(--app-gutter)">
+<div
+	class="grid h-full place-items-center bg-surface px-(--app-gutter)"
+	role="status"
+	aria-busy="true"
+>
+	<span class="sr-only">Reviewing your uploaded changes.</span>
+
 	<div
-		class="activity-frame relative w-max max-w-full overflow-hidden [--task-height:40px] [--task-icon-size:26px] max-[590px]:[--task-icon-size:23px] max-[330px]:[--task-icon-size:21px]"
+		class="activity-frame pointer-events-none relative w-max max-w-full overflow-hidden select-none [--task-height:40px] [--task-icon-size:26px] max-[590px]:[--task-icon-size:23px] max-[330px]:[--task-icon-size:21px]"
+		aria-hidden="true"
 	>
 		<ol
 			class="activity-list relative top-[calc(var(--task-height)+4.5px)] m-0 w-max list-none p-0"

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import DemoHeader from './DemoHeader.svelte';
 	import RequestProcessing from './RequestProcessing.svelte';
-	import RequestReview from './RequestReview.svelte';
-	import RequestUpload from './RequestUpload.svelte';
+	import ReviewScreen from './ReviewScreen.svelte';
+	import UploadScreen from './UploadScreen.svelte';
 
 	const STAGE_HEIGHT = 800;
 	const HINT_PAD = 4;
@@ -104,11 +104,11 @@
 
 		<div class="min-h-0 flex-1 overflow-hidden">
 			{#if screen === 'upload'}
-				<RequestUpload onStart={() => goTo('processing')} />
+				<UploadScreen showResources onStart={() => goTo('processing')} />
 			{:else if screen === 'processing'}
 				<RequestProcessing onFinished={() => goTo('review')} />
 			{:else}
-				<RequestReview />
+				<ReviewScreen infoInteractive />
 			{/if}
 		</div>
 	</div>

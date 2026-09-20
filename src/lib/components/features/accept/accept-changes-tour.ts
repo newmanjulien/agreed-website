@@ -1,9 +1,10 @@
 import { mockRequest } from '../../hero/requests-demo/mock-requests.ts';
+import { demoStartingPoints } from '../demo/demo-points.ts';
 import type { GuidedTourStep } from '../demo/tour-model.ts';
 
 export const acceptDemo = {
 	requestId: 'notice-period',
-	startingPoints: 10
+	startingPoints: demoStartingPoints
 } as const;
 
 export const acceptRequest = mockRequest(acceptDemo.requestId);
