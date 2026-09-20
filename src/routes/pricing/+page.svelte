@@ -38,7 +38,7 @@
 </svelte:head>
 
 <ContentMeasure>
-  <section class="mx-auto max-w-[620px] pb-[150px] pt-[72px] sm:pb-[190px]">
+  <section class="mx-auto max-w-[620px] px-[18px] pb-[150px] pt-[72px] sm:px-8 sm:pb-[190px]">
     <h1 class="font-heading text-[30px] leading-[1.05] text-ink">
       Pricing
     </h1>
@@ -49,7 +49,7 @@
 
     <!-- Pricing card -->
     <article
-      class="mt-[36px] rounded-[11px] border border-line bg-surface px-[24px] py-[28px] shadow-[0_1px_0_rgba(32,33,36,0.03)]"
+      class="mt-[36px] rounded-[11px] border border-line px-[24px] py-[28px]"
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-ink">

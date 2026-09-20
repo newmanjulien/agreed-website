@@ -8,7 +8,7 @@
 </script>
 
 <aside class="z-layer-chrome fixed left-[54px] top-[36px] hidden lg:block" aria-label="Primary">
-  <a href="/" class="mb-[22px] block h-[32.1515625px] w-fit" aria-label="Home">
+  <a href="/" class="mb-[22px] block h-[27.5px] w-fit" aria-label="Home">
     <img src="/logo.png" alt="" class="h-full w-auto" />
   </a>
   <nav class="flex flex-col gap-[15px] text-[15px] font-book leading-none text-ink">

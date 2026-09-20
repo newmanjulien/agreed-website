@@ -7,7 +7,7 @@
 </svelte:head>
 
 <ContentMeasure>
-  <section class="mx-auto max-w-[620px] pb-[150px] pt-[72px] sm:pb-[190px]">
+  <section class="mx-auto max-w-[620px] px-[18px] pb-[150px] pt-[72px] sm:px-8 sm:pb-[190px]">
     <h1 class="font-heading text-[30px] leading-[1.05] text-ink">
       About
     </h1>

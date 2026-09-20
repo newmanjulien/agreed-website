@@ -17,8 +17,8 @@
   const activePath = $derived(page.url.pathname);
 </script>
 
-<header class="z-layer-chrome sticky top-0 flex h-[var(--site-mobile-header-height)] w-full items-center justify-between bg-surface px-[20px] lg:hidden">
-  <a href="/" class="h-[34.7236875px] w-fit" aria-label="Home">
+<header class="z-layer-chrome sticky top-0 flex h-[var(--site-mobile-header-height)] w-full items-center justify-between bg-[var(--site-bg)] px-[20px] lg:hidden">
+  <a href="/" class="h-[30px] w-fit" aria-label="Home">
     <img src="/logo.png" alt="" class="h-full w-auto" />
   </a>
   <button
@@ -38,7 +38,7 @@
   {#if open}
     <nav
       id="mobile-menu"
-      class="z-layer-chrome-popover fixed bottom-0 left-0 right-0 top-[var(--site-mobile-header-height)] flex flex-col overflow-y-auto bg-surface pb-[28px]"
+      class="z-layer-chrome-popover fixed bottom-0 left-0 right-0 top-[var(--site-mobile-header-height)] flex flex-col overflow-y-auto bg-[var(--site-bg)] pb-[28px]"
       aria-label="Mobile primary"
       transition:slide={{ duration: 380, axis: 'y', easing: cubicOut }}
     >

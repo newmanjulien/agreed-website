@@ -7,7 +7,6 @@
 
   let bottom = $state(GAP);
   let open = $state(false);
-  let root = $state<HTMLDivElement>();
   let trigger = $state<HTMLButtonElement>();
   let link = $state<HTMLAnchorElement>();
 
@@ -30,26 +29,6 @@
     };
   });
 
-  $effect(() => {
-    if (!open) return;
-
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return;
-      event.preventDefault();
-      close();
-    };
-    const onPointerDown = (event: PointerEvent) => {
-      if (!root?.contains(event.target as Node)) close();
-    };
-
-    window.addEventListener('keydown', onKey);
-    window.addEventListener('pointerdown', onPointerDown);
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      window.removeEventListener('pointerdown', onPointerDown);
-    };
-  });
-
   async function show() {
     open = true;
     await tick();
@@ -64,7 +43,6 @@
 </script>
 
 <div
-  bind:this={root}
   class="fixed right-5 lg:right-[42px]"
   class:z-layer-chrome={!open}
   class:z-layer-chrome-popover={open}

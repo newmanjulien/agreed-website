@@ -6,7 +6,7 @@
   let { id }: { id?: string } = $props();
 </script>
 
-<section {id} class="border-t border-line bg-canvas/60 px-[18px] py-[72px] sm:px-8 sm:py-[90px]">
+<section {id} class="border-t border-line bg-white px-[18px] py-[72px] sm:px-8 sm:py-[90px]">
   <ContentMeasure class="flex flex-col items-center text-center">
     <h2 class="font-heading text-[26px] leading-[1.08] text-ink sm:text-[31px] sm:leading-[1.06]">
       Accelerate your sales cycle
