@@ -45,7 +45,7 @@
 		<div class="mx-auto w-full max-w-[420px]">
 			<button
 				type="button"
-				class="h-8 w-full rounded-full border border-line/80 bg-surface px-3 text-[14.5px] text-ink-muted shadow-[0_1px_2px_rgba(0,0,0,0.06)] disabled:cursor-default disabled:opacity-40"
+				class="h-[35px] w-full rounded-full border border-line/80 bg-surface px-3 text-[14.5px] text-ink-muted shadow-[0_1px_2px_rgba(0,0,0,0.06)] disabled:cursor-default disabled:opacity-40"
 				tabindex="-1"
 				disabled={!canSubmit}
 				aria-disabled={!canSubmit}
