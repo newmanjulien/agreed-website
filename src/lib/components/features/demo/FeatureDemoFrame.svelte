@@ -26,7 +26,7 @@
 		height: 430px;
 		overflow: hidden;
 		border: 1px solid var(--color-line);
-		border-radius: 16px;
+		border-radius: 8px;
 		background: color-mix(in srgb, var(--color-canvas) 60%, transparent);
 		box-shadow: 0 1px 0 color-mix(in srgb, var(--color-ink) 3%, transparent);
 		pointer-events: none;

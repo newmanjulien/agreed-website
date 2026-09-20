@@ -57,7 +57,7 @@
 
 <div class="h-full min-h-0 overflow-hidden bg-surface px-(--app-gutter)">
 	<div class="px-2">
-		<h1 class="pt-7 pb-4 text-[23.5px] leading-[1.22] tracking-[-0.02em] text-ink">
+		<h1 class="pt-[35px] pb-4 text-[23.5px] leading-[1.22] tracking-[-0.02em] text-ink">
 			Review requests
 		</h1>
 

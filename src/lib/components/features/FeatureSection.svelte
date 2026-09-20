@@ -23,7 +23,7 @@
       {title}
     </h2>
 
-    <p class="text-[18px] font-light leading-[1.55] tracking-[0.2px] text-ink-muted/80">
+    <p class="text-[17px] font-light leading-[1.55] tracking-[0.2px] text-ink-muted/80">
       {@render body()}
     </p>
 

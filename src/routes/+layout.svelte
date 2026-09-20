@@ -1,6 +1,7 @@
 <script lang="ts">
   import '$lib/styles/marketing.css';
   import type { LayoutProps } from './$types';
+  import CalendarButton from '$lib/components/site/CalendarButton.svelte';
   import DesktopHeaderActions from '$lib/components/site/DesktopHeaderActions.svelte';
   import DesktopSideMenu from '$lib/components/site/DesktopSideMenu.svelte';
   import Footer from '$lib/components/site/Footer.svelte';
@@ -24,6 +25,7 @@
   <DesktopSideMenu />
   <DesktopHeaderActions />
   <MobileHeader />
+  <CalendarButton />
 
   <div class="flex-1">
     {@render children()}

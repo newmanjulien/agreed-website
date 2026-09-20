@@ -25,12 +25,18 @@
 	.feature-demo-app {
 		--app-header-height: 40px;
 		--app-gutter: 16px;
+		--demo-zoom: 0.9;
 		position: absolute;
-		inset: 0;
+		top: 0;
+		left: 0;
+		width: calc(100% / var(--demo-zoom));
+		height: calc(100% / var(--demo-zoom));
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
 		background: var(--color-surface);
+		transform: scale(var(--demo-zoom));
+		transform-origin: top left;
 	}
 
 	.feature-demo-app:not(.is-wide) :global(.demo-header-bar) {

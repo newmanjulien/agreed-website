@@ -13,8 +13,7 @@
     { id: 'upload', label: 'Upload what the buyer changed' },
     { id: 'accept', label: 'Reps see what they can accept' },
     { id: 'respond', label: 'Reps know how to keep the deal moving' },
-    { id: 'customers', label: 'See why teams stay with Agreed' },
-    { id: 'get-started', label: 'Accelerate your sales cycle' }
+    { id: 'customers', label: 'See why teams stay with Agreed' }
   ];
 </script>
 
@@ -23,7 +22,7 @@
   <meta name="description" content="Agreed is a sales contract that explains itself" />
 </svelte:head>
 
-<SectionNav sections={pageSections} />
+<SectionNav sections={pageSections} cover="cta" />
 
 <main>
   <Hero id="overview" />
@@ -56,6 +55,6 @@
       <CustomerTestimonials />
     </FeatureSection>
 
-    <CtaSection id="get-started" />
+    <CtaSection id="cta" />
   </div>
 </main>
