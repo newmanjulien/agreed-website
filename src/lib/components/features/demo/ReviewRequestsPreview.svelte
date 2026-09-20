@@ -24,10 +24,10 @@
 
 	const actionStyles = {
 		accept:
-			'bg-demo-ink/90 text-demo-surface shadow-[0_1px_2px_rgba(0,0,0,0.10)] hover:bg-demo-ink/88',
-		add: 'border border-demo-line/80 bg-demo-surface/20 text-demo-ink-muted shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:bg-demo-canvas',
+			'bg-ink/90 text-surface shadow-[0_1px_2px_rgba(0,0,0,0.10)] hover:bg-ink/88',
+		add: 'border border-line/80 bg-surface/20 text-ink-muted shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:bg-canvas',
 		remove:
-			'border border-demo-danger/20 bg-demo-danger/10 text-demo-danger/70 shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:bg-demo-danger/16'
+			'border border-danger/20 bg-danger/10 text-danger/70 shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:bg-danger/16'
 	} satisfies Record<ActionVariant, string>;
 
 	function rowAction(request: ChangeRequest): { variant: ActionVariant; label: string } {
@@ -49,23 +49,23 @@
 	};
 
 	const typeDotClasses = {
-		'Can accept': 'bg-demo-success',
-		'Needs approval': 'bg-demo-accent',
-		"Can't accept": 'bg-demo-danger'
+		'Can accept': 'bg-success',
+		'Needs approval': 'bg-accent',
+		"Can't accept": 'bg-danger'
 	} satisfies Record<ChangeRequestType, string>;
 </script>
 
-<div class="h-full min-h-0 overflow-hidden bg-demo-surface px-(--app-gutter)">
+<div class="h-full min-h-0 overflow-hidden bg-surface px-(--app-gutter)">
 	<div class="px-2">
-		<h1 class="pt-7 pb-4 text-[23.5px] leading-[1.22] tracking-[-0.02em] text-demo-ink">
+		<h1 class="pt-7 pb-4 text-[23.5px] leading-[1.22] tracking-[-0.02em] text-ink">
 			Review requests
 		</h1>
 
-		<p class="flex items-center gap-1.5 pb-7 text-[14.5px] leading-relaxed text-demo-ink-muted">
+		<p class="flex items-center gap-1.5 pb-7 text-[14.5px] leading-relaxed text-ink-muted">
 			<span>You need approval for all changes once points are used up</span>
 
 			<span
-				class="inline-flex size-5 shrink-0 items-center justify-center rounded-full text-demo-ink-muted"
+				class="inline-flex size-5 shrink-0 items-center justify-center rounded-full text-ink-muted"
 				aria-hidden="true"
 			>
 				<InfoIcon size={18} weight="regular" />
@@ -75,12 +75,12 @@
 		<table class="w-full border-collapse" aria-label="Change requests">
 			<thead>
 				<tr class="h-11">
-					<th class="w-full max-w-0 pr-3 text-left text-[14px] font-medium text-demo-ink" scope="col">
+					<th class="w-full max-w-0 pr-3 text-left text-[14px] font-medium text-ink" scope="col">
 						Requested changes
 					</th>
 
 					<th
-						class="w-[1%] px-5 text-left text-[14px] font-medium whitespace-nowrap text-demo-ink"
+						class="w-[1%] px-5 text-left text-[14px] font-medium whitespace-nowrap text-ink"
 						scope="col"
 					>
 						Type
@@ -96,12 +96,12 @@
 					{@const action = rowAction(request)}
 					{@const requestAccepted = acceptedRequestId === request.id}
 
-					<tr class="h-[55px] border-t border-demo-line/60">
+					<tr class="h-[55px] border-t border-line/60">
 						<td class="w-full max-w-0 pr-3">
 							<div class="flex min-w-0 items-center gap-2">
 								{#if requestAccepted}
 									<span
-										class="grid size-5 shrink-0 place-items-center text-demo-success"
+										class="grid size-5 shrink-0 place-items-center text-success"
 										aria-hidden="true"
 									>
 										<CheckIcon size={16} weight="bold" />
@@ -109,7 +109,7 @@
 								{/if}
 
 								<div
-									class="min-w-0 truncate text-[15px] leading-snug text-demo-ink-muted"
+									class="min-w-0 truncate text-[15px] leading-snug text-ink-muted"
 									title={request.requestedChange}
 								>
 									{request.requestedChange}
@@ -121,7 +121,7 @@
 							<div class="flex items-center gap-2">
 								<span class={['size-2 shrink-0 rounded-full', dotClass]} aria-hidden="true"></span>
 
-								<span class="text-[14px] whitespace-nowrap text-demo-ink-muted">
+								<span class="text-[14px] whitespace-nowrap text-ink-muted">
 									{request.type}
 								</span>
 							</div>

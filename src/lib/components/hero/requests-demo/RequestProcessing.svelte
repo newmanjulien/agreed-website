@@ -67,7 +67,7 @@
 </script>
 
 <div
-	class="grid h-full place-items-center bg-demo-surface px-(--app-gutter)"
+	class="grid h-full place-items-center bg-surface px-(--app-gutter)"
 	role="status"
 	aria-busy="true"
 >
@@ -87,12 +87,12 @@
 				{@const working = activeTask === i && !done}
 				<li
 					class={[
-						'flex h-(--task-height) w-max items-center gap-3 text-base leading-[1.4] font-[350] tracking-[-0.19px] text-demo-ink-muted transition-opacity duration-300 max-[590px]:gap-2.5 max-[590px]:text-[13px] max-[590px]:tracking-[-0.11px] max-[330px]:gap-[9px] max-[330px]:text-sm motion-reduce:transition-none',
+						'flex h-(--task-height) w-max items-center gap-3 text-base leading-[1.4] font-[350] tracking-[-0.19px] text-ink-muted transition-opacity duration-300 max-[590px]:gap-2.5 max-[590px]:text-[13px] max-[590px]:tracking-[-0.11px] max-[330px]:gap-[9px] max-[330px]:text-sm motion-reduce:transition-none',
 						shown ? 'opacity-100' : 'opacity-0'
 					]}
 				>
 					<span
-						class="relative block size-(--task-icon-size) shrink-0 rounded-full bg-demo-canvas text-demo-ink-muted"
+						class="relative block size-(--task-icon-size) shrink-0 rounded-full bg-canvas text-ink-muted"
 					>
 						<span
 							class={[
@@ -105,7 +105,7 @@
 						</span>
 						<span
 							class={[
-								'absolute inset-0 grid place-items-center text-demo-ink-muted transition-opacity duration-200 motion-reduce:transition-none',
+								'absolute inset-0 grid place-items-center text-ink-muted transition-opacity duration-200 motion-reduce:transition-none',
 								done ? 'opacity-100' : 'opacity-0'
 							]}
 						>

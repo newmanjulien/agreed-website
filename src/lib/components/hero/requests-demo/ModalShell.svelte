@@ -35,7 +35,7 @@
 </script>
 
 <div
-	class="absolute inset-0 z-10 flex items-stretch justify-center bg-demo-canvas/70 p-4 text-demo-ink"
+	class="absolute inset-0 z-10 flex items-stretch justify-center bg-canvas/70 p-4 text-ink"
 	data-demo-hint-layer
 	role="presentation"
 	onclick={handleBackdropClick}
@@ -48,7 +48,7 @@
 >
 	<div
 		bind:this={panelElement}
-		class="relative flex h-full min-h-0 w-full max-w-[480px] flex-col overflow-hidden rounded-xl border border-demo-line bg-demo-surface shadow-none"
+		class="relative flex h-full min-h-0 w-full max-w-[480px] flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-none"
 		role="dialog"
 		aria-modal="true"
 		aria-labelledby={titleId}
@@ -61,7 +61,7 @@
 		</div>
 
 		<header class="min-w-0 px-4 py-4 pr-14">
-			<h2 id={titleId} class="text-[17.5px] leading-tight font-medium text-demo-ink">{title}</h2>
+			<h2 id={titleId} class="text-[17.5px] leading-tight font-medium text-ink">{title}</h2>
 		</header>
 
 		{#if children}

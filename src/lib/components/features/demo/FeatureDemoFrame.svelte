@@ -25,10 +25,10 @@
 		position: relative;
 		height: 430px;
 		overflow: hidden;
-		border: 1px solid rgb(231 229 228);
+		border: 1px solid var(--color-line);
 		border-radius: 16px;
-		background: color-mix(in srgb, rgb(250 250 249) 60%, transparent);
-		box-shadow: 0 1px 0 rgba(48, 47, 45, 0.03);
+		background: color-mix(in srgb, var(--color-canvas) 60%, transparent);
+		box-shadow: 0 1px 0 color-mix(in srgb, var(--color-ink) 3%, transparent);
 		pointer-events: none;
 		user-select: none;
 	}

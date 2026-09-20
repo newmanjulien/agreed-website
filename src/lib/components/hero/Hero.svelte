@@ -4,20 +4,26 @@
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
   import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
   import RequestsDemo from './requests-demo/RequestsDemo.svelte';
+
+  let { id }: { id?: string } = $props();
 </script>
 
 <section
-  class="px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]"
+  {id}
+  class={[
+    'px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]',
+    id && 'anchor-section'
+  ]}
 >
   <ContentMeasure class="flex flex-col items-center text-center">
     <h1
-      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-stone-750 sm:max-w-none sm:text-[54px]"
+      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[54px]"
     >
       Close without legal delays
     </h1>
 
     <p
-      class="hero-support mt-[8px] max-w-[550px] font-light text-[19px] leading-[1.40] text-stone-500"
+      class="hero-support mt-[8px] max-w-[550px] font-light text-[18px] leading-[1.40] text-ink-muted"
     >
     Agreed lets sales reps safely get contracts signed on their own
     </p>
@@ -31,7 +37,7 @@
         size="xlarge"
         shape="pill"
         highlightSweep
-        class="shadow-[0_5px_12px_rgba(41,37,36,0.2)] hover:-translate-y-[2px] hover:shadow-[0_8px_11px_rgba(41,37,36,0.28)]"
+        class="shadow-[0_5px_12px_rgba(32,33,36,0.2)] hover:-translate-y-[2px] hover:shadow-[0_8px_11px_rgba(32,33,36,0.28)]"
       >
         Start for free
       </ButtonLink>
@@ -48,10 +54,10 @@
       />
 
       <div
-        class="mx-auto h-[560px] w-full max-w-[936px] overflow-hidden rounded-[12px] border border-stone-200/90 bg-stone-100/70 p-[7px] shadow-[0_18px_45px_-24px_rgba(41,37,36,0.22)] sm:aspect-[1770/1112] sm:h-auto sm:rounded-[16px] sm:p-[9px]"
+        class="mx-auto h-[560px] w-full max-w-[936px] overflow-hidden rounded-[12px] border border-line/90 bg-line/60 p-[6px] shadow-[0_18px_45px_-24px_rgba(32,33,36,0.22)] sm:aspect-[1770/1112] sm:h-auto sm:rounded-[14px] sm:p-[7px]"
       >
         <div
-          class="h-full w-full overflow-hidden rounded-[7px] border border-stone-200 bg-white sm:rounded-[10px]"
+          class="h-full w-full overflow-hidden rounded-[6px] border border-line bg-surface sm:rounded-[8px]"
         >
           <RequestsDemo />
         </div>
@@ -136,7 +142,7 @@
   }
 
   .demo-callout {
-    color: #77716a;
+    color: var(--color-ink-muted);
   }
 
   .demo-callout-text {

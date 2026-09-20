@@ -10,7 +10,7 @@
 	} = $props();
 </script>
 
-<header class="h-[var(--app-header-height)] shrink-0 border-b border-demo-line/60 bg-demo-surface">
+<header class="h-[var(--app-header-height)] shrink-0 border-b border-line/60 bg-surface">
 	<div class="demo-header-bar flex h-full w-full items-center px-1.5 sm:px-2.5 md:px-4">
 		{#if homeEnabled}
 			<button
@@ -31,17 +31,17 @@
 		<div class="ml-auto flex items-center gap-2.5 sm:gap-3">
 			{#if pointsLeft !== undefined}
 				<p
-					class="text-[12px] leading-none text-demo-ink-muted sm:text-[13px]"
+					class="text-[12px] leading-none text-ink-muted sm:text-[13px]"
 					role="status"
 					aria-label="{pointsLeft} points left"
 				>
-					<span class="font-medium tabular-nums text-demo-ink">{pointsLeft}</span>
+					<span class="font-medium tabular-nums text-ink">{pointsLeft}</span>
 					<span> points left</span>
 				</p>
 			{/if}
 
 			<div
-				class="grid size-[30px] shrink-0 place-items-center rounded-full bg-demo-selection-highlight text-[11.5px] font-medium text-demo-accent"
+				class="grid size-[26px] shrink-0 place-items-center rounded-full bg-selection-highlight text-[10.5px] font-medium text-accent"
 				role="img"
 				aria-label="User avatar"
 			>

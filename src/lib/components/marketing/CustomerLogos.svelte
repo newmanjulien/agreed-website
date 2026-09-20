@@ -199,13 +199,13 @@
     width: max-content;
     padding: 7px 10px;
     border-radius: 7px;
-    background: #1d1a16;
+    background: var(--color-ink);
     color: #fff;
     font-size: 12px;
     font-weight: 450;
     line-height: 1;
     white-space: nowrap;
-    box-shadow: 0 6px 16px rgb(29 26 22 / 18%);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-ink) 18%, transparent);
     opacity: 0;
     pointer-events: none;
     transform: translateX(var(--tooltip-x));

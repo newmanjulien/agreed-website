@@ -4,10 +4,12 @@
 
   let {
     children,
-    class: className
+    class: className,
+    id
   }: {
     children: Snippet;
     class?: string;
+    id?: string;
   } = $props();
 
   let viewed = $state(true);
@@ -26,7 +28,8 @@
 </script>
 
 <section
-  class={['reveal-section', className]}
+  {id}
+  class={['reveal-section', id && 'anchor-section', className]}
   class:is-viewed={viewed}
   {@attach revealWhenViewed}
 >

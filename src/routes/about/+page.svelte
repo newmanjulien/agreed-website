@@ -8,11 +8,11 @@
 
 <ContentMeasure>
   <section class="mx-auto max-w-[620px] pb-[150px] pt-[72px] sm:pb-[190px]">
-    <h1 class="font-heading text-[30px] leading-[1.05] text-stone-900">
+    <h1 class="font-heading text-[30px] leading-[1.05] text-ink">
       About
     </h1>
 
-    <div class="mt-[24px] space-y-[24px] text-[17px] font-book leading-[1.65] text-stone-700">
+    <div class="mt-[24px] space-y-[24px] text-[17px] font-book leading-[1.65] text-ink">
       <p>
         Hey there! We’re building a contracting platform that lets businesses partner more easily.
       </p>

@@ -85,7 +85,7 @@
 </script>
 
 <div
-	class="requests-demo relative h-full w-full overflow-hidden bg-demo-surface"
+	class="requests-demo relative h-full w-full overflow-hidden bg-surface"
 	role="presentation"
 	bind:this={frameElement}
 	bind:clientWidth={frameWidth}
@@ -93,7 +93,7 @@
 	onpointerdown={handlePointerDown}
 >
 	<div
-		class="absolute left-0 flex flex-col overflow-hidden bg-demo-surface"
+		class="absolute left-0 flex flex-col overflow-hidden bg-surface"
 		style:width="{stageWidth}px"
 		style:height="{STAGE_HEIGHT}px"
 		style:top="{offsetY}px"
@@ -117,7 +117,7 @@
 		<div class="pointer-events-none absolute inset-0 z-20" aria-hidden="true">
 			{#each hintRects as rect}
 				<div
-					class="absolute rounded-[10px] border-2 border-demo-accent bg-demo-accent/20"
+					class="absolute rounded-[10px] border-2 border-accent bg-accent/20"
 					style:left="{rect.left}px"
 					style:top="{rect.top}px"
 					style:width="{rect.width}px"
@@ -130,7 +130,7 @@
 
 <style>
 	.requests-demo {
-		--app-header-height: 44px;
+		--app-header-height: 40px;
 		--app-gutter: 32px;
 	}
 </style>

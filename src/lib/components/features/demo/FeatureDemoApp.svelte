@@ -23,14 +23,14 @@
 
 <style>
 	.feature-demo-app {
-		--app-header-height: 44px;
+		--app-header-height: 40px;
 		--app-gutter: 16px;
 		position: absolute;
 		inset: 0;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
-		background: var(--color-demo-surface);
+		background: var(--color-surface);
 	}
 
 	.feature-demo-app:not(.is-wide) :global(.demo-header-bar) {

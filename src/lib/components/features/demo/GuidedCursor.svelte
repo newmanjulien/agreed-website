@@ -80,7 +80,7 @@
 	<svg viewBox="0 0 32 40" width="32" height="40" shape-rendering="geometricPrecision" aria-hidden="true">
 		<path
 			d="M4 3v28.3l7.3-6.7 5.1 12.1 4.8-2-5.1-12h10.7L4 3Z"
-			fill="#202124"
+			fill="var(--color-ink)"
 			stroke="white"
 			stroke-width="2.4"
 			stroke-linejoin="round"
@@ -105,7 +105,7 @@
 	.guided-cursor.is-pressed svg { transform: scale(0.9); }
 	.click-ring {
 		position: absolute; top: -9px; left: -9px; width: 26px; height: 26px;
-		border: 2px solid rgba(37, 99, 235, 0.42); border-radius: 999px;
+		border: 2px solid color-mix(in srgb, var(--color-accent) 42%, transparent); border-radius: 999px;
 		opacity: 0; transform: scale(0.45);
 	}
 	.guided-cursor.is-pressed .click-ring { opacity: 0.55; transform: scale(0.62); }
