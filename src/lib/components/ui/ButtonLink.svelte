@@ -25,17 +25,17 @@
 
   const baseClasses =
     'inline-flex items-center justify-center font-book leading-none transition-colors duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black';
-  const shapeClasses = { default: 'rounded-[9px]', pill: 'rounded-full' };
+  const shapeClasses = { default: 'rounded-[8px]', pill: 'rounded-full' };
   const sizeClasses = {
     small: 'h-[36px] px-[14px] text-[14px]',
     medium: 'h-[42px] px-[14px] text-[14px]',
     large: 'h-[48px] px-[23px] text-[16px]',
-    xlarge: 'h-[64px] px-[28px] text-[19px]'
+    xlarge: 'h-[58px] px-[26px] text-[17px]'
   };
   const variantClasses = {
-    primary: 'bg-stone-750 text-white hover:bg-stone-700',
-    secondary: 'border border-stone-300 bg-white text-black hover:bg-stone-50',
-    soft: 'bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-stone-900'
+    primary: 'bg-ink text-white hover:bg-ink/90',
+    secondary: 'border border-line bg-surface text-ink hover:bg-canvas',
+    soft: 'bg-canvas text-ink hover:bg-hover hover:text-ink'
   };
 </script>
 

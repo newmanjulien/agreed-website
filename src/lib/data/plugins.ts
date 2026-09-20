@@ -1,10 +1,10 @@
-type IndustryNavigationItem = {
+type PluginNavigationItem = {
   id: string;
   label: string;
   href: string;
 };
 
-export const plugins: readonly IndustryNavigationItem[] = [
+export const plugins: readonly PluginNavigationItem[] = [
   { id: "salesforce", label: "Salesforce", href: "/plugins/salesforce" },
   { id: "hubspot", label: "Hubspot", href: "/plugins/hubspot" },
   {

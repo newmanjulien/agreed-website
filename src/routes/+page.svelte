@@ -1,56 +1,61 @@
 <script lang="ts">
   import Hero from '$lib/components/hero/Hero.svelte';
+  import CtaSection from '$lib/components/cta/CtaSection.svelte';
   import CustomerTestimonials from '$lib/components/features/CustomerTestimonials.svelte';
   import FeatureSection from '$lib/components/features/FeatureSection.svelte';
-  import FlagChangesWidget from '$lib/components/features/FlagChangesWidget.svelte';
-  import CannotChangeWidget from '$lib/components/features/CannotChangeWidget.svelte';
-  import AlwaysKeepMovingWidget from '$lib/components/features/AlwaysKeepMovingWidget.svelte';
-  import type { PageData } from './$types';
+  import UploadChangesWidget from '$lib/components/features/UploadChangesWidget.svelte';
+  import AcceptChangesWidget from '$lib/components/features/AcceptChangesWidget.svelte';
+  import RequestApprovalWidget from '$lib/components/features/RequestApprovalWidget.svelte';
+  import SectionNav from '$lib/components/site/SectionNav.svelte';
 
-  let { data }: { data: PageData } = $props();
+  const pageSections = [
+    { id: 'overview', label: 'Back to the start' },
+    { id: 'upload', label: 'Upload what the buyer changed' },
+    { id: 'accept', label: 'Reps see what they can accept' },
+    { id: 'respond', label: 'Reps know how to keep the deal moving' },
+    { id: 'customers', label: 'See why teams stay with Agreed' },
+    { id: 'get-started', label: 'Accelerate your sales cycle' }
+  ];
 </script>
 
 <svelte:head>
-  <title>Agreed | Contract that explains itself</title>
+  <title>Agreed | Lets sales reps get contracts signed on their own</title>
   <meta name="description" content="Agreed is a sales contract that explains itself" />
 </svelte:head>
 
+<SectionNav sections={pageSections} />
+
 <main>
-  <Hero agreementResult={data.agreementResult} />
+  <Hero id="overview" />
 
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
-    <FeatureSection title="Flag what can change">
+    <FeatureSection id="upload" title="Upload what the buyer changed">
       {#snippet body()}
-        Give customers a contract that marks which terms are flexible and lets them pick from alternatives that worked for others.
-      {/snippet}
-      {#if data.featurePreviewContent}
-        <FlagChangesWidget content={data.featurePreviewContent.flag} />
-      {/if}
+      Your reps upload the contract changes the buyer requested, and Agreed shows them what they can accept, what needs approval, and how to respond when they need to push back.      {/snippet}
+      <UploadChangesWidget />
     </FeatureSection>
 
-    <FeatureSection title="Explain what cannot change">
+    <FeatureSection id="accept" title="Reps see what they can accept">
       {#snippet body()}
-        For non-negotiables, the contract gives proven responses to each objection and helps customers address the concerns behind them.
+      Agreed checks each requested change against your approved positions, so reps can accept changes themselves when they are already approved.
       {/snippet}
-      {#if data.featurePreviewContent}
-        <CannotChangeWidget content={data.featurePreviewContent.nonNegotiable} />
-      {/if}
+      <AcceptChangesWidget />
     </FeatureSection>
 
-    <FeatureSection title="Always keep moving">
+    <FeatureSection id="respond" title="Reps know how to keep the deal moving">
       {#snippet body()}
-        Built-in comments keep the workflow natural beyond the self-serve format, connecting customers with the right rep if their concerns aren’t addressed.
+        When a change cannot be accepted, reps get clear talking points to respond. When approval is needed, they can get it without slowing down the deal.
       {/snippet}
-      {#if data.featurePreviewContent}
-        <AlwaysKeepMovingWidget content={data.featurePreviewContent.comments} />
-      {/if}
+      <RequestApprovalWidget />
     </FeatureSection>
 
-    <FeatureSection title="See why teams stay with Agreed">
+    <FeatureSection id="customers" title="See why teams stay with Agreed">
       {#snippet body()}
         Our retention is high. We spend most of our time building things for our existing customers. Here are some nice things they’ve said.
       {/snippet}
       <CustomerTestimonials />
     </FeatureSection>
+
+    <CtaSection id="get-started" />
   </div>
 </main>

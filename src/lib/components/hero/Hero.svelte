@@ -3,26 +3,29 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
   import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
-  import type { AgreementLoadResult } from '$lib/demo/agreement-source-result';
-  import ProductScreenshotFrame from './ProductScreenshotFrame.svelte';
+  import RequestsDemo from './requests-demo/RequestsDemo.svelte';
 
-  let { agreementResult }: { agreementResult: AgreementLoadResult } = $props();
+  let { id }: { id?: string } = $props();
 </script>
 
 <section
-  class="px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]"
+  {id}
+  class={[
+    'px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]',
+    id && 'anchor-section'
+  ]}
 >
   <ContentMeasure class="flex flex-col items-center text-center">
     <h1
-      class="max-w-[540px] font-heading text-[45px] leading-[1.04] text-stone-750 sm:max-w-none sm:text-[55px]"
+      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[54px]"
     >
-      Close deals fast and easy
+      Close without legal delays
     </h1>
 
     <p
-      class="hero-support mt-[4px] max-w-[430px] font-light text-[23px] leading-[1.40] text-stone-500"
+      class="hero-support mt-[8px] max-w-[550px] font-light text-[18px] leading-[1.40] text-ink-muted"
     >
-      Agreed is a sales contract that explains itself
+    Agreed lets sales reps safely get contracts signed on their own
     </p>
 
     <div class="hero-actions mt-[24px] flex flex-col items-center">
@@ -34,38 +37,38 @@
         size="xlarge"
         shape="pill"
         highlightSweep
-        style="height: 57.76px; padding-inline: 25.27px; font-size: 17.1475px;"
-        class="shadow-[0_5px_12px_rgba(41,37,36,0.2)] hover:-translate-y-[2px] hover:shadow-[0_8px_11px_rgba(41,37,36,0.28)]"
+        class="shadow-[0_5px_12px_rgba(32,33,36,0.2)] hover:-translate-y-[2px] hover:shadow-[0_8px_11px_rgba(32,33,36,0.28)]"
       >
         Start for free
       </ButtonLink>
     </div>
   </ContentMeasure>
 
-  <!-- Wider stage gives the annotation its own gutter. -->
-  <div
-    id="demo"
-    class="hero-graphic relative mx-auto mt-[80px] w-full max-w-[1320px]"
-  >
-    <div class="demo-content mx-auto w-full max-w-[1040px]">
+  <div class="hero-graphic relative mx-auto mt-[80px] w-full max-w-[1320px]">
+    <div class="mx-auto w-full max-w-[1040px]">
       <CustomerLogos
         count={8}
-        appearance="muted"
         interactive
         mobileCount={4}
         class="mb-[12px] sm:mb-[14px]"
       />
 
-      <ProductScreenshotFrame {agreementResult} />
+      <div
+        class="mx-auto h-[560px] w-full max-w-[936px] overflow-hidden rounded-[12px] border border-line/90 bg-line/60 p-[6px] shadow-[0_18px_45px_-24px_rgba(32,33,36,0.22)] sm:aspect-[1770/1112] sm:h-auto sm:rounded-[14px] sm:p-[7px]"
+      >
+        <div
+          class="h-full w-full overflow-hidden rounded-[6px] border border-line bg-surface sm:rounded-[8px]"
+        >
+          <RequestsDemo />
+        </div>
+      </div>
     </div>
 
     <div
       class="demo-callout pointer-events-none absolute right-[48px] top-[45px] z-10 hidden xl:block"
       aria-hidden="true"
     >
-      <span class="demo-callout-text">
-        click to try
-      </span>
+      <span class="demo-callout-text">click to try</span>
 
       <svg
         class="demo-callout-arrow"
@@ -75,7 +78,6 @@
         fill="none"
         aria-hidden="true"
       >
-        <!-- A loose loop flowing into a shorter leftward sweep. -->
         <path
           d="
             M110 8
@@ -90,7 +92,6 @@
           stroke-linejoin="round"
         />
 
-        <!-- Slightly curved, asymmetric pen strokes. -->
         <path
           d="
             M43 71
@@ -112,18 +113,6 @@
     --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
     --hero-content-duration: 320ms;
     --hero-content-delay: 690ms;
-  }
-
-  .hero-title-lead {
-    opacity: 0;
-    transform: translateY(4px);
-    animation: hero-content-enter 420ms var(--hero-ease) 220ms both;
-  }
-
-  .hero-title-rest {
-    opacity: 0;
-    transform: translateX(-10px);
-    animation: hero-content-enter 420ms var(--hero-ease) 350ms both;
   }
 
   .hero-support,
@@ -153,7 +142,7 @@
   }
 
   .demo-callout {
-    color: #77716a;
+    color: var(--color-ink-muted);
   }
 
   .demo-callout-text {

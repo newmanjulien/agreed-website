@@ -1,1 +1,0 @@
-export const CLAUSE_REFERENCE_DURATION_MS = 3000;

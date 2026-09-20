@@ -6,12 +6,10 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "npm run check && vite build",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && npm run validate:agreement && npm run validate:feature-tours",
-    "validate:agreement": "node scripts/validate-agreement.ts",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && npm run validate:feature-tours",
     "validate:feature-tours": "node scripts/validate-feature-tours.ts"
   },
   "dependencies": {
-    "parse5": "^8.0.1",
     "phosphor-svelte": "^3.1.0",
     "svelte": "^5.46.4"
   },
