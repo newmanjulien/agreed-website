@@ -13,7 +13,7 @@
     </h2>
 
     <p class="mt-[12px] max-w-[400px] text-[18px] font-book leading-[1.6] text-ink">
-      Spend less time waiting on contract review.
+      CLose deals instead of waiting on contract review.
     </p>
 
     <ButtonLink
