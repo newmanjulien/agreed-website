@@ -13,7 +13,7 @@
     </h2>
 
     <p class="mt-[12px] max-w-[400px] text-[18px] font-book leading-[1.6] text-ink">
-      CLose deals instead of waiting on contract review.
+      Close deals without waiting on contracts.
     </p>
 
     <ButtonLink
