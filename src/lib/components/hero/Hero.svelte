@@ -17,15 +17,15 @@
 >
   <ContentMeasure class="flex flex-col items-center text-center">
     <h1
-      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[50px]"
+      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[49px]"
     >
       Close deals. Skip the wait
     </h1>
 
     <p
-      class="hero-support mt-[8px] max-w-[550px] font-light text-[17px] leading-[1.40] text-ink-muted"
+      class="hero-support mt-[8px] max-w-[550px] font-light text-[18px] leading-[1.40] text-ink-muted"
     >
-    Agreed lets sales reps safely get contracts signed on their own.
+    Let your sales reps get contracts signed on their own.
     </p>
 
     <div class="hero-actions mt-[24px] flex flex-col items-center">
