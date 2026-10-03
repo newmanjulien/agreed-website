@@ -29,10 +29,10 @@
   <Hero id="overview" />
 
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
-    <ContentSection id="intro" title="Your sales process is gummed up">
+    <ContentSection id="intro" title="Your sales stall at the finish line">
       {#snippet body()}
-        <p>Today, your reps are stuck waiting when a buyer sends back a redlined contract. Deals that should be closed are in a slow and expensive legal limbo instead.</p>
-        <p>Make deals close fast by letting your reps get contracts signed on their own.</p>
+        <p>When a buyer sends back a redlined contract, your reps are stuck waiting on legal. Deals that should be closing get caught in a slow and expensive review process.</p>
+        <p>Give reps the guardrails to handle more of the contract process themselves and keep deals moving toward signature.</p>
       {/snippet}
     </ContentSection>
 
