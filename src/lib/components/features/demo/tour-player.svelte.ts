@@ -7,6 +7,7 @@ const RATIO_THRESHOLDS = [0, 0.2, 0.4, 0.6, 0.8, 1];
 
 interface TourSession {
 	getRatio: () => number;
+	isReady: () => boolean;
 	isFinished: () => boolean;
 	setActive: (active: boolean) => void;
 }
@@ -18,6 +19,7 @@ function elect() {
 	const incumbent =
 		elected &&
 		sessions.has(elected) &&
+		elected.isReady() &&
 		!elected.isFinished() &&
 		elected.getRatio() >= KEEP_RATIO
 			? elected
@@ -26,7 +28,7 @@ function elect() {
 	let best: TourSession | undefined;
 	let bestRatio = 0;
 	for (const session of sessions) {
-		if (session.isFinished()) continue;
+		if (!session.isReady() || session.isFinished()) continue;
 		const ratio = session.getRatio();
 		if (ratio >= START_RATIO && ratio > bestRatio) {
 			best = session;
@@ -52,17 +54,25 @@ export function createGuidedTour<Step extends GuidedTourStep>(steps: ReadonlyArr
 	const lastIndex = steps.length - 1;
 
 	let step = $state<Step>(firstStep);
-	let progress = $state(0);
+	let ready = true;
 	let stopPlayback: (() => void) | undefined;
 
-	function start(element: Element | undefined): () => void {
+	function reset() {
 		stopPlayback?.();
 		step = firstStep;
-		progress = 0;
+	}
+
+	function setReady(next: boolean) {
+		if (ready === next) return;
+		ready = next;
+		elect();
+	}
+
+	function start(element: HTMLElement): () => void {
+		reset();
 
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			step = completedStep;
-			progress = 1;
 			return () => {};
 		}
 
@@ -70,66 +80,54 @@ export function createGuidedTour<Step extends GuidedTourStep>(steps: ReadonlyArr
 		let remaining = firstStep.duration;
 		let startedAt = 0;
 		let timeout: ReturnType<typeof setTimeout> | undefined;
-		let progressFrame: number | undefined;
 		let ratio = 0;
 		let active = false;
 		let finished = false;
+		const pausedAnimations = new Set<Animation>();
+
+		function pauseAnimations() {
+			for (const animation of element.getAnimations({ subtree: true })) {
+				if (animation.playState !== 'running') continue;
+				animation.pause();
+				pausedAnimations.add(animation);
+			}
+		}
+
+		function resumeAnimations() {
+			for (const animation of pausedAnimations) {
+				if (animation.playState === 'paused') animation.play();
+			}
+			pausedAnimations.clear();
+		}
 
 		function isPlayable() {
-			return active && !finished && document.visibilityState === 'visible';
-		}
-
-		function stopProgress() {
-			if (progressFrame !== undefined) cancelAnimationFrame(progressFrame);
-			progressFrame = undefined;
-		}
-
-		function updateProgress() {
-			const activeStep = steps[index];
-			if (!activeStep?.trackProgress || timeout === undefined) return;
-			const elapsed = activeStep.duration - remaining + performance.now() - startedAt;
-			progress = Math.min(1, elapsed / activeStep.duration);
-			progressFrame = requestAnimationFrame(updateProgress);
+			return ready && active && !finished && document.visibilityState === 'visible';
 		}
 
 		function pause() {
+			if (!finished) pauseAnimations();
 			if (timeout === undefined) return;
 			clearTimeout(timeout);
 			timeout = undefined;
 			remaining = Math.max(0, remaining - (performance.now() - startedAt));
-			stopProgress();
-			const activeStep = steps[index];
-			if (activeStep?.trackProgress) progress = 1 - remaining / activeStep.duration;
-		}
-
-		function rewind() {
-			pause();
-			finished = false;
-			index = 0;
-			step = firstStep;
-			progress = 0;
-			remaining = firstStep.duration;
 		}
 
 		function schedule() {
 			if (!isPlayable() || timeout !== undefined) return;
+			resumeAnimations();
 			startedAt = performance.now();
 			timeout = setTimeout(() => {
 				timeout = undefined;
-				stopProgress();
 				if (index >= lastIndex) {
 					finished = true;
-					if (step.trackProgress) progress = 1;
 					elect();
 					return;
 				}
 				index += 1;
 				step = steps[index]!;
-				progress = 0;
 				remaining = step.duration;
 				schedule();
 			}, remaining);
-			if (step.trackProgress) progressFrame = requestAnimationFrame(updateProgress);
 		}
 
 		function updatePlayback() {
@@ -139,6 +137,7 @@ export function createGuidedTour<Step extends GuidedTourStep>(steps: ReadonlyArr
 
 		const session: TourSession = {
 			getRatio: () => ratio,
+			isReady: () => ready,
 			isFinished: () => finished,
 			setActive: (next) => {
 				if (active === next) return;
@@ -149,24 +148,29 @@ export function createGuidedTour<Step extends GuidedTourStep>(steps: ReadonlyArr
 
 		function onIntersect(entries: IntersectionObserverEntry[]) {
 			ratio = entries.at(-1)?.intersectionRatio ?? 0;
-			if (ratio === 0) rewind();
 			elect();
 		}
 
 		sessions.add(session);
 
 		const observer = new IntersectionObserver(onIntersect, { threshold: RATIO_THRESHOLDS });
-		if (element) observer.observe(element);
+		observer.observe(element);
+		// CSS transitions can be created by a resize or DOM update while paused.
+		const mutations = new MutationObserver(() => {
+			if (!isPlayable() && !finished) pauseAnimations();
+		});
+		mutations.observe(element, { subtree: true, childList: true, attributes: true, attributeFilter: ['class', 'style'] });
 		document.addEventListener('visibilitychange', updatePlayback);
 
 		stopPlayback = () => {
 			sessions.delete(session);
 			if (elected === session) elected = undefined;
 			observer.disconnect();
+			mutations.disconnect();
 			document.removeEventListener('visibilitychange', updatePlayback);
 			if (timeout !== undefined) clearTimeout(timeout);
-			stopProgress();
 			timeout = undefined;
+			resumeAnimations();
 			stopPlayback = undefined;
 			elect();
 		};
@@ -178,9 +182,8 @@ export function createGuidedTour<Step extends GuidedTourStep>(steps: ReadonlyArr
 		get step() {
 			return step;
 		},
-		get progress() {
-			return progress;
-		},
-		start
+		start,
+		setReady,
+		reset
 	};
 }

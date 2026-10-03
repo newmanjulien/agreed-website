@@ -6,20 +6,16 @@
   import DesktopSideMenu from '$lib/components/site/DesktopSideMenu.svelte';
   import Footer from '$lib/components/site/Footer.svelte';
   import MobileHeader from '$lib/components/site/MobileHeader.svelte';
+  import LayoutProfileSurface from '$lib/components/contract-demo/components/document/LayoutProfileSurface.svelte';
 
   let { children }: LayoutProps = $props();
 </script>
 
 <svelte:head>
   <link rel="preconnect" href="https://portal.overbase.app" />
-  <link
-    rel="preload"
-    href="/fonts/newsreader.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
 </svelte:head>
+
+<LayoutProfileSurface />
 
 <div class="flex min-h-[100dvh] flex-col bg-[var(--site-bg)]">
   <DesktopSideMenu />

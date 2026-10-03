@@ -47,7 +47,7 @@
     sizeClasses[size],
     variantClasses[variant],
     fullWidth && 'w-full',
-    highlightSweep && 'button-link-highlight-sweep relative overflow-hidden',
+    highlightSweep && "button-link-highlight-sweep relative overflow-hidden after:pointer-events-none after:absolute after:-inset-y-[40%] after:-left-[55%] after:w-[42%] after:content-[''] motion-reduce:hover:after:animate-none",
     className
   ]}
 >
@@ -55,25 +55,18 @@
 </a>
 
 <style>
-  .button-link-highlight-sweep::after {
-    content: '';
-    position: absolute;
-    inset: -40% auto -40% -55%;
-    width: 42%;
-    transform: skewX(-24deg);
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.04) 24%, rgba(255,255,255,.18) 50%, rgba(255,255,255,.04) 76%, transparent 100%);
-    pointer-events: none;
-  }
+  @layer components {
+    .button-link-highlight-sweep::after {
+      transform: skewX(-24deg);
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.04) 24%, rgba(255,255,255,.18) 50%, rgba(255,255,255,.04) 76%, transparent 100%);
+    }
 
-  .button-link-highlight-sweep:hover::after {
-    animation: button-link-highlight-sweep 1160ms cubic-bezier(0.22, 1, 0.36, 1) 160ms;
-  }
+    .button-link-highlight-sweep:hover::after {
+      animation: button-link-highlight-sweep 1160ms cubic-bezier(0.22, 1, 0.36, 1) 160ms;
+    }
 
-  @keyframes button-link-highlight-sweep {
-    to { transform: skewX(-24deg) translateX(430%); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .button-link-highlight-sweep:hover::after { animation: none; }
+    @keyframes button-link-highlight-sweep {
+      to { transform: skewX(-24deg) translateX(430%); }
+    }
   }
 </style>

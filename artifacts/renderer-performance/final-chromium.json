@@ -1,0 +1,294 @@
+[
+  {
+    "mode": "hero",
+    "initial": {
+      "ranges": 102,
+      "profileWrites": 41,
+      "longTasks": [
+        {
+          "at": 266.6000000014901,
+          "ms": 52
+        }
+      ],
+      "resizes": [],
+      "dom": 1641,
+      "pages": [
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 8344
+        }
+      ],
+      "pagination": [
+        {
+          "page": "1",
+          "fragments": [
+            "heading-oceans-xyz-llc:0:3",
+            "heading-contract-section-1:0:3",
+            "paragraph-agreement-introduction:0:58",
+            "heading-contract-section-5:0:1",
+            "paragraph-services-recital:0:26",
+            "heading-contract-section-9:0:1",
+            "paragraph-agreement-recital:0:35",
+            "heading-access-use:0:5",
+            "paragraph-provision-professionals:0:115",
+            "paragraph-resale:0:75"
+          ]
+        },
+        {
+          "page": "2",
+          "fragments": [
+            "paragraph-resale:75:164",
+            "paragraph-amendments-statement-of-work:0:121",
+            "paragraph-replacement-professional:0:307"
+          ]
+        },
+        {
+          "page": "3",
+          "fragments": [
+            "paragraph-replacement-professional:307:331",
+            "paragraph-reservation-of-rights:0:89",
+            "heading-buyer-responsibilities:0:4",
+            "paragraph-buyer-orientation:0:31",
+            "paragraph-buyer-meetings:0:29",
+            "paragraph-provider-meetings:0:41",
+            "paragraph-buyer-systems:0:42",
+            "heading-fees-and-payment:0:5",
+            "paragraph-fees:0:87"
+          ]
+        }
+      ]
+    },
+    "resized": {
+      "ranges": 102,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [
+        4.200000002980232,
+        3.2999999970197678,
+        2.899999998509884,
+        2.600000001490116,
+        2.7999999970197678,
+        2.899999998509884,
+        3.399999998509884,
+        3.0999999940395355,
+        3.399999998509884,
+        2.399999998509884,
+        3.1999999955296516,
+        2.8000000044703484,
+        3.5,
+        2.7999999970197678,
+        2.4000000059604645,
+        2.399999998509884,
+        2.5,
+        2.399999998509884,
+        2.6999999955296516,
+        2.399999998509884
+      ],
+      "dom": 1641,
+      "mountedPages": 3
+    },
+    "resizeP95": 3.5,
+    "beforeCommits": [
+      "2"
+    ],
+    "afterCommits": [
+      "2"
+    ],
+    "errors": []
+  },
+  {
+    "mode": "both",
+    "initial": {
+      "ranges": 108,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [],
+      "dom": 2922,
+      "pages": [
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 8344
+        },
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 7543
+        }
+      ],
+      "pagination": [
+        {
+          "page": "1",
+          "fragments": [
+            "heading-oceans-xyz-llc:0:3",
+            "heading-contract-section-1:0:3",
+            "paragraph-agreement-introduction:0:58",
+            "heading-contract-section-5:0:1",
+            "paragraph-services-recital:0:26",
+            "heading-contract-section-9:0:1",
+            "paragraph-agreement-recital:0:35",
+            "heading-access-use:0:5",
+            "paragraph-provision-professionals:0:115",
+            "paragraph-resale:0:75"
+          ]
+        },
+        {
+          "page": "2",
+          "fragments": [
+            "paragraph-resale:75:164",
+            "paragraph-amendments-statement-of-work:0:121",
+            "paragraph-replacement-professional:0:307"
+          ]
+        },
+        {
+          "page": "3",
+          "fragments": [
+            "paragraph-replacement-professional:307:331",
+            "paragraph-reservation-of-rights:0:89",
+            "heading-buyer-responsibilities:0:4",
+            "paragraph-buyer-orientation:0:31",
+            "paragraph-buyer-meetings:0:29",
+            "paragraph-provider-meetings:0:41",
+            "paragraph-buyer-systems:0:42",
+            "heading-fees-and-payment:0:5",
+            "paragraph-fees:0:87"
+          ]
+        }
+      ]
+    },
+    "resized": {
+      "ranges": 110,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [
+        4.5,
+        3.6999999955296516,
+        4.5,
+        4.799999997019768,
+        4.0999999940395355,
+        3.899999998509884,
+        4.100000001490116,
+        3.5,
+        4.9000000059604645,
+        5,
+        6.100000001490116,
+        3.8000000044703484,
+        3.899999998509884,
+        3.399999998509884,
+        4.5,
+        4,
+        4.800000004470348,
+        4.799999997019768,
+        4.600000001490116,
+        4.100000001490116
+      ],
+      "dom": 2929,
+      "mountedPages": 6
+    },
+    "resizeP95": 5,
+    "beforeCommits": [
+      "2",
+      "0"
+    ],
+    "afterCommits": [
+      "2",
+      "0"
+    ],
+    "errors": []
+  },
+  {
+    "mode": "mounting",
+    "initial": {
+      "ranges": 102,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [],
+      "dom": 1641,
+      "pages": [
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 8344
+        }
+      ],
+      "pagination": [
+        {
+          "page": "1",
+          "fragments": [
+            "heading-oceans-xyz-llc:0:3",
+            "heading-contract-section-1:0:3",
+            "paragraph-agreement-introduction:0:58",
+            "heading-contract-section-5:0:1",
+            "paragraph-services-recital:0:26",
+            "heading-contract-section-9:0:1",
+            "paragraph-agreement-recital:0:35",
+            "heading-access-use:0:5",
+            "paragraph-provision-professionals:0:115",
+            "paragraph-resale:0:75"
+          ]
+        },
+        {
+          "page": "2",
+          "fragments": [
+            "paragraph-resale:75:164",
+            "paragraph-amendments-statement-of-work:0:121",
+            "paragraph-replacement-professional:0:307"
+          ]
+        },
+        {
+          "page": "3",
+          "fragments": [
+            "paragraph-replacement-professional:307:331",
+            "paragraph-reservation-of-rights:0:89",
+            "heading-buyer-responsibilities:0:4",
+            "paragraph-buyer-orientation:0:31",
+            "paragraph-buyer-meetings:0:29",
+            "paragraph-provider-meetings:0:41",
+            "paragraph-buyer-systems:0:42",
+            "heading-fees-and-payment:0:5",
+            "paragraph-fees:0:87"
+          ]
+        }
+      ]
+    },
+    "resized": {
+      "ranges": 110,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [
+        3.5,
+        3.6999999955296516,
+        3.7999999970197678,
+        3.5,
+        3.5,
+        3.2999999970197678,
+        4.299999997019768,
+        3.899999998509884,
+        4.299999997019768,
+        4.800000004470348,
+        4.899999998509884,
+        5.5,
+        3.4000000059604645,
+        3.899999998509884,
+        4.4000000059604645,
+        4.199999995529652,
+        3.399999998509884,
+        3.1999999955296516,
+        4,
+        3.600000001490116
+      ],
+      "dom": 2929,
+      "mountedPages": 6
+    },
+    "resizeP95": 4.899999998509884,
+    "beforeCommits": [
+      "2"
+    ],
+    "afterCommits": [
+      "2",
+      "0"
+    ],
+    "errors": []
+  }
+]

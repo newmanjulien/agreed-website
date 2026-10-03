@@ -3,6 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Keep layer precedence and loaded fonts stable when Vite replaces the server-rendered CSS. -->
+    <style>
+      @layer properties, theme, base, components, utilities;
+
+      @font-face {
+        font-family: "Newsreader";
+        font-style: normal;
+        font-weight: 200 800;
+        font-display: swap;
+        src: url("/fonts/newsreader.woff2") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Newsreader Fallback";
+        src: local("Georgia");
+        size-adjust: 98.36%;
+        ascent-override: 74.72%;
+        descent-override: 26.94%;
+        line-gap-override: 0%;
+      }
+    </style>
+    <link
+      rel="preload"
+      href="/fonts/newsreader.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />

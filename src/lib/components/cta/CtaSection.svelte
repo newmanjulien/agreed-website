@@ -9,11 +9,11 @@
 <section {id} class="border-t border-line bg-white px-[18px] py-[72px] sm:px-8 sm:py-[90px]">
   <ContentMeasure class="flex flex-col items-center text-center">
     <h2 class="font-heading text-[26px] leading-[1.08] text-ink sm:text-[31px] sm:leading-[1.06]">
-      Accelerate your sales cycle
+      Speed up your sales cycle
     </h2>
 
     <p class="mt-[12px] max-w-[400px] text-[18px] font-book leading-[1.6] text-ink">
-      Close deals without waiting on legal.
+      Let reps close deals without waiting for legal.
     </p>
 
     <ButtonLink

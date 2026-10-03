@@ -1,61 +1,12 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { SvelteMap } from 'svelte/reactivity';
-	import FeatureDemoApp from './demo/FeatureDemoApp.svelte';
-	import FeatureDemoFrame from './demo/FeatureDemoFrame.svelte';
-	import GuidedCursor from './demo/GuidedCursor.svelte';
-	import ReviewScreen from '$lib/components/hero/requests-demo/ReviewScreen.svelte';
-	import { createGuidedTour } from './demo/tour-player.svelte';
-	import type { GuidedCursorDestination } from './demo/tour-model';
-	import {
-		acceptChangesTour,
-		acceptDemo,
-		acceptPointsLeft,
-		acceptRequest
-	} from './accept/accept-changes-tour';
-
-	const playback = createGuidedTour(acceptChangesTour);
-	const targets = new SvelteMap<string, Element>();
-
-	let step = $derived(playback.step);
-	let widgetElement = $state<HTMLDivElement>();
-	let sceneElement = $state<HTMLDivElement>();
-	let pointsLeft = $derived(acceptPointsLeft(step.state.accepted));
-
-	let cursorDestination = $derived.by<GuidedCursorDestination | undefined>(() => {
-		const target = step.cursor?.target;
-		if (!target) return;
-		const element = targets.get(target);
-		return element ? { kind: 'element', element } : undefined;
-	});
-
-	function registerTarget(name: string, element: Element | null) {
-		if (element) targets.set(name, element);
-		else targets.delete(name);
-	}
-
-	onMount(() => playback.start(widgetElement));
+	import ContractFeatureDemo from './demo/ContractFeatureDemo.svelte';
+	import { acceptDemo, acceptChangesTour } from './accept/accept-changes-tour';
 </script>
 
-<FeatureDemoFrame
-	label="A sales rep accepts a buyer change that costs {acceptRequest.points} points, and the remaining points drop from {acceptDemo.startingPoints} to {acceptPointsLeft(true)}."
-	bind:element={widgetElement}
-	bind:sceneElement
->
-	<FeatureDemoApp {pointsLeft}>
-		<ReviewScreen
-			compact
-			acceptedRequestIds={step.state.accepted ? [acceptDemo.requestId] : []}
-			{registerTarget}
-			targetRequestId={acceptDemo.requestId}
-			targetName="accept"
-		/>
-	</FeatureDemoApp>
-
-	<GuidedCursor
-		container={sceneElement}
-		destination={cursorDestination}
-		visible={step.cursor !== null}
-		mode={step.cursor?.mode}
-	/>
-</FeatureDemoFrame>
+<ContractFeatureDemo
+	name="accept"
+	scene={acceptDemo}
+	tour={acceptChangesTour}
+	label="A cursor clicks the Resale clause, opens Preferred concession, then clicks Apply concession. The preapproved change appears in the contract."
+	fallback="Reps can apply preapproved concessions directly to the contract."
+/>

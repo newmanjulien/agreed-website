@@ -1,0 +1,28 @@
+{
+  "results": [
+    "Delayed contract font readiness and failure cleanup/Retry verified",
+    "Four navigation mount/unmount cycles release pages and reuse baseline geometry"
+  ],
+  "counts": [
+    {
+      "nodes": 2972,
+      "pages": 6,
+      "writes": 7228
+    },
+    {
+      "nodes": 2976,
+      "pages": 6,
+      "writes": 7228
+    },
+    {
+      "nodes": 2976,
+      "pages": 6,
+      "writes": 7228
+    },
+    {
+      "nodes": 2976,
+      "pages": 6,
+      "writes": 7228
+    }
+  ]
+}

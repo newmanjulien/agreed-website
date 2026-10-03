@@ -1,54 +1,21 @@
-import { mockRequest } from '../../hero/requests-demo/mock-requests.ts';
-import { demoStartingPoints } from '../../hero/requests-demo/demo-points.ts';
-import type { GuidedTourStep } from '../demo/tour-model.ts';
+import { contractCursorMoveDuration, type ContractTourStep } from '../demo/contract-tour.ts';
+import { createClauseOpening, clauseSummary, resaleDemo } from '../demo/clause-opening.ts';
 
 export const acceptDemo = {
-	requestId: 'notice-period',
-	startingPoints: demoStartingPoints
+	...resaleDemo,
+	concessionId: 'resale-ordinary-course-billing'
 } as const;
 
-const request = mockRequest(acceptDemo.requestId);
-if (request.decision !== 'canAccept') {
-	throw new Error('Accept tour must use a request that can be accepted.');
-}
-export const acceptRequest = request;
+const concession = { ...clauseSummary, openSection: 'preferred' } as const;
+const applied = { ...concession, concessionId: acceptDemo.concessionId } as const;
 
-export function acceptPointsLeft(accepted: boolean) {
-	return acceptDemo.startingPoints - (accepted ? acceptRequest.points : 0);
-}
-
-export type AcceptChangesPhase = 'rest' | 'approach-accept' | 'click-accept' | 'accepted' | 'hold';
-export type AcceptChangesTarget = 'accept';
-
-export interface AcceptChangesTourState {
-	accepted: boolean;
-}
-
-export type AcceptChangesTourStep = GuidedTourStep<
-	AcceptChangesPhase,
-	AcceptChangesTourState,
-	AcceptChangesTarget
->;
-
-export const acceptChangesTour: ReadonlyArray<AcceptChangesTourStep> = [
-	{ phase: 'rest', duration: 800, state: { accepted: false }, cursor: null },
-	{
-		phase: 'approach-accept',
-		duration: 850,
-		state: { accepted: false },
-		cursor: { target: 'accept', mode: 'idle' }
-	},
-	{
-		phase: 'click-accept',
-		duration: 200,
-		state: { accepted: false },
-		cursor: { target: 'accept', mode: 'clicking' }
-	},
-	{
-		phase: 'accepted',
-		duration: 400,
-		state: { accepted: true },
-		cursor: { target: 'accept', mode: 'idle' }
-	},
-	{ phase: 'hold', duration: 2800, state: { accepted: true }, cursor: null }
+export const acceptChangesTour: ReadonlyArray<ContractTourStep> = [
+	...createClauseOpening(650),
+	{ phase: 'approach-concession', duration: contractCursorMoveDuration, state: clauseSummary, cursor: { target: 'preferred', mode: 'idle' } },
+	{ phase: 'click-concession', duration: 220, state: clauseSummary, cursor: { target: 'preferred', mode: 'clicking' } },
+	{ phase: 'read-concession', duration: 1400, state: concession, cursor: { target: 'preferred', mode: 'idle' } },
+	{ phase: 'approach-apply', duration: contractCursorMoveDuration, state: concession, cursor: { target: 'apply', mode: 'idle' } },
+	{ phase: 'click-apply', duration: 220, state: concession, cursor: { target: 'apply', mode: 'clicking' } },
+	{ phase: 'clicked-apply', duration: 1000, state: concession, cursor: { target: 'apply', mode: 'idle' } },
+	{ phase: 'hold', duration: 2800, state: applied, cursor: null }
 ];

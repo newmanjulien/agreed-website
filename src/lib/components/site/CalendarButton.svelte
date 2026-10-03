@@ -43,9 +43,7 @@
 </script>
 
 <div
-  class="fixed right-5 lg:right-[42px]"
-  class:z-layer-chrome={!open}
-  class:z-layer-chrome-popover={open}
+  class={['fixed right-5 lg:right-[42px]', open ? 'z-(--layer-chrome-popover)' : 'z-(--layer-chrome)']}
   style="bottom: {bottom}px"
 >
   <button
@@ -63,7 +61,7 @@
 
   {#if open}
     <div
-      class="book-demo-card absolute right-0 bottom-0 w-[160px] overflow-hidden rounded-[9px] border border-[#cdced6] bg-surface text-[#1c2024] shadow-[0_2px_3px_rgba(28,25,23,0.04),0_8px_18px_-8px_rgba(28,25,23,0.16)] has-[a:focus-visible]:outline has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-black"
+      class="book-demo-card group origin-bottom-right transition-[border-color] duration-200 ease-out hover:border-[#60646c] motion-reduce:animate-none absolute right-0 bottom-0 w-[160px] overflow-hidden rounded-[9px] border border-[#cdced6] bg-surface text-[#1c2024] shadow-[0_2px_3px_rgba(28,25,23,0.04),0_8px_18px_-8px_rgba(28,25,23,0.16)] has-[a:focus-visible]:outline has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-black"
     >
       <a
         bind:this={link}
@@ -81,7 +79,7 @@
         </div>
         <span class="flex min-h-[44px] items-center justify-between gap-3 border-t border-[#cdced6] px-4 py-3 text-[13px] leading-[1.3] tracking-[-0.02em]">
           Choose a time
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="book-demo-arrow shrink-0" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5 motion-reduce:transition-none" aria-hidden="true">
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7 7 17 7 17 17" />
           </svg>
@@ -102,44 +100,20 @@
 </div>
 
 <style>
-  .book-demo-card {
-    transform-origin: bottom right;
-    animation: book-demo-card-enter 196ms cubic-bezier(0.23, 1, 0.32, 1);
-    transition: border-color 200ms ease-out;
-  }
-
-  .book-demo-card:hover {
-    border-color: #60646c;
-  }
-
-  .book-demo-arrow {
-    transition: transform 200ms ease-out;
-  }
-
-  .book-demo-card:hover .book-demo-arrow {
-    transform: translate(2px, -2px);
-  }
-
-  @keyframes book-demo-card-enter {
-    from {
-      opacity: 0;
-      transform: translateY(8px) scale(0.97);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
+  @layer components {
     .book-demo-card {
-      animation: none;
+      animation: book-demo-card-enter 196ms cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    .book-demo-arrow,
-    .book-demo-card:hover .book-demo-arrow {
-      transition: none;
-      transform: none;
+    @keyframes book-demo-card-enter {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
   }
 </style>

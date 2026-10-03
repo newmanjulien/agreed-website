@@ -1,15 +1,12 @@
 @import "tailwindcss" source(none);
-@source "../components/hero";
-@source "../components/features";
-@source "../components/cta";
-@source "../components/site";
-@source "../components/ui";
+@source "../components";
 @source "../../routes/**/*.svelte";
 
 @theme static {
   --font-body: var(--site-font-body);
   --font-heading: var(--site-font-heading);
   --font-weight-book: 350;
+  --shadow-feature: 0 18px 45px -24px rgba(32, 33, 36, 0.18);
 
   --color-surface: #ffffff;
   --color-canvas: #fcfcfc;
@@ -23,23 +20,14 @@
   --color-selection-highlight: #b7d0fa;
   --color-danger: #b3261e;
   --color-success: #22c55e;
-}
-
-@font-face {
-  font-family: "Newsreader";
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("/fonts/newsreader.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Newsreader Fallback";
-  src: local("Georgia");
-  size-adjust: 98.36%;
-  ascent-override: 74.72%;
-  descent-override: 26.94%;
-  line-gap-override: 0%;
+  /* Tokens used by the embedded Oceans UI; values are scoped to its root. */
+  --color-ink-secondary: var(--color-ink);
+  --color-control-fill: var(--color-hover);
+  --color-fill-subtle: var(--color-hover);
+  --color-accent-hover: var(--color-accent);
+  --color-danger-surface: #fff1f0;
+  --color-danger-surface-hover: #ffe4e1;
+  --radius-base: 14px;
 }
 
 :root {
@@ -56,37 +44,11 @@
   color: var(--color-ink);
 }
 
-@layer utilities {
-  .z-layer-chrome {
-    z-index: var(--layer-chrome);
-  }
-
-  .z-layer-chrome-popover {
-    z-index: var(--layer-chrome-popover);
-  }
-
-  .anchor-section {
-    scroll-margin-top: calc(var(--site-mobile-header-height) + 18px);
-  }
-
-  @media (min-width: 1024px) {
-    .anchor-section {
-      scroll-margin-top: 48px;
-    }
-  }
-}
-
 html,
 body {
-  margin: 0;
   background-color: var(--site-bg);
 }
 
 body {
   min-width: 320px;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
 }

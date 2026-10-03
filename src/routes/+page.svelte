@@ -2,17 +2,18 @@
   import Hero from '$lib/components/hero/Hero.svelte';
   import CtaSection from '$lib/components/cta/CtaSection.svelte';
   import CustomerTestimonials from '$lib/components/features/CustomerTestimonials.svelte';
-  import FeatureSection from '$lib/components/features/FeatureSection.svelte';
-  import UploadChangesWidget from '$lib/components/features/UploadChangesWidget.svelte';
+  import ContentSection from '$lib/components/ui/ContentSection.svelte';
+  import SummaryWidget from '$lib/components/features/SummaryWidget.svelte';
   import AcceptChangesWidget from '$lib/components/features/AcceptChangesWidget.svelte';
-  import DiscussionWidget from '$lib/components/features/DiscussionWidget.svelte';
+  import ApprovalWidget from '$lib/components/features/ApprovalWidget.svelte';
   import SectionNav from '$lib/components/site/SectionNav.svelte';
 
   const pageSections = [
     { id: 'overview', label: 'Back to the start' },
-    { id: 'upload', label: 'Upload what buyers changed' },
-    { id: 'accept', label: 'See what you can accept' },
-    { id: 'respond', label: 'Know how to keep deals moving' },
+    { id: 'intro', label: 'Overwhelmed by redlined contracts' },
+    { id: 'upload', label: 'Help reps understand every clause' },
+    { id: 'accept', label: 'Give reps the confidence to negotiate' },
+    { id: 'respond', label: 'Keep every deal moving' },
     { id: 'customers', label: 'Testimonials' }
   ];
 </script>
@@ -28,32 +29,40 @@
   <Hero id="overview" />
 
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
-    <FeatureSection id="upload" title="Upload what buyers changed">
+    <ContentSection id="intro" title="Your sales process is gummed up">
       {#snippet body()}
-      Your reps upload the contract changes the buyer requested, and Agreed shows them what they can accept, what needs approval, and how to respond when they need to push back.      {/snippet}
-      <UploadChangesWidget />
-    </FeatureSection>
+        <p>Today, your reps are stuck waiting when a buyer sends back a redlined contract. Deals that should be closed are in a slow and expensive legal limbo instead.</p>
+        <p>Make deals close fast by letting your reps get contracts signed on their own.</p>
+      {/snippet}
+    </ContentSection>
 
-    <FeatureSection id="accept" title="See what you can accept">
+    <ContentSection id="upload" title="Help reps understand every clause">
       {#snippet body()}
-      Agreed checks each requested change against your approved positions, so reps can accept changes themselves when they are already approved.
+        <p>Explain each clause in plain English, and guide reps through negotiations on the clauses buyers often push back on.</p>
+      {/snippet}
+      <SummaryWidget />
+    </ContentSection>
+
+    <ContentSection id="accept" title="Give reps the confidence to negotiate">
+      {#snippet body()}
+        <p>Give reps the confidence to negotiate independently with preapproved changes they can safely make to your contract.</p>
       {/snippet}
       <AcceptChangesWidget />
-    </FeatureSection>
+    </ContentSection>
 
-    <FeatureSection id="respond" title="Know how to keep deals moving">
+    <ContentSection id="respond" title="Keep every deal moving">
       {#snippet body()}
-        When a change cannot be accepted, reps can open How to discuss for buyer questions and context to help them respond.
+        <p>When a change needs approval, make it easy for reps to get it from the right person on your team.</p>
       {/snippet}
-      <DiscussionWidget />
-    </FeatureSection>
+      <ApprovalWidget />
+    </ContentSection>
 
-    <FeatureSection id="customers" title="Teams stay with Agreed">
+    <ContentSection id="customers" title="Customers stay with Agreed">
       {#snippet body()}
-        Our retention is high. We spend most of our time building things for our existing customers. Here are some nice things they’ve said.
+        <p>Our customer retention is high, and we spend most of our time building for the teams who already use Agreed. Here’s what they have to say.</p>
       {/snippet}
       <CustomerTestimonials />
-    </FeatureSection>
+    </ContentSection>
 
     <CtaSection id="cta" />
   </div>

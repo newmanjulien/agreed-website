@@ -1,0 +1,12 @@
+<div
+	class="grid min-h-[calc(var(--demo-viewport-height)-48px)] place-items-center"
+	data-testid="pagination-loading"
+	role="status"
+	aria-live="polite"
+>
+	<span
+		class="size-6 animate-spin rounded-full border-2 border-line-strong/50 border-t-ink-muted [animation-duration:700ms] motion-reduce:[animation-duration:1400ms]"
+		aria-hidden="true"
+	></span>
+	<span class="sr-only">Laying out contract pages</span>
+</div>

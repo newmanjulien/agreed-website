@@ -1,0 +1,181 @@
+[
+  {
+    "mode": "hero",
+    "initial": {
+      "ranges": 132,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [],
+      "dom": 1641,
+      "pages": [
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 8344
+        }
+      ],
+      "pagination": [
+        {
+          "page": "1",
+          "fragments": [
+            "heading-oceans-xyz-llc:0:3",
+            "heading-contract-section-1:0:3",
+            "paragraph-agreement-introduction:0:58",
+            "heading-contract-section-5:0:1",
+            "paragraph-services-recital:0:26",
+            "heading-contract-section-9:0:1",
+            "paragraph-agreement-recital:0:35",
+            "heading-access-use:0:5",
+            "paragraph-provision-professionals:0:115",
+            "paragraph-resale:0:75"
+          ]
+        },
+        {
+          "page": "2",
+          "fragments": [
+            "paragraph-resale:75:164",
+            "paragraph-amendments-statement-of-work:0:121",
+            "paragraph-replacement-professional:0:307"
+          ]
+        },
+        {
+          "page": "3",
+          "fragments": [
+            "paragraph-replacement-professional:307:331",
+            "paragraph-reservation-of-rights:0:89",
+            "heading-buyer-responsibilities:0:4",
+            "paragraph-buyer-orientation:0:31",
+            "paragraph-buyer-meetings:0:29",
+            "paragraph-provider-meetings:0:41",
+            "paragraph-buyer-systems:0:42",
+            "heading-fees-and-payment:0:5",
+            "paragraph-fees:0:87"
+          ]
+        }
+      ]
+    },
+    "resized": {
+      "ranges": 132,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [
+        5.600000001490116,
+        4.800000004470348,
+        5,
+        3,
+        2.9000000059604645,
+        4.199999995529652,
+        4.800000004470348,
+        4.200000002980232,
+        4.5,
+        4.100000001490116,
+        4.100000001490116,
+        4,
+        4.899999998509884,
+        4,
+        4.5,
+        4.299999997019768,
+        4,
+        4,
+        4.100000001490116,
+        3.1999999955296516
+      ],
+      "dom": 1641,
+      "mountedPages": 3
+    },
+    "resizeP95": 5,
+    "errors": []
+  },
+  {
+    "mode": "both",
+    "initial": {
+      "ranges": 153,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [],
+      "dom": 2922,
+      "pages": [
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 8344
+        },
+        {
+          "logical": 18,
+          "mounted": 3,
+          "text": 7543
+        }
+      ],
+      "pagination": [
+        {
+          "page": "1",
+          "fragments": [
+            "heading-oceans-xyz-llc:0:3",
+            "heading-contract-section-1:0:3",
+            "paragraph-agreement-introduction:0:58",
+            "heading-contract-section-5:0:1",
+            "paragraph-services-recital:0:26",
+            "heading-contract-section-9:0:1",
+            "paragraph-agreement-recital:0:35",
+            "heading-access-use:0:5",
+            "paragraph-provision-professionals:0:115",
+            "paragraph-resale:0:75"
+          ]
+        },
+        {
+          "page": "2",
+          "fragments": [
+            "paragraph-resale:75:164",
+            "paragraph-amendments-statement-of-work:0:121",
+            "paragraph-replacement-professional:0:307"
+          ]
+        },
+        {
+          "page": "3",
+          "fragments": [
+            "paragraph-replacement-professional:307:331",
+            "paragraph-reservation-of-rights:0:89",
+            "heading-buyer-responsibilities:0:4",
+            "paragraph-buyer-orientation:0:31",
+            "paragraph-buyer-meetings:0:29",
+            "paragraph-provider-meetings:0:41",
+            "paragraph-buyer-systems:0:42",
+            "heading-fees-and-payment:0:5",
+            "paragraph-fees:0:87"
+          ]
+        }
+      ]
+    },
+    "resized": {
+      "ranges": 190,
+      "profileWrites": 41,
+      "longTasks": [],
+      "resizes": [
+        7.0999999940395355,
+        8.700000002980232,
+        6.800000004470348,
+        4,
+        4.5,
+        6.600000001490116,
+        6.399999998509884,
+        6.200000002980232,
+        6.5,
+        6.300000004470348,
+        6.600000001490116,
+        6.299999997019768,
+        7.200000002980232,
+        7,
+        6.600000001490116,
+        5.899999998509884,
+        6.399999998509884,
+        6.299999997019768,
+        6.100000001490116,
+        4.100000001490116
+      ],
+      "dom": 2929,
+      "mountedPages": 6
+    },
+    "resizeP95": 7.200000002980232,
+    "errors": []
+  }
+]

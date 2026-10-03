@@ -3,7 +3,7 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
   import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
-  import RequestsDemo from './requests-demo/RequestsDemo.svelte';
+  import OceansDemo from './oceans-demo/OceansDemo.svelte';
 
   let { id }: { id?: string } = $props();
 </script>
@@ -12,7 +12,7 @@
   {id}
   class={[
     'px-[18px] pt-[calc(65px-var(--site-mobile-header-height))] sm:px-8 sm:pt-[calc(95px-var(--site-mobile-header-height))] lg:pt-[90px]',
-    id && 'anchor-section'
+    id && 'scroll-mt-[calc(var(--site-mobile-header-height)+18px)] lg:scroll-mt-12'
   ]}
 >
   <ContentMeasure class="flex flex-col items-center text-center">
@@ -45,33 +45,32 @@
   </ContentMeasure>
 
   <div class="hero-graphic relative mx-auto mt-[80px] w-full max-w-[1320px]">
-    <div class="mx-auto w-full max-w-[1040px]">
+    <div class="mx-auto w-full max-w-[936px]">
       <CustomerLogos
-        count={8}
         interactive
-        mobileCount={4}
+        layout="demo"
         class="mb-[12px] sm:mb-[14px]"
       />
 
       <div
-        class="mx-auto h-[560px] w-full max-w-[936px] overflow-hidden rounded-[12px] border border-line/90 bg-line/60 p-[6px] shadow-[0_18px_45px_-24px_rgba(32,33,36,0.22)] sm:aspect-[1770/1112] sm:h-auto sm:rounded-[14px] sm:p-[7px]"
+        class="mx-auto h-[616px] w-[95%] overflow-hidden rounded-[12px] border border-line/90 bg-line/60 p-[6px] shadow-[0_18px_45px_-24px_rgba(32,33,36,0.28)] sm:aspect-[1682/1223] sm:h-auto sm:rounded-[14px] sm:p-[7px]"
       >
         <div
           class="h-full w-full overflow-hidden rounded-[6px] border border-line bg-surface sm:rounded-[8px]"
         >
-          <RequestsDemo />
+          <OceansDemo />
         </div>
       </div>
     </div>
 
     <div
-      class="demo-callout pointer-events-none absolute right-[48px] top-[45px] z-10 hidden xl:block"
+      class="pointer-events-none text-ink/80 absolute right-[48px] top-[45px] z-10 hidden xl:block"
       aria-hidden="true"
     >
-      <span class="demo-callout-text">click to try</span>
+      <span class="demo-callout-text block origin-left -rotate-[4deg] text-[18px] font-medium leading-none tracking-[-0.2px] whitespace-nowrap">click to try</span>
 
       <svg
-        class="demo-callout-arrow"
+        class="mt-[5px] -ml-10 block h-[104px] w-[130px] overflow-visible"
         width="130"
         height="104"
         viewBox="0 0 130 104"
@@ -109,81 +108,62 @@
 </section>
 
 <style>
-  section {
-    --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --hero-content-duration: 320ms;
-    --hero-content-delay: 690ms;
-  }
-
-  .hero-support,
-  .hero-actions,
-  .hero-graphic {
-    opacity: 0;
-    transform: translateY(4px);
-    animation: hero-content-enter var(--hero-content-duration) var(--hero-ease)
-      var(--hero-content-delay) both;
-  }
-
-  .hero-support {
-    animation-delay: calc(var(--hero-content-delay) - 100ms);
-  }
-
-  .hero-actions {
-    transform: translateY(10px);
-    animation-duration: 620ms;
-  }
-
-  /*
-   * CustomerLogos staggers each individual logo
-   * from this base delay.
-   */
-  .hero-graphic {
-    --logos-enter-delay: calc(var(--hero-content-delay) + 60ms);
-  }
-
-  .demo-callout {
-    color: color-mix(in srgb, var(--color-ink) 80%, transparent);
-  }
-
-  .demo-callout-text {
-    display: block;
-    font-family:
-      'Bradley Hand',
-      'Segoe Print',
-      'Comic Sans MS',
-      cursive;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1;
-    white-space: nowrap;
-    letter-spacing: -0.2px;
-    transform: rotate(-4deg);
-    transform-origin: left center;
-  }
-
-  .demo-callout-arrow {
-    display: block;
-    width: 130px;
-    height: 104px;
-    margin-top: 5px;
-    margin-left: -40px;
-    overflow: visible;
-  }
-
-  @keyframes hero-content-enter {
-    to {
-      opacity: 1;
-      transform: none;
+  @layer components {
+    section {
+      --hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --hero-content-duration: 320ms;
+      --hero-content-delay: 690ms;
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
     .hero-support,
     .hero-actions,
     .hero-graphic {
-      animation: none;
-      opacity: 1;
-      transform: none;
+      opacity: 0;
+      transform: translateY(4px);
+      animation: hero-content-enter var(--hero-content-duration) var(--hero-ease)
+        var(--hero-content-delay) both;
+    }
+
+    .hero-support {
+      animation-delay: calc(var(--hero-content-delay) - 100ms);
+    }
+
+    .hero-actions {
+      transform: translateY(10px);
+      animation-duration: 620ms;
+    }
+
+    /*
+     * CustomerLogos staggers each individual logo
+     * from this base delay.
+     */
+    .hero-graphic {
+      --logos-enter-delay: calc(var(--hero-content-delay) + 60ms);
+    }
+
+    .demo-callout-text {
+      font-family:
+        'Bradley Hand',
+        'Segoe Print',
+        'Comic Sans MS',
+        cursive;
+    }
+
+    @keyframes hero-content-enter {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-support,
+      .hero-actions,
+      .hero-graphic {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
     }
   }
 </style>

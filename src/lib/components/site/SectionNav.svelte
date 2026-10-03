@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { replaceState } from '$app/navigation';
+  import { page } from '$app/state';
   import { on } from 'svelte/events';
 
   type Section = { id: string; label: string };
@@ -172,16 +174,16 @@
 
     event.preventDefault();
     el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-    history.replaceState(null, '', `#${id}`);
+    replaceState(`#${id}`, page.state);
   }
 </script>
 
 <nav
   bind:this={navEl}
   class={[
-    'section-nav z-layer-chrome pointer-events-none fixed right-[44px] top-1/2 hidden -translate-y-1/2 lg:block',
-    visible && 'is-visible',
-    clipBottom > 0 && 'is-clipped'
+    'z-(--layer-chrome) pointer-events-none fixed right-[44px] top-1/2 hidden -translate-y-1/2 transition-opacity duration-[180ms] ease-[ease] motion-reduce:transition-none lg:block',
+    visible ? 'opacity-100' : 'opacity-0',
+    clipBottom > 0 && '[clip-path:inset(0_0_var(--nav-clip-bottom)_0)]'
   ]}
   style={clipBottom > 0 ? `--nav-clip-bottom: ${clipBottom}px` : undefined}
   aria-label="On this page"
@@ -201,96 +203,17 @@
       <li class="w-full">
         <a
           href="#{section.id}"
-          class={['relative flex h-[14px] w-full items-center justify-end', isHot && 'is-hot']}
+          class="group relative flex h-[14px] w-full items-center justify-end focus-visible:outline-none"
           style={tickStyle(index, isActive)}
           aria-current={isActive ? 'location' : undefined}
           aria-label={section.label}
           onfocus={() => onFocus(section.id)}
           onclick={(event) => jumpTo(event, section.id)}
         >
-          <span class="section-nav-tooltip" aria-hidden="true">{section.label}</span>
-          <span class={['section-nav-tick', isActive && 'is-active']} aria-hidden="true"></span>
+          <span class={['pointer-events-none absolute top-[calc(100%+7px)] right-0 z-[1] w-max rounded-[7px] bg-white px-2.5 py-[7px] text-[12px] font-[450] leading-none text-ink whitespace-nowrap shadow-[0_6px_16px_color-mix(in_srgb,var(--color-ink)_18%,transparent)] transition-[opacity,translate] duration-[160ms] ease-[ease] group-focus-visible:translate-y-0 group-focus-visible:opacity-100 motion-reduce:transition-none', isHot ? 'translate-y-0 opacity-100' : '-translate-y-[3px] opacity-0']} aria-hidden="true">{section.label}</span>
+          <span class={['block h-[var(--tick-h,2px)] w-[var(--tick-w,8px)] rounded-full transition-[width,height,background-color] duration-[180ms] ease-[ease] group-focus-visible:bg-ink group-focus-visible:outline-2 group-focus-visible:outline-offset-[3px] group-focus-visible:outline-ink motion-reduce:transition-none', isActive || isHot ? 'bg-ink' : 'bg-line-mid']} aria-hidden="true"></span>
         </a>
       </li>
     {/each}
   </ul>
 </nav>
-
-<style>
-  .section-nav {
-    opacity: 0;
-    transition: opacity 180ms ease;
-  }
-
-  .section-nav.is-visible {
-    opacity: 1;
-  }
-
-  .section-nav.is-clipped {
-    clip-path: inset(0 0 var(--nav-clip-bottom) 0);
-  }
-
-  .section-nav-tick {
-    display: block;
-    width: var(--tick-w, 8px);
-    height: var(--tick-h, 2px);
-    border-radius: 99px;
-    background: var(--color-line-mid);
-    transition:
-      width 180ms ease,
-      height 180ms ease,
-      background-color 180ms ease;
-  }
-
-  .section-nav-tick.is-active,
-  .section-nav a.is-hot .section-nav-tick,
-  .section-nav a:focus-visible .section-nav-tick {
-    background: var(--color-ink);
-  }
-
-  .section-nav-tooltip {
-    position: absolute;
-    top: calc(100% + 7px);
-    right: 0;
-    z-index: 1;
-    width: max-content;
-    padding: 7px 10px;
-    border-radius: 7px;
-    background: #fff;
-    color: var(--color-ink);
-    font-size: 12px;
-    font-weight: 450;
-    line-height: 1;
-    white-space: nowrap;
-    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-ink) 18%, transparent);
-    opacity: 0;
-    transform: translateY(-3px);
-    pointer-events: none;
-    transition:
-      opacity 160ms ease,
-      transform 160ms ease;
-  }
-
-  .section-nav a.is-hot .section-nav-tooltip,
-  .section-nav a:focus-visible .section-nav-tooltip {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .section-nav a:focus-visible {
-    outline: none;
-  }
-
-  .section-nav a:focus-visible .section-nav-tick {
-    outline: 2px solid var(--color-ink);
-    outline-offset: 3px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .section-nav,
-    .section-nav-tick,
-    .section-nav-tooltip {
-      transition: none;
-    }
-  }
-</style>

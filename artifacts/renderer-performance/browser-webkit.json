@@ -1,0 +1,229 @@
+{
+  "results": [
+    "Full document scrolls first to last with bounded page DOM",
+    "Keyboard Tab crosses virtual page boundaries",
+    "Hero Apply/Remove updates redlines and restores baseline",
+    "All 21 saved concessions Apply/Remove successfully",
+    "Summary reuses complete baseline and mounts its target",
+    "Touch drag suppression and summary independence verified"
+  ],
+  "errors": [],
+  "pagination": [
+    {
+      "page": "1",
+      "fragments": [
+        "heading-oceans-xyz-llc:0:3",
+        "heading-contract-section-1:0:3",
+        "paragraph-agreement-introduction:0:58",
+        "heading-contract-section-5:0:1",
+        "paragraph-services-recital:0:26",
+        "heading-contract-section-9:0:1",
+        "paragraph-agreement-recital:0:35",
+        "heading-access-use:0:5",
+        "paragraph-provision-professionals:0:115",
+        "paragraph-resale:0:89"
+      ]
+    },
+    {
+      "page": "2",
+      "fragments": [
+        "paragraph-resale:89:164",
+        "paragraph-amendments-statement-of-work:0:121",
+        "paragraph-replacement-professional:0:329"
+      ]
+    },
+    {
+      "page": "3",
+      "fragments": [
+        "paragraph-replacement-professional:329:331",
+        "paragraph-reservation-of-rights:0:89",
+        "heading-buyer-responsibilities:0:4",
+        "paragraph-buyer-orientation:0:31",
+        "paragraph-buyer-meetings:0:29",
+        "paragraph-provider-meetings:0:41",
+        "paragraph-buyer-systems:0:42",
+        "heading-fees-and-payment:0:5",
+        "paragraph-fees:0:118"
+      ]
+    },
+    {
+      "page": "4",
+      "fragments": [
+        "paragraph-fees:118:247",
+        "paragraph-initial-term-fee:0:50",
+        "paragraph-renewal-term-fee:0:52",
+        "paragraph-equipment-fee:0:82",
+        "paragraph-automatic-payment-authorization:0:78",
+        "paragraph-taxes:0:69"
+      ]
+    },
+    {
+      "page": "5",
+      "fragments": [
+        "heading-confidential-information:0:4",
+        "paragraph-confidential-information-detail:0:406",
+        "heading-intellectual-property:0:5",
+        "paragraph-provider-ip-buyer-ip:0:57"
+      ]
+    },
+    {
+      "page": "6",
+      "fragments": [
+        "paragraph-provider-ip-buyer-ip:57:60",
+        "paragraph-marketing-rights:0:86",
+        "paragraph-work-product-deliverables:0:287",
+        "heading-warranty-disclaimer:0:4",
+        "paragraph-warranties-disclaimer:0:47"
+      ]
+    },
+    {
+      "page": "7",
+      "fragments": [
+        "paragraph-warranties-disclaimer:47:55",
+        "paragraph-professional-qualifications:0:73",
+        "heading-limitations-of-liability:0:5",
+        "paragraph-limitations-of-liability-detail:0:176",
+        "heading-term-and-termination:0:5",
+        "paragraph-term-of-contract:0:5",
+        "paragraph-contract-term:0:63"
+      ]
+    },
+    {
+      "page": "8",
+      "fragments": [
+        "paragraph-professional-terms:0:4",
+        "paragraph-initial-term-commitment:0:77",
+        "paragraph-liability-for-payment:0:67",
+        "paragraph-early-termination-fees-rebates:0:215",
+        "paragraph-termination:0:24",
+        "paragraph-provider-termination:0:44",
+        "paragraph-insolvency-termination:0:77"
+      ]
+    },
+    {
+      "page": "9",
+      "fragments": [
+        "paragraph-insolvency-termination:77:124",
+        "paragraph-nonrenewal-termination:0:44",
+        "paragraph-professional-termination:0:77",
+        "paragraph-professional-conduct:0:29",
+        "paragraph-buyer-policies:0:27",
+        "paragraph-professional-conviction:0:17",
+        "paragraph-survival:0:51",
+        "heading-non-solicitation-non-interference:0:6",
+        "paragraph-non-solicitation-definitions:0:3",
+        "paragraph-definition-solicit:0:49",
+        "paragraph-definition-restricted-period:0:29"
+      ]
+    },
+    {
+      "page": "10",
+      "fragments": [
+        "paragraph-definition-restricted-period:29:30",
+        "paragraph-definition-restricted-territory:0:37",
+        "paragraph-definition-representatives:0:25",
+        "paragraph-definition-deliver-services:0:89",
+        "paragraph-definition-provider-personnel:0:46",
+        "paragraph-non-solicitation:0:157",
+        "paragraph-non-interference:0:83"
+      ]
+    },
+    {
+      "page": "11",
+      "fragments": [
+        "paragraph-non-interference:83:92",
+        "paragraph-non-solicitation-remedies:0:3",
+        "paragraph-non-solicitation-remedy:0:79",
+        "paragraph-non-interference-remedy:0:77",
+        "paragraph-remedies-characterization:0:354"
+      ]
+    },
+    {
+      "page": "12",
+      "fragments": [
+        "paragraph-remedies-characterization:354:372",
+        "heading-information-security:0:4",
+        "paragraph-security-compliance:0:118",
+        "paragraph-return-personal-information:0:75",
+        "paragraph-sharing-highly-sensitive-information:0:27",
+        "paragraph-security-definitions:0:4",
+        "paragraph-definition-personal-information:0:154"
+      ]
+    },
+    {
+      "page": "13",
+      "fragments": [
+        "paragraph-definition-personal-information:154:174",
+        "paragraph-definition-sensitive-personal-information:0:31",
+        "paragraph-definition-highly-sensitive-personal-information:0:57",
+        "heading-miscellaneous:0:3",
+        "paragraph-entire-contract:0:122",
+        "paragraph-notices:0:131",
+        "paragraph-notices-provider-label:0:3",
+        "paragraph-notices-provider-name:0:3"
+      ]
+    },
+    {
+      "page": "14",
+      "fragments": [
+        "paragraph-notices-provider-po-box:0:3",
+        "paragraph-notices-provider-city:0:3",
+        "paragraph-notices-provider-attention:0:3",
+        "paragraph-notices-provider-email:0:2",
+        "paragraph-notices-billing-email:0:5",
+        "paragraph-notices-buyer-label:0:4",
+        "paragraph-notices-buyer-attention:0:2",
+        "paragraph-notices-buyer-address:0:2",
+        "paragraph-notices-buyer-email:0:1",
+        "paragraph-relationship-of-parties:0:49",
+        "paragraph-insurance:0:68",
+        "paragraph-force-majeure:0:110",
+        "paragraph-amendment-waiver:0:49"
+      ]
+    },
+    {
+      "page": "15",
+      "fragments": [
+        "paragraph-amendment-waiver:49:128",
+        "paragraph-severability:0:105",
+        "paragraph-governing-law:0:346",
+        "paragraph-attorneys-fees:0:20"
+      ]
+    },
+    {
+      "page": "16",
+      "fragments": [
+        "paragraph-attorneys-fees:20:156",
+        "paragraph-assignment:0:90",
+        "paragraph-equitable-relief:0:131",
+        "paragraph-mutual-indemnification:0:1",
+        "paragraph-counterparts:0:32",
+        "paragraph-signature-page-notice:0:9",
+        "paragraph-execution:0:15"
+      ]
+    },
+    {
+      "page": "17",
+      "fragments": [
+        "table-signatures:0:4",
+        "heading-contract-section-227:0:2",
+        "heading-contract-section-228:0:3",
+        "paragraph-exhibit-definitions:0:45",
+        "paragraph-exhibit-services-heading:0:9",
+        "table-exhibit-services:0:1",
+        "paragraph-exhibit-fees-heading:0:32",
+        "paragraph-exhibit-initial-term:0:65",
+        "paragraph-exhibit-renewal-term:0:32"
+      ]
+    },
+    {
+      "page": "18",
+      "fragments": [
+        "paragraph-exhibit-renewal-term:32:65",
+        "paragraph-exhibit-equipment-fee:0:47",
+        "paragraph-exhibit-annual-adjustment:0:33",
+        "table-exhibit-fees:0:1"
+      ]
+    }
+  ]
+}

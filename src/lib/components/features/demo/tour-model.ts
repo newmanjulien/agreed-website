@@ -1,6 +1,4 @@
-export type GuidedCursorMode = 'idle' | 'clicking' | 'pressed';
-
-export type GuidedCursorDestination = { kind: 'element'; element: Element };
+export type GuidedCursorMode = 'idle' | 'clicking';
 
 export interface GuidedCursorState<Target extends string> {
 	target: Target;
@@ -16,5 +14,4 @@ export interface GuidedTourStep<
 	duration: number;
 	state: State;
 	cursor: GuidedCursorState<Target> | null;
-	trackProgress?: boolean;
 }

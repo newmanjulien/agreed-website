@@ -3,6 +3,7 @@
   import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
+  import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   const benefits = [
     "Pay nothing for contracts that don't get signed.",  
@@ -13,7 +14,7 @@
     {
       question: "Wait, what's your price again?",
       answer:
-        "Agreed's pricing is based on the number of contracts we help you get signed. Pay nothing if the contract isn't signed."
+        "Agreed's pricing is based on the number of contracts we help you get signed. Pay $30 for every contract that's signed. Pay nothing if the contract isn't signed."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
@@ -69,7 +70,9 @@
 
       <div class="mt-[18px]">
         <ButtonLink
-          href="#"
+          href={createPortalAuthUrl('join', '/pricing')}
+          target="_blank"
+          rel="noopener noreferrer"
           variant="primary"
           size="large"
           fullWidth

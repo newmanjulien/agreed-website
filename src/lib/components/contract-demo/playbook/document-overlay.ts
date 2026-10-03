@@ -1,0 +1,106 @@
+import type { ContractChange, PlaybookItemRecord, SourceRange, Trigger } from './model';
+
+export type DocumentAnnotation = {
+	id: string;
+	itemId: string;
+	range: SourceRange;
+} & (
+	| { kind: 'trigger'; triggerId: string }
+	| { kind: 'concession-effect'; concessionId: string; changeIndex: number }
+);
+
+export type AnnotationMembership = DocumentAnnotation & { applied?: boolean };
+
+export const triggerAnnotationId = (itemId: string, triggerId: string) =>
+	JSON.stringify(['trigger', itemId, triggerId]);
+
+export function documentAnnotations(
+	record: Pick<PlaybookItemRecord, '_id' | 'triggers' | 'concessions'>
+): DocumentAnnotation[] {
+	return [
+		...record.triggers.map((trigger): DocumentAnnotation => ({
+			id: triggerAnnotationId(record._id, trigger.id),
+			kind: 'trigger',
+			itemId: record._id,
+			triggerId: trigger.id,
+			range: trigger.range
+		})),
+		...record.concessions.flatMap((concession) =>
+			concession.changes.slice(1).map((change, i): DocumentAnnotation => ({
+				id: JSON.stringify(['concession-effect', record._id, concession.id, i + 1]),
+				kind: 'concession-effect',
+				itemId: record._id,
+				concessionId: concession.id,
+				changeIndex: i + 1,
+				range: change.range
+			}))
+		)
+	];
+}
+
+export interface AnnotationSegment {
+	target: AnnotationMembership | undefined;
+	membershipKey: string;
+	membershipIds: readonly string[];
+}
+
+/** Consecutive tokens share a wrapper only when their interaction memberships match. */
+export function annotationSegments<T extends { annotations?: readonly AnnotationMembership[] }>(
+	tokens: readonly T[]
+): (AnnotationSegment & { tokens: T[] })[] {
+	const result: (AnnotationSegment & { tokens: T[] })[] = [];
+	for (const token of tokens) {
+		const descriptor = annotationSegment(token.annotations);
+		const previous = result.at(-1);
+		if (previous?.membershipKey === descriptor.membershipKey) previous.tokens.push(token);
+		else result.push({ ...descriptor, tokens: [token] });
+	}
+	return result;
+}
+
+const segments = new WeakMap<readonly AnnotationMembership[], AnnotationSegment>();
+const EMPTY_MEMBERSHIPS: readonly AnnotationMembership[] = [];
+
+/** Rendering and geometry use the same boundaries and deterministic interaction target. */
+export function annotationSegment(
+	annotations: readonly AnnotationMembership[] = EMPTY_MEMBERSHIPS
+): AnnotationSegment {
+	const cached = segments.get(annotations);
+	if (cached) return cached;
+	const priority = (annotation: AnnotationMembership) =>
+		annotation.kind === 'trigger' ? 0 : annotation.applied ? 1 : 2;
+	const target = annotations.reduce<AnnotationMembership | undefined>(
+		(best, annotation) =>
+			!best ||
+			priority(annotation) < priority(best) ||
+			(priority(annotation) === priority(best) && annotation.id < best.id)
+				? annotation
+				: best,
+		undefined
+	);
+	const membershipIds = [...new Set(annotations.map((annotation) => annotation.id))].sort();
+	const segment = {
+		target,
+		membershipKey: JSON.stringify([target?.id, membershipIds]),
+		membershipIds
+	};
+	segments.set(annotations, segment);
+	return segment;
+}
+
+export type DocumentOverlayItem = {
+	itemId: string;
+	annotations: DocumentAnnotation[];
+	triggers: Trigger[];
+	concessions: { id: string; changes: ContractChange[] }[];
+};
+
+/** Only this projection may contribute Playbook data to render-source identity. */
+export function toDocumentOverlay(record: PlaybookItemRecord): DocumentOverlayItem {
+	return {
+		itemId: record._id,
+		annotations: documentAnnotations(record),
+		triggers: record.triggers,
+		concessions: record.concessions.map(({ id, changes }) => ({ id, changes }))
+	};
+}
