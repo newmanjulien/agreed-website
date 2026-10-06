@@ -50,9 +50,9 @@
       <AcceptChangesWidget />
     </ContentSection>
 
-    <ContentSection id="respond" title="Close deals on auto-pilot">
+    <ContentSection id="respond" title="Get from agreed to paid in one click">
       {#snippet body()}
-        <p>Reps click on a single button once the terms are agreed, then we automatially get your contract signed and paid.</p>
+        <p>When the terms are settled and approved, reps hit send. Agreed sends the final contract for signature, and collects payment.</p>
       {/snippet}
       <ApprovalWidget />
     </ContentSection>

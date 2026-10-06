@@ -7,7 +7,7 @@
 
   const benefits = [
     'Contract negotiation software is built in.',
-    'Signatures and payment processing are built in too.',
+    'Payment processing and signatures at no extra cost.',
     "If a contract doesn't get signed and paid, you owe us nothing."
   ];
 

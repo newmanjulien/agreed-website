@@ -147,7 +147,15 @@ export function createGuidedTour<Step extends GuidedTourStep>(steps: ReadonlyArr
 		};
 
 		function onIntersect(entries: IntersectionObserverEntry[]) {
+			const wasInView = ratio > 0;
 			ratio = entries.at(-1)?.intersectionRatio ?? 0;
+			if (wasInView && ratio === 0) {
+				pause();
+				index = 0;
+				remaining = firstStep.duration;
+				finished = false;
+				step = firstStep;
+			}
 			elect();
 		}
 

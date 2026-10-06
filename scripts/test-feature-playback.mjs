@@ -14,7 +14,7 @@ const compiled = compileModule(javascript, { filename: 'tour-player.svelte.js' }
 	.replace("'svelte/internal/client'", JSON.stringify(import.meta.resolve('svelte/internal/client')));
 const { createGuidedTour } = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);
 
-test('feature playback pauses timers and visuals, resumes, and preserves the summary final state', (t) => {
+test('feature playback pauses timers and visuals, resumes, and restarts after scrolling away', (t) => {
 	let now = 0;
 	let nextTimer = 0;
 	let reducedMotion = false;
@@ -85,7 +85,7 @@ test('feature playback pauses timers and visuals, resumes, and preserves the sum
 	const movement = new Animation();
 	element.animations.push(movement);
 	advance(100);
-	observers.at(-1).change(0);
+	observers.at(-1).change(0.1);
 	const pausedAt = movement.currentTime;
 	advance(1000);
 	assert.equal(player.step.phase, 'approach');
@@ -107,9 +107,23 @@ test('feature playback pauses timers and visuals, resumes, and preserves the sum
 	advance(10000);
 	assert.equal(player.step.state.panelOpen, true);
 	assert.equal(player.step.cursor, null);
+	advance(1000);
+	assert.equal(player.step.phase, 'hold', 'The summary must stay completed while in view.');
 	observers.at(-1).change(0);
+	assert.deepEqual(player.step, summaryTour[0]);
+	assert.equal(timers.size, 0);
+	advance(1000);
 	observers.at(-1).change(1);
-	assert.equal(player.step.phase, 'hold', 'The summary must not restart after completion.');
+	advance(summaryTour[0].duration - 1);
+	assert.deepEqual(player.step, summaryTour[0], 'A replay must use the full first-step duration.');
+	advance(1);
+	assert.deepEqual(player.step, summaryTour[1]);
+	observers.at(-1).change(0);
+	assert.deepEqual(player.step, summaryTour[0], 'Scrolling away mid-tour must also reset playback.');
+	assert.equal(timers.size, 0);
+	observers.at(-1).change(1);
+	advance(summaryTour[0].duration);
+	assert.deepEqual(player.step, summaryTour[1]);
 	stop();
 	assert.equal(timers.size, 0);
 
