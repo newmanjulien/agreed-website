@@ -7,6 +7,6 @@
 	name="approval"
 	scene={approvalDemo}
 	tour={approvalTour}
-	label="A cursor moves to and clicks Ask for approval beneath a contract with a change that needs approval. Send to buyer stays disabled until the change is approved."
-	fallback="Reps can request approval when a contract change requires it."
+	label="A cursor moves to and clicks Send to buyer beneath a contract with a preapproved change."
+	fallback="Once the terms are agreed, reps can send the contract to the buyer with a single click."
 />

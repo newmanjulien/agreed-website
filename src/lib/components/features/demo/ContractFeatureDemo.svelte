@@ -44,8 +44,8 @@
 	const cursorDestination = $derived.by(() => {
 		const target = step.cursor?.target;
 		if (target === 'origin') return originElement;
-		if (layout?.mode === 'actions') return target === 'approval'
-			? layout.actions.querySelector('[data-contract-action="approval"]') ?? undefined
+		if (layout?.mode === 'actions') return target === 'approval' || target === 'send'
+			? layout.actions.querySelector(`[data-contract-action="${target}"]`) ?? undefined
 			: undefined;
 		if (layout?.mode !== 'clause') return;
 		if (target === 'highlight') return layout.highlight;
@@ -74,7 +74,7 @@
 		if (next.mode === 'actions') {
 			const target = next.actions;
 			const bounds = localBounds(target);
-			// Keep the wider crop centered on the approval controls.
+			// Keep the wider crop centered on the contract actions.
 			cropWidth = (bounds.right - bounds.left + CROP_PADDING * 2) / 0.729;
 			cropX = (bounds.left + bounds.right - cropWidth) / 2;
 			await tick();
@@ -197,9 +197,12 @@
 		.contract-feature-demo[data-ready='false'] :global(.panel-rail) { animation: none; }
 	}
 	@layer utilities {
-		.approval-demo:is([data-phase='hover-approval'], [data-phase='click-approval'], [data-phase='clicked']) :global([data-contract-action='approval']:enabled) {
+		.approval-demo:is([data-phase='hover-send'], [data-phase='click-send'], [data-phase='clicked']) :global([data-contract-action='send']:enabled) {
 			border-color: var(--color-accent-hover);
 			background-color: var(--color-accent-hover);
+		}
+		.approval-demo[data-phase='click-send'] :global([data-contract-action='send']:enabled) {
+			transform: translateY(1px) scale(0.97);
 		}
 	}
 </style>

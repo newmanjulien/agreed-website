@@ -10,16 +10,16 @@
 
   const pageSections = [
     { id: 'overview', label: 'Back to the start' },
-    { id: 'intro', label: 'Overwhelmed by redlined contracts' },
+    { id: 'intro', label: 'Your sales stall at the finish line' },
     { id: 'upload', label: 'Help reps understand every clause' },
     { id: 'accept', label: 'Give reps the confidence to negotiate' },
-    { id: 'respond', label: 'Keep every deal moving' },
+    { id: 'respond', label: 'Closed the deal quickly' },
     { id: 'customers', label: 'Testimonials' }
   ];
 </script>
 
 <svelte:head>
-  <title>Agreed | Lets sales reps get contracts signed on their own</title>
+  <title>Agreed | Let sales reps get contracts signed on their own</title>
   <meta name="description" content="Agreed is a sales contract that explains itself" />
 </svelte:head>
 
@@ -31,8 +31,8 @@
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
     <ContentSection id="intro" title="Your sales stall at the finish line">
       {#snippet body()}
-        <p>When a buyer sends back a redlined contract, your reps are stuck waiting on legal. Deals that should be closing get caught in a slow and expensive review process.</p>
-        <p>Give reps the guardrails to handle more of the contract process themselves and keep deals moving toward signature.</p>
+        <p>Today, your reps are just stuck when a buyer sends back a redlined contract. Instead of closing the deals, they're caught in a slow and back and forth.</p>
+        <p>Give reps the guardrails to handle more of the contract process themselves and keep deals moving toward signature and payment.</p>
       {/snippet}
     </ContentSection>
 
@@ -50,9 +50,9 @@
       <AcceptChangesWidget />
     </ContentSection>
 
-    <ContentSection id="respond" title="Keep every deal moving">
+    <ContentSection id="respond" title="Close deals on auto-pilot">
       {#snippet body()}
-        <p>When a change needs approval, make it easy for reps to get it from the right person on your team.</p>
+        <p>Reps click on a single button once the terms are agreed, then we automatially get your contract signed and paid.</p>
       {/snippet}
       <ApprovalWidget />
     </ContentSection>

@@ -6,30 +6,31 @@
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   const benefits = [
-    "Pay nothing for contracts that don't get signed.",  
-    'E-signature included.'
+    'Contract negotiation software is built in.',
+    'Signatures and payment processing are built in too.',
+    "If a contract doesn't get signed and paid, you owe us nothing."
   ];
 
   const faqItems = [
     {
-      question: "Wait, what's your price again?",
+      question: "What exactly do I pay?",
       answer:
-        "Agreed's pricing is based on the number of contracts we help you get signed. Pay $30 for every contract that's signed. Pay nothing if the contract isn't signed."
+        "3.9% of the revenue we collect for you. That's the whole bill. If a contract isn't signed, or the money never arrives, you pay nothing. Every feature comes along at no extra cost."
+    },
+      {
+      question: 'Do I need Stripe on top of Agreed?',
+      answer:
+        "No. Payments are built in, so there's nothing extra to set up or pay for."
     },
     {
-      question: 'Do I need to pay for Docusign on top of Agreed?',
+      question: 'Do I need Docusign on top of Agreed?',
       answer:
-        'No. E-signatures are included at no extra cost.'
+        'No. Signing is built in too, with no add ons and no per envelope fees.'
     },
     {
-      question: 'What counts as a signed contract?',
+      question: "What if I send a contract and it never gets signed?",
       answer:
-        "A contract counts as signed once both you and your buyer have signed it."
-    },
-    {
-      question: "Do I pay if I send a contract that doesn't get signed?",
-      answer:
-        "No. You only pay for contracts that are signed."
+        "Then it costs you nothing. We only charge on contracts that are signed and paid."
     }
   ];
 </script>
@@ -45,7 +46,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-ink">
-      How much does Agreed cost? You pay a small fee per contract, and only if the contract is signed.
+      What does Agreed cost? A small slice of the revenue we collect for you, and nothing else.
     </p>
 
     <!-- Pricing card -->
@@ -54,18 +55,18 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-ink">
-          $30
+          3,9%
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-ink-muted">
-          per contract
+          of revenue collected
         </p>
       </div>
 
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        5 contracts per month for free. Then $30 per contract that's signed.
+        We only get paid when you do. Negotiation, signatures, and payments are all part of the price.
       </p>
 
       <div class="mt-[18px]">

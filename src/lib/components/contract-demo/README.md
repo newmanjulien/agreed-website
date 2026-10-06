@@ -23,7 +23,7 @@ enables Ask for approval and disables Send to buyer; successfully removing the l
 concession reverses them. Pending or failed updates retain the displayed document's approval state.
 Both buttons are no-ops. An optional `footerContent` snippet places them under the
 last page in the document column, outside the measured and virtualized document stage.
-The approval feature tour uses the same footer and frames the end of the contract;
+The closing feature tour uses the same footer and frames the end of the contract;
 the other feature tours omit it. Approval metadata does not enter the render-source projection.
 
 The viewport context in `document/document-viewport.ts` translates screen
@@ -54,8 +54,8 @@ immutable snapshots and independent viewport, hover, panel, and focus state. All
 animations use `features/demo/ContractFeatureDemo.svelte` for the camera, cursor, lazy
 mounting, and playback, and `ContractTourScene.svelte` for the document and guidance.
 Their timelines choose a clause, open guidance sections, and optionally apply a concession.
-The approval tour starts with the mutual attorneys' fees concession rendered, then moves
-the shared cursor to Ask for approval and clicks it. Its `mode: 'actions'` scene keeps
+The closing tour starts with the preapproved resale concession rendered, then moves
+the shared cursor to Send to buyer and clicks it with a pressed-button effect. Its `mode: 'actions'` scene keeps
 the footer in view; the other tours use `mode: 'clause'`. The scene reports a typed
 layout after the viewer confirms a successful current render. The cursor observes
 viewport scrolling so responsive camera alignment also updates its destination. Each widget is a thin

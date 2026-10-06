@@ -1,0 +1,5 @@
+{
+  "files.associations": {
+    "**/src/lib/styles/marketing.css": "tailwindcss"
+  }
+}

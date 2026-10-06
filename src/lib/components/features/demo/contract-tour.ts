@@ -15,7 +15,7 @@ export interface ContractTourState {
 	concessionId?: string | null;
 }
 
-export type ContractTourTarget = 'origin' | 'highlight' | 'negotiation' | 'preferred' | 'apply' | 'approval';
+export type ContractTourTarget = 'origin' | 'highlight' | 'negotiation' | 'preferred' | 'apply' | 'approval' | 'send';
 export type ContractTourStep = GuidedTourStep<string, ContractTourState, ContractTourTarget>;
 
 export const contractCursorMoveDuration = 850;

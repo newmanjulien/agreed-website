@@ -19,7 +19,7 @@
 			class={actionButtonClass}
 			disabled={!requiresApproval}
 		>Ask for approval</button>
-		<button type="button" class={actionButtonClass} disabled={requiresApproval}>Send to buyer</button>
+		<button type="button" data-contract-action="send" class={actionButtonClass} disabled={requiresApproval}>Send to buyer</button>
 	</div>
 	<p class="mt-3 text-center text-[14px] text-line-strong" role="status">
 		{requiresApproval ? '2 of your changes need approval' : 'None of your changes need approval'}
