@@ -6,8 +6,8 @@
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   const benefits = [
-    'Contract negotiation software is built in.',
     'Payment processing and signatures at no extra cost.',
+    'Contract negotiation software is built in.',
     "If a contract doesn't get signed and paid, you owe us nothing."
   ];
 
@@ -18,14 +18,9 @@
         "3.9% of the revenue we collect for you. That's the whole bill. If a contract isn't signed, or the money never arrives, you pay nothing. Every feature comes along at no extra cost."
     },
       {
-      question: 'Do I need Stripe on top of Agreed?',
+      question: 'Do I need Stripe and Docusign on top of Agreed?',
       answer:
-        "No. Payments are built in, so there's nothing extra to set up or pay for."
-    },
-    {
-      question: 'Do I need Docusign on top of Agreed?',
-      answer:
-        'No. Signing is built in too, with no add ons and no per envelope fees.'
+        "No. Payment processing and signatures are built in, so there's nothing extra to set up or pay for."
     },
     {
       question: "What if I send a contract and it never gets signed?",
@@ -46,7 +41,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-ink">
-      What does Agreed cost? A small slice of the revenue we collect for you, and nothing else.
+      What does Agreed cost? A small slice of the revenue we process for you, and nothing else.
     </p>
 
     <!-- Pricing card -->
@@ -66,7 +61,7 @@
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        We only get paid when you do. Negotiation, signatures, and payment processing are all part of the price.
+        We only get paid when you do. Payment processing, signatures and negotiation are all part of the price.
       </p>
 
       <div class="mt-[18px]">
