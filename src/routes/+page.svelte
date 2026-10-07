@@ -19,8 +19,8 @@
 </script>
 
 <svelte:head>
-  <title>Agreed | Let sales reps get contracts signed on their own</title>
-  <meta name="description" content="Agreed is a sales contract that explains itself" />
+  <title>Agreed | Let sales reps get contracts signed and paid on their own</title>
+  <meta name="description" content="Let sales reps get contracts signed and paid on their own" />
 </svelte:head>
 
 <SectionNav sections={pageSections} cover="cta" />
@@ -29,10 +29,10 @@
   <Hero id="overview" />
 
   <div class="flex flex-col gap-[150px] pt-[150px] sm:gap-[190px] sm:pt-[190px]">
-    <ContentSection id="intro" title="Your sales stall at the finish line">
+    <ContentSection id="intro" title="Deals stall at the finish line">
       {#snippet body()}
-        <p>Today, your reps are just stuck when a buyer sends back a redlined contract. Instead of closing the deals, they're caught in a slow and back and forth.</p>
-        <p>Give reps the guardrails to handle more of the contract process themselves and keep deals moving toward signature and payment.</p>
+        <p>Redlines trigger slow rounds with lawyers, and you're still chasing payment weeks after the deal is signed.</p>
+        <p>With Agreed, reps negotiate within preapproved guardrails. Then signatures and billing run themselves.</p>
       {/snippet}
     </ContentSection>
 
@@ -50,9 +50,9 @@
       <AcceptChangesWidget />
     </ContentSection>
 
-    <ContentSection id="respond" title="Get from agreed to paid in one click">
+    <ContentSection id="respond" title="Get from approved to paid in one click">
       {#snippet body()}
-        <p>When the terms are settled and approved, reps hit send. Agreed sends the final contract for signature, and collects payment.</p>
+        <p>Once terms are settled, one click sends the final contract out for signature. And Agreed collects payment when it's signed.</p>
       {/snippet}
       <ApprovalWidget />
     </ContentSection>

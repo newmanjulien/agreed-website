@@ -66,7 +66,7 @@
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        We only get paid when you do. Negotiation, signatures, and payments are all part of the price.
+        We only get paid when you do. Negotiation, signatures, and payment processing are all part of the price.
       </p>
 
       <div class="mt-[18px]">
