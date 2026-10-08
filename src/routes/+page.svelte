@@ -19,8 +19,8 @@
 </script>
 
 <svelte:head>
-  <title>Agreed | Let sales reps get contracts signed on their own</title>
-  <meta name="description" content="Let sales reps get contracts signed on their own" />
+  <title>Let sales reps handle contract negotiation</title>
+  <meta name="description" content="Let sales reps handle contract negotiation" />
 </svelte:head>
 
 <SectionNav sections={pageSections} cover="cta" />
