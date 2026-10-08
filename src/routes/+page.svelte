@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-  <title>Let sales reps handle contract negotiation</title>
+  <title>Keep contracts moving</title>
   <meta name="description" content="Let sales reps handle contract negotiation" />
 </svelte:head>
 
@@ -36,7 +36,7 @@
       {/snippet}
     </ContentSection>
 
-    <ContentSection id="upload" title="Help reps understand every clause">
+    <ContentSection id="upload" title="No law degree required">
       {#snippet body()}
         <p>Explain each clause in plain English, and guide reps through negotiations on the clauses buyers often push back on.</p>
       {/snippet}
@@ -45,19 +45,19 @@
 
     <ContentSection id="accept" title="Negotiate with preapproved changes">
       {#snippet body()}
-        <p>Reps can apply approved concessions directly to the contract and request approval for changes outside those limits.</p>
+        <p>Reps apply standard concessions directly to the contract and escalate anything outside those limits.</p>
       {/snippet}
       <AcceptChangesWidget />
     </ContentSection>
 
-    <ContentSection id="respond" title="Always keep moving">
+    <ContentSection id="respond" title="Skip the back-and-forth">
       {#snippet body()}
-        <p>When a change needs approval, make it easy for reps to get approval from the right person on your team.</p>
+        <p>When a change needs sign-off, reps ask the right person on your team for approval with one click.</p>
       {/snippet}
       <ApprovalWidget />
     </ContentSection>
 
-    <ContentSection id="customers" title="Less time in review. More deals closed.">
+    <ContentSection id="customers" title="More deals closed faster">
       {#snippet body()}
         <p>See how sales teams use Agreed to handle more negotiations themselves and shorten their sales cycles.</p>
       {/snippet}
