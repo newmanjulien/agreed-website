@@ -6,7 +6,7 @@
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   const benefits = [
-    'Only pay once both parties have signed.',
+    'No credit card to start',
     'E-signature included.'
   ];
 
@@ -45,7 +45,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-ink">
-      Pay only when your contracts get signed. If a deal doesn't go through, you don't pay.
+      Free for your first 5 signed contracts every month. No trial, no expiry. After that, only pay when a contract actually gets signed.
     </p>
 
     <!-- Pricing card -->
@@ -65,7 +65,7 @@
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        5 contracts per month for free. Then $30 per contract that's signed.
+        First 5 signed contracts each month are $0, then $30 each.
       </p>
 
       <div class="mt-[18px]">

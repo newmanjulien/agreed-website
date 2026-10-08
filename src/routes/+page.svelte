@@ -57,7 +57,7 @@
       <ApprovalWidget />
     </ContentSection>
 
-    <ContentSection id="customers" title="More deals closed faster">
+    <ContentSection id="customers" title="Close more deals faster">
       {#snippet body()}
         <p>See how sales teams use Agreed to handle more negotiations themselves and shorten their sales cycles.</p>
       {/snippet}

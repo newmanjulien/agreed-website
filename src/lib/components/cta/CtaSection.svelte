@@ -13,7 +13,7 @@
     </h2>
 
     <p class="mt-[12px] max-w-[400px] text-[18px] font-book leading-[1.6] text-ink">
-      Let reps close deals without waiting for legal.
+      Let reps close deals without waiting.
     </p>
 
     <ButtonLink
