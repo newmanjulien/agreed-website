@@ -6,15 +6,15 @@
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   const benefits = [
-    "Pay nothing for contracts that don't get signed.",  
+    'Only pay once both parties have signed.',
     'E-signature included.'
   ];
 
   const faqItems = [
     {
-      question: "Wait, what's your price again?",
+      question: 'How does the monthly free allowance work?',
       answer:
-        "Agreed's pricing is based on the number of contracts we help you get signed. Pay $30 for every contract that's signed. Pay nothing if the contract isn't signed."
+        "Your first 5 signed contracts each month are free. Each additional signed contract costs $30. Contracts that aren't signed cost nothing."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
@@ -45,7 +45,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-ink">
-      How much does Agreed cost? You pay a small fee per contract, and only if the contract is signed.
+      Pay only when your contracts get signed. If a deal doesn't go through, you don't pay.
     </p>
 
     <!-- Pricing card -->
@@ -58,7 +58,7 @@
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-ink-muted">
-          per contract
+          per signed contract
         </p>
       </div>
 

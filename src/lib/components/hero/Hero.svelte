@@ -17,15 +17,15 @@
 >
   <ContentMeasure class="flex flex-col items-center text-center">
     <h1
-      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[49px]"
+      class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[51px]"
     >
       Keep contracts moving
     </h1>
 
     <p
-      class="hero-support mt-[8px] max-w-[550px] font-light text-[20px] leading-[1.40] text-ink-muted"
+      class="hero-support mt-[8px] max-w-[550px] font-light text-[18px] leading-[1.40] text-ink-muted"
     >
-    Let your sales reps handle contract negotiation.
+    Let sales reps handle contract negotiation themselves.
     </p>
 
     <div class="hero-actions mt-[24px] flex flex-col items-center">
