@@ -23,9 +23,9 @@
     </h1>
 
     <p
-      class="hero-support mt-[8px] max-w-[550px] font-light text-[18px] leading-[1.40] text-ink-muted"
+      class="hero-support mt-[8px] max-w-[550px] font-light text-[22px] leading-[1.40] text-ink-muted"
     >
-    Let your sales reps get contracts signed on their own.
+    Let sales reps handle contract negotiation.
     </p>
 
     <div class="hero-actions mt-[24px] flex flex-col items-center">

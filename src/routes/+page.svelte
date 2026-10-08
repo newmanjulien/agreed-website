@@ -19,8 +19,8 @@
 </script>
 
 <svelte:head>
-  <title>Agreed | Lets sales reps get contracts signed on their own</title>
-  <meta name="description" content="Agreed is a sales contract that explains itself" />
+  <title>Agreed | Let sales reps get contracts signed on their own</title>
+  <meta name="description" content="Let sales reps get contracts signed on their own" />
 </svelte:head>
 
 <SectionNav sections={pageSections} cover="cta" />
@@ -32,7 +32,7 @@
     <ContentSection id="intro" title="Your sales stall at the finish line">
       {#snippet body()}
         <p>When a buyer sends back a redlined contract, your reps are stuck waiting on legal. Deals that should be closing get caught in a slow and expensive review process.</p>
-        <p>Give reps the guardrails to handle more of the contract process themselves and keep deals moving toward signature.</p>
+        <p>Give reps the guardrails to safely handle more of the contract process themselves and keep deals moving quickly toward signature.</p>
       {/snippet}
     </ContentSection>
 
@@ -45,14 +45,14 @@
 
     <ContentSection id="accept" title="Give reps the confidence to negotiate">
       {#snippet body()}
-        <p>Give reps the confidence to negotiate independently with preapproved changes they can safely make to your contract.</p>
+        <p>Give reps the confidence and guidance to negotiate independently with preapproved changes they can safely make to your contract.</p>
       {/snippet}
       <AcceptChangesWidget />
     </ContentSection>
 
     <ContentSection id="respond" title="Keep every deal moving">
       {#snippet body()}
-        <p>When a change needs approval, make it easy for reps to get it from the right person on your team.</p>
+        <p>When a change needs approval, make it easy for reps to get approval from the right person on your team.</p>
       {/snippet}
       <ApprovalWidget />
     </ContentSection>
