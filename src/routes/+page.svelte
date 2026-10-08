@@ -12,8 +12,8 @@
     { id: 'overview', label: 'Back to the start' },
     { id: 'intro', label: 'Overwhelmed by redlined contracts' },
     { id: 'upload', label: 'Help reps understand every clause' },
-    { id: 'accept', label: 'Give reps the confidence to negotiate' },
-    { id: 'respond', label: 'Keep every deal moving' },
+    { id: 'accept', label: 'Negotiate with preapproved changes' },
+    { id: 'respond', label: 'Always keep moving' },
     { id: 'customers', label: 'Testimonials' }
   ];
 </script>
@@ -43,23 +43,23 @@
       <SummaryWidget />
     </ContentSection>
 
-    <ContentSection id="accept" title="Give reps the confidence to negotiate">
+    <ContentSection id="accept" title="Negotiate with preapproved changes">
       {#snippet body()}
-        <p>Give reps the confidence and guidance to negotiate independently with preapproved changes they can safely make to your contract.</p>
+        <p>Reps can apply approved concessions directly to the contract and request approval for changes outside those limits.</p>
       {/snippet}
       <AcceptChangesWidget />
     </ContentSection>
 
-    <ContentSection id="respond" title="Keep every deal moving">
+    <ContentSection id="respond" title="Always keep moving">
       {#snippet body()}
         <p>When a change needs approval, make it easy for reps to get approval from the right person on your team.</p>
       {/snippet}
       <ApprovalWidget />
     </ContentSection>
 
-    <ContentSection id="customers" title="Customers stay with Agreed">
+    <ContentSection id="customers" title="Less time in review. More deals closed.">
       {#snippet body()}
-        <p>Our customer retention is high, and we spend most of our time building for the teams who already use Agreed. Here’s what they have to say.</p>
+        <p>See how sales teams use Agreed to handle more negotiations themselves and shorten their sales cycles.</p>
       {/snippet}
       <CustomerTestimonials />
     </ContentSection>

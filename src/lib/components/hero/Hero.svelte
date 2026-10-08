@@ -19,7 +19,7 @@
     <h1
       class="max-w-[590px] font-heading text-[45px] leading-[1.04] text-ink sm:max-w-none sm:text-[49px]"
     >
-      Close deals. Skip the wait
+      Keep contracts moving
     </h1>
 
     <p
