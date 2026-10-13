@@ -14,7 +14,7 @@
     {
       question: 'How does the monthly free allowance work?',
       answer:
-        "Your first 5 signed contracts each month are free. Each additional signed contract costs $30. Contracts that aren't signed cost nothing."
+        "Your first 5 signed contracts each month are free. Each additional signed contract costs $1. Contracts that aren't signed cost nothing."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
@@ -27,7 +27,7 @@
         "A contract counts as signed once both you and your buyer have signed it."
     },
     {
-      question: "Do I pay if I send a contract that doesn't get signed?",
+      question: "Do I pay if I negotiate a contract that doesn't get signed?",
       answer:
         "No. You only pay for contracts that are signed."
     }
@@ -45,7 +45,7 @@
     </h1>
 
     <p class="mt-[24px] text-[17px] font-book leading-[1.55] text-ink">
-      Free for your first 5 signed contracts every month. No trial, no expiry. After that, only pay when a contract actually gets signed.
+      Free for your first 5 signed contracts every month. After that, only pay when a contract actually gets signed.
     </p>
 
     <!-- Pricing card -->
@@ -54,7 +54,7 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-ink">
-          $30
+          $1
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-ink-muted">
@@ -65,7 +65,7 @@
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        First 5 signed contracts each month are $0, then $30 each.
+        First 5 signed contracts each month are $0, then $1 each.
       </p>
 
       <div class="mt-[18px]">
@@ -77,7 +77,7 @@
           size="large"
           fullWidth
         >
-          Start for free
+          Get 5 free every month
         </ButtonLink>
       </div>
 

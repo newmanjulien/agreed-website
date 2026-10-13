@@ -28,7 +28,7 @@
     Let sales reps handle contract negotiation themselves.
     </p>
 
-    <div class="hero-actions mt-[24px] flex flex-col items-center">
+    <div class="hero-actions mt-[28px] flex flex-col items-center">
       <ButtonLink
         href={createPortalAuthUrl('join', '/')}
         target="_blank"
