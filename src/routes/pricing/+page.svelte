@@ -6,7 +6,7 @@
   import { createPortalAuthUrl } from '$lib/utils/portal-auth';
 
   const benefits = [
-    'No credit card to start',
+    'No credit card to start.',
     'E-signature included.'
   ];
 
@@ -14,7 +14,7 @@
     {
       question: 'How does the monthly free allowance work?',
       answer:
-        "Your first 5 signed contracts each month are free. Each additional signed contract costs $1. Contracts that aren't signed cost nothing."
+        "Your first 5 signed contracts each month are free. Each additional signed contract costs $20. Contracts that aren't signed cost nothing."
     },
     {
       question: 'Do I need to pay for Docusign on top of Agreed?',
@@ -54,7 +54,7 @@
     >
       <div>
         <p class="font-heading text-[40px] leading-none text-ink">
-          $1
+          $20
         </p>
 
         <p class="mt-[6px] text-[15px] leading-none text-ink-muted">
@@ -65,7 +65,7 @@
       <p
         class="mt-[26px] border-t border-line/70 pt-[22px] text-[16px] font-book leading-[1.55] text-ink-muted"
       >
-        First 5 signed contracts each month are $0, then $1 each.
+        First 5 signed contracts each month are $0, then $20 each.
       </p>
 
       <div class="mt-[18px]">
