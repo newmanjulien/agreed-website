@@ -1,21 +1,16 @@
-import { contractCursorMoveDuration, type ContractTourStep } from '../demo/contract-tour.ts';
-import { createClauseOpening, clauseSummary, resaleDemo } from '../demo/clause-opening.ts';
+import { defineTour, cursorMoveDuration, type AnimationStep } from '../../product-animation/model.ts';
+import { createClauseOpening, clauseSummary } from '../demo/clause-opening.ts';
 
-export const acceptDemo = {
-	...resaleDemo,
-	concessionId: 'resale-ordinary-course-billing'
-} as const;
+const concession = { ...clauseSummary, box: { clause: 'demo:resale', section: 'preferred' } } as const;
+const applied = { ...concession, contract: 'resale' } as const;
 
-const concession = { ...clauseSummary, openSection: 'preferred' } as const;
-const applied = { ...concession, concessionId: acceptDemo.concessionId } as const;
-
-export const acceptChangesTour: ReadonlyArray<ContractTourStep> = [
+export const acceptChangesTour: ReadonlyArray<AnimationStep> = defineTour([
 	...createClauseOpening(650),
-	{ phase: 'approach-concession', duration: contractCursorMoveDuration, state: clauseSummary, cursor: { target: 'preferred', mode: 'idle' } },
-	{ phase: 'click-concession', duration: 220, state: clauseSummary, cursor: { target: 'preferred', mode: 'clicking' } },
-	{ phase: 'read-concession', duration: 1400, state: concession, cursor: { target: 'preferred', mode: 'idle' } },
-	{ phase: 'approach-apply', duration: contractCursorMoveDuration, state: concession, cursor: { target: 'apply', mode: 'idle' } },
-	{ phase: 'click-apply', duration: 220, state: concession, cursor: { target: 'apply', mode: 'clicking' } },
-	{ phase: 'clicked-apply', duration: 1000, state: concession, cursor: { target: 'apply', mode: 'idle' } },
-	{ phase: 'hold', duration: 2800, state: applied, cursor: null }
-];
+	{ phase: 'approach-concession', duration: cursorMoveDuration, state: clauseSummary, cursor: { target: { kind: 'section', clause: 'demo:resale', section: 'preferred' }, mode: 'idle', move: cursorMoveDuration } },
+	{ phase: 'click-concession', duration: 220, state: clauseSummary, cursor: { target: { kind: 'section', clause: 'demo:resale', section: 'preferred' }, mode: 'clicking' } },
+	{ phase: 'read-concession', duration: 1400, state: concession, cursor: { target: { kind: 'section', clause: 'demo:resale', section: 'preferred' }, mode: 'idle' } },
+	{ phase: 'approach-apply', duration: cursorMoveDuration, state: concession, cursor: { target: { kind: 'concession', clause: 'demo:resale', concession: 'resale-ordinary-course-billing' }, mode: 'idle', move: cursorMoveDuration } },
+	{ phase: 'click-apply', duration: 220, state: concession, cursor: { target: { kind: 'concession', clause: 'demo:resale', concession: 'resale-ordinary-course-billing' }, mode: 'clicking' } },
+	{ phase: 'clicked-apply', duration: 1000, state: applied, cursor: { target: { kind: 'concession', clause: 'demo:resale', concession: 'resale-ordinary-course-billing' }, mode: 'idle' } },
+	{ phase: 'hold', duration: 2800, state: { ...applied, viewport: 'revision' }, cursor: null }
+]);

@@ -18,6 +18,7 @@
   let viewed = $state(true);
 
   const revealWhenViewed: Attachment = (node) => {
+    if (typeof IntersectionObserver === 'undefined') return;
     viewed = false;
 
     const observer = new IntersectionObserver(

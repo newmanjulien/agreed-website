@@ -1,14 +1,12 @@
-import { contractCursorMoveDuration, type ContractTourStep } from '../demo/contract-tour.ts';
-import { createClauseOpening, clauseSummary, resaleDemo } from '../demo/clause-opening.ts';
+import { defineTour, cursorMoveDuration, type AnimationStep } from '../../product-animation/model.ts';
+import { createClauseOpening, clauseSummary } from '../demo/clause-opening.ts';
 
-export const summaryDemo = resaleDemo;
+const negotiation = { ...clauseSummary, box: { clause: 'demo:resale', section: 'negotiation' } } as const;
 
-const negotiation = { ...clauseSummary, openSection: 'negotiation' } as const;
-
-export const summaryTour: ReadonlyArray<ContractTourStep> = [
+export const summaryTour: ReadonlyArray<AnimationStep> = defineTour([
 	...createClauseOpening(350),
-	{ phase: 'approach-negotiation', duration: contractCursorMoveDuration, state: clauseSummary, cursor: { target: 'negotiation', mode: 'idle' } },
-	{ phase: 'click-negotiation', duration: 220, state: clauseSummary, cursor: { target: 'negotiation', mode: 'clicking' } },
-	{ phase: 'read-negotiation', duration: 1800, state: negotiation, cursor: { target: 'negotiation', mode: 'idle' } },
+	{ phase: 'approach-negotiation', duration: cursorMoveDuration, state: clauseSummary, cursor: { target: { kind: 'section', clause: 'demo:resale', section: 'negotiation' }, mode: 'idle', move: cursorMoveDuration } },
+	{ phase: 'click-negotiation', duration: 220, state: clauseSummary, cursor: { target: { kind: 'section', clause: 'demo:resale', section: 'negotiation' }, mode: 'clicking' } },
+	{ phase: 'read-negotiation', duration: 1800, state: negotiation, cursor: { target: { kind: 'section', clause: 'demo:resale', section: 'negotiation' }, mode: 'idle' } },
 	{ phase: 'hold', duration: 1000, state: negotiation, cursor: null }
-];
+]);

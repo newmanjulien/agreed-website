@@ -6,12 +6,13 @@ import ts from 'typescript';
 import { summaryTour } from '../src/lib/components/features/summary/summary-tour.ts';
 
 // Compile the actual rune module so this exercises the player used by the components.
-const source = readFileSync(new URL('../src/lib/components/features/demo/tour-player.svelte.ts', import.meta.url), 'utf8');
+const source = readFileSync(new URL('../src/lib/components/product-animation/tour-player.svelte.ts', import.meta.url), 'utf8');
 const javascript = ts.transpileModule(source, {
 	compilerOptions: { target: ts.ScriptTarget.ESNext, module: ts.ModuleKind.ESNext }
 }).outputText;
 const compiled = compileModule(javascript, { filename: 'tour-player.svelte.js' }).js.code
-	.replace("'svelte/internal/client'", JSON.stringify(import.meta.resolve('svelte/internal/client')));
+	.replace("'svelte/internal/client'", JSON.stringify(import.meta.resolve('svelte/internal/client')))
+	.replace("'./tour-model.ts'", JSON.stringify(new URL('../src/lib/components/product-animation/tour-model.ts', import.meta.url).href));
 const { createGuidedTour } = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);
 
 test('feature playback pauses timers and visuals, resumes, and preserves the summary final state', (t) => {
@@ -20,43 +21,33 @@ test('feature playback pauses timers and visuals, resumes, and preserves the sum
 	let reducedMotion = false;
 	const timers = new Map();
 	const observers = [];
-	const mutations = [];
+
 	const document = new EventTarget();
 	document.visibilityState = 'visible';
-	class Element {
-		animations = [];
-		getAnimations() { return this.animations; }
-	}
-	class Animation {
-		playState = 'running';
-		elapsed = 0;
-		started = now;
-		get currentTime() { return this.elapsed + (this.playState === 'running' ? now - this.started : 0); }
-		pause() { this.elapsed = this.currentTime; this.playState = 'paused'; }
-		play() { this.started = now; this.playState = 'running'; }
-		cancel() { this.playState = 'idle'; }
-	}
+	class Element { getBoundingClientRect() { return { width: 400, height: 430 }; } }
+	const window = new EventTarget();
+	window.innerWidth = 1000; window.innerHeight = 1000;
+	const preference = new EventTarget();
+	Object.defineProperty(preference, 'matches', { get: () => reducedMotion });
+	window.matchMedia = () => preference;
 	const replacements = {
 		document,
-		window: { matchMedia: () => ({ matches: reducedMotion }) },
+		window,
 		HTMLElement: Element,
 		IntersectionObserver: class {
 			constructor(callback) { this.callback = callback; observers.push(this); }
 			observe() {}
 			disconnect() {}
-			change(ratio) { this.callback([{ intersectionRatio: ratio }]); }
-		},
-		MutationObserver: class {
-			constructor(callback) { this.callback = callback; mutations.push(this); }
-			observe() {}
-			disconnect() {}
+			change(ratio) { this.callback([{ boundingClientRect: { width: 400, height: 430 }, intersectionRect: { width: 400, height: 430 * ratio }, rootBounds: { width: 1000, height: 1000 } }]); }
 		},
 		setTimeout: (callback, duration) => {
 			const id = ++nextTimer;
 			timers.set(id, { callback, at: now + duration });
 			return id;
 		},
-		clearTimeout: (id) => timers.delete(id)
+		clearTimeout: (id) => timers.delete(id),
+		requestAnimationFrame: (callback) => { const id = ++nextTimer; timers.set(id, { callback: () => callback(now), at: now + 1 }); return id; },
+		cancelAnimationFrame: (id) => timers.delete(id)
 	};
 	for (const [key, value] of Object.entries(replacements)) {
 		const previous = Object.getOwnPropertyDescriptor(globalThis, key);
@@ -82,30 +73,24 @@ test('feature playback pauses timers and visuals, resumes, and preserves the sum
 	observers.at(-1).change(1);
 	advance(summaryTour[0].duration + summaryTour[1].duration);
 	assert.equal(player.step.phase, 'approach');
-	const movement = new Animation();
-	element.animations.push(movement);
 	advance(100);
 	observers.at(-1).change(0);
-	const pausedAt = movement.currentTime;
+	const pausedAt = player.elapsed;
 	advance(1000);
 	assert.equal(player.step.phase, 'approach');
-	assert.equal(movement.currentTime, pausedAt);
-	const resized = new Animation();
-	element.animations.push(resized);
-	mutations.at(-1).callback();
-	assert.equal(resized.playState, 'paused', 'New transitions must also pause while offscreen.');
+	assert.equal(player.elapsed, pausedAt);
 	observers.at(-1).change(1);
 	advance(50);
-	assert.equal(movement.currentTime, pausedAt + 50);
+	assert.equal(player.elapsed, pausedAt + 50);
 	document.visibilityState = 'hidden';
 	document.dispatchEvent(new Event('visibilitychange'));
 	advance(1000);
-	assert.equal(movement.currentTime, pausedAt + 50);
+	assert.equal(player.elapsed, pausedAt + 50);
 	assert.equal(player.step.phase, 'approach');
 	document.visibilityState = 'visible';
 	document.dispatchEvent(new Event('visibilitychange'));
 	advance(10000);
-	assert.equal(player.step.state.panelOpen, true);
+	assert.equal(Boolean(player.step.state.box), true);
 	assert.equal(player.step.cursor, null);
 	observers.at(-1).change(0);
 	observers.at(-1).change(1);
@@ -116,7 +101,7 @@ test('feature playback pauses timers and visuals, resumes, and preserves the sum
 	reducedMotion = true;
 	const reduced = createGuidedTour(summaryTour);
 	reduced.start(element)();
-	assert.equal(reduced.step.state.panelOpen, true);
+	assert.equal(Boolean(reduced.step.state.box), true);
 	assert.equal(reduced.step.cursor, null);
 	assert.equal(timers.size, 0);
 });

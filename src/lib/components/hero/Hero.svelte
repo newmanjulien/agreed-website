@@ -3,7 +3,8 @@
   import ButtonLink from '$lib/components/ui/ButtonLink.svelte';
   import ContentMeasure from '$lib/components/ui/ContentMeasure.svelte';
   import CustomerLogos from '$lib/components/marketing/CustomerLogos.svelte';
-  import OceansDemo from './oceans-demo/OceansDemo.svelte';
+  import ProductAnimation from '$lib/components/product-animation/ProductAnimation.svelte';
+  import { heroTour, heroCompletedStep } from '$lib/components/product-animation/hero-tour';
 
   let { id }: { id?: string } = $props();
 </script>
@@ -58,51 +59,15 @@
         <div
           class="h-full w-full overflow-hidden rounded-[6px] border border-line bg-surface sm:rounded-[8px]"
         >
-          <OceansDemo />
+          <ProductAnimation
+            tour={heroTour}
+            completedStep={heroCompletedStep}
+            framing="hero"
+            loop
+            label="A guided contract negotiation: open Resale, Amendments to Statement of Work, the annual fee increase, Attorneys’ Fees, and Assignment. Explore the advice and apply three concessions, two requiring approval, then click Ask for approval. The walkthrough repeats."
+          />
         </div>
       </div>
-    </div>
-
-    <div
-      class="pointer-events-none text-ink/80 absolute right-[48px] top-[45px] z-10 hidden xl:block"
-      aria-hidden="true"
-    >
-      <span class="demo-callout-text block origin-left -rotate-[4deg] text-[18px] font-medium leading-none tracking-[-0.2px] whitespace-nowrap">click to try</span>
-
-      <svg
-        class="mt-[5px] -ml-10 block h-[104px] w-[130px] overflow-visible"
-        width="130"
-        height="104"
-        viewBox="0 0 130 104"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="
-            M110 8
-            C122 30 114 53 98 54
-            C80 56 72 32 85 27
-            C103 20 110 52 87 69
-            C68 86 49 84 30 80
-          "
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-
-        <path
-          d="
-            M43 71
-            Q35 75 30 80
-            Q36 85 41 90
-          "
-          stroke="currentColor"
-          stroke-width="1.9"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
     </div>
   </div>
 </section>
@@ -139,14 +104,6 @@
      */
     .hero-graphic {
       --logos-enter-delay: calc(var(--hero-content-delay) + 60ms);
-    }
-
-    .demo-callout-text {
-      font-family:
-        'Bradley Hand',
-        'Segoe Print',
-        'Comic Sans MS',
-        cursive;
     }
 
     @keyframes hero-content-enter {

@@ -8,7 +8,7 @@
     "build": "npm run check && vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && npm run validate:feature-tours",
     "validate:feature-tours": "node scripts/validate-feature-tours.ts && node --test scripts/test-feature-playback.mjs",
-    "test:contract-renderer": "node --test scripts/test-contract-renderer.mjs"
+    "prepare:animations": "node scripts/prepare-product-animation.mjs"
   },
   "dependencies": {
     "phosphor-svelte": "^3.1.0",
